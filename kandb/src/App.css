@@ -1,7 +1,241 @@
 :root {
-  --primary-color: #4CAF50;
-  --secondary-color: #f44336;
-  --background-color: #f0f0f0;
-  --text-color: #333333;
-  --font-family: 'Arial', sans-serif;
+  /* New design tokens (Light Mode) */
+  /* --background: oklch(0.965 0.008 80); */
+  --background: white;
+  --foreground: oklch(0.18 0.02 50);
+  --card: oklch(0.98 0.005 80);
+  --primary: oklch(0.25 0.02 50);
+  --secondary: oklch(0.94 0.01 80);
+  --muted: oklch(0.92 0.012 80);
+  --muted-foreground: oklch(0.45 0.02 50);
+  --accent: oklch(0.55 0.12 25);
+  --border: oklch(0.88 0.015 80);
+
+  /* Existing aliases (for current CSS compatibility) */
+  --background-color: var(--background);
+  --text-color: var(--foreground);
+  --primary-color: var(--primary);
+  --secondary-color: var(--accent);
+
+  --font-family: 'Inter', 'Arial', sans-serif;
+  --font-family-heading: 'Playfair Display', 'Georgia', serif;
+  --font-weight-body: 400;
+  --font-weight-heading: 500;
+  --font-weight-label: 500;
+  --font-weight-label-strong: 600;
+
+  /* Spacing scale requested by design spec */
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading);
+  color: var(--primary-color);
+}
+
+p {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+}
+
+p strong {
+  font-weight: var(--font-weight-label-strong);
+}
+
+p label {
+  font-weight: var(--font-weight-label);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.app {
+  margin: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.hero {
+  text-align: center;
+}
+
+
+
+/* Top Navigation */
+.top-nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+.logo-img {
+  width: 180px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-links a:hover {
+  color: var(--secondary-color);
+  transform: scale(1.25);
+}
+
+/* Section spacing */
+.hero,
+.services,
+.contact {
+  padding-top: var(--space-24);
+  padding-bottom: var(--space-24);
+}
+
+.hero {
+  min-height: 85vh;
+  max-width: 896px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.services,
+.contact {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Typography spacing */
+.services h2,
+.contact h2 {
+  margin: 0 0 var(--space-3) 0;
+}
+
+.services h1,
+.contact h1 {
+  margin: 0 0 24px 0;
+}
+
+.hero h1 {
+  margin: 0;
+}
+
+.hero p,
+.services p,
+.contact p {
+  margin: 32px 0 0 0;
+}
+
+.hero .btn,
+.contact .btn {
+  margin-top: var(--space-12);
+  padding: 16px 32px;
+}
+
+/* Services components */
+.service-nav {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-10);
+}
+
+.service-nav-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.service-nav-item h3 {
+  margin: 0;
+  display: inline-block;
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 16px;
+}
+
+.service-nav-item p {
+  margin-top: 16px;
+}
+
+.btn {
+  border: 1px solid var(--primary-color);
+  background: var(--primary-color);
+  color: var(--background-color);
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .hero,
+  .services,
+  .contact {
+    padding-top: var(--space-32);
+    padding-bottom: var(--space-32);
+  }
+
+  .service-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
