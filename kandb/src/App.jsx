@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+
+import logo from './assets/logo.svg'
 import './App.css'
 
 function App() {
@@ -12,14 +11,13 @@ function App() {
       <div className='app'>
 
         {/* Top Navigation */}
-        <div clasName='top-nav'>
+        <div className='top-nav'>
 
           <div className='logo'>
-            <h1>K & B</h1>
+            <img className='logo-img' src={logo} alt='K & B Logo' />
           </div>
           
           <div className='nav-links'>
-            <a href='#'>Home</a>
             <a href='#'>Services</a>
             <a href='#'>About Us</a>
             <a href='#'>Contact</a>
@@ -33,8 +31,9 @@ function App() {
 
           {/* Hero Section */}
           <div className='hero'>
-            <h1>Meticulous care for <i>your finest garments</i></h1>
-            <p>Where precision meets elegance. Trusted by discerning clients to preserve and restore their most valued clothing.</p>
+            <h1>Meticulous care for</h1>
+            <h1 className='accent'><i>your finest garments</i></h1>
+            <p>Where precision meets elegance. Expert cleaning, tailoring, and preservation for everything from everyday wear to cherished heirlooms.</p>
             
             <button className='btn'>Request More Info</button>
 
@@ -48,7 +47,7 @@ function App() {
               <p>Quality care for every garment. All prices are starting rates and may vary based on fabric type, embellishments, and specific requirements.</p>
               
               {/* Service Navigation */}
-              <div clasName="service-nav">
+              <div className="service-nav">
                 <div className='service-nav-item'>
                   <h3>Dry Cleaning</h3>
                   <p>Expert care for delicate fabrics, ensuring your garments are impeccably cleaned and preserved.</p>
