@@ -31,6 +31,11 @@ function App() {
 
           {/* Hero Section */}
           <div className='hero'>
+            <div className='hero-tags'>
+              <div className='tag'>DRY CLEANING</div>
+              <div className='tag'>ALTERATIONS</div>
+
+            </div>
             <h1>Meticulous care for</h1>
             <h1 className='accent'><i>your finest garments</i></h1>
             <p>Where precision meets elegance. Expert cleaning, tailoring, and preservation for everything from everyday wear to cherished heirlooms.</p>

@@ -89,6 +89,24 @@ p label {
   text-align: center;
 }
 
+.hero-tags {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-10);
+}
+
+.tag {
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  background: var(--card);
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 
 
 /* Top Navigation */
@@ -205,9 +223,9 @@ p label {
   border: 1px solid var(--primary-color);
   background: var(--primary-color);
   color: var(--background-color);
-  border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
+  max-width: 500px;
 }
 
 .btn:hover {
