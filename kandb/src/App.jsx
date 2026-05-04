@@ -18,9 +18,9 @@ function App() {
           </div>
           
           <div className='nav-links'>
-            <a href='#'>Services</a>
-            <a href='#'>About Us</a>
-            <a href='#'>Contact</a>
+            <a href='#services'>Services</a>
+            <a href='#about'>About Us</a>
+            <a href='#contact'>Contact</a>
           </div>
 
         </div>
@@ -34,19 +34,21 @@ function App() {
             <div className='hero-tags'>
               <div className='tag'>DRY CLEANING</div>
               <div className='tag'>ALTERATIONS</div>
-
+              <div className='dot' aria-hidden></div>
+              <div className='tag'>SPECIALTIES</div>
             </div>
             <h1>Meticulous care for</h1>
             <h1 className='accent'><i>your finest garments</i></h1>
             <p>Where precision meets elegance. Expert cleaning, tailoring, and preservation for everything from everyday wear to cherished heirlooms.</p>
             
             <button className='btn'>Request More Info</button>
+            <a className='secondary-link' href='#services'>View Services</a>
 
           </div>
           {/* End Hero Section */}
 
           {/* Services Section */}
-          <div className='services'>
+            <div className='services' id='services'>
               <h2>Our Services</h2>
               <h1>What We Offer</h1>
               <p>Quality care for every garment. All prices are starting rates and may vary based on fabric type, embellishments, and specific requirements.</p>

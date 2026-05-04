@@ -107,6 +107,21 @@ p label {
   text-transform: uppercase;
 }
 
+.tag p,
+.tag span {
+  margin: 0;
+  padding-top: 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  align-self: center;
+  margin: 0 8px;
+}
+
 
 
 /* Top Navigation */
@@ -191,6 +206,12 @@ p label {
   padding: 16px 32px;
 }
 
+.hero .btn,
+.contact .btn {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 /* Services components */
 .service-nav {
   display: grid;
@@ -213,6 +234,7 @@ p label {
   border: 1px solid var(--border);
   border-radius: 999px;
   padding: 6px 16px;
+  text-transform: uppercase;
 }
 
 .service-nav-item p {
