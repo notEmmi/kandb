@@ -33,9 +33,8 @@ function App() {
           <div className='hero'>
             <div className='hero-tags'>
               <div className='tag'>DRY CLEANING</div>
-              <div className='tag'>ALTERATIONS</div>
               <div className='dot' aria-hidden></div>
-              <div className='tag'>SPECIALTIES</div>
+              <div className='tag'>ALTERATIONS</div>
             </div>
             <h1>Meticulous care for</h1>
             <h1 className='accent'><i>your finest garments</i></h1>

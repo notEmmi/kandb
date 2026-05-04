@@ -247,7 +247,7 @@ p label {
   color: var(--background-color);
   font-weight: 600;
   cursor: pointer;
-  max-width: 500px;
+  max-width: fit-content;
 }
 
 .btn:hover {
