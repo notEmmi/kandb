@@ -12,10 +12,18 @@
   --border: oklch(0.88 0.015 80);
 
   /* Existing aliases (for current CSS compatibility) */
+  /* Backwards-compatible aliases that map to the new design tokens */
   --background-color: var(--background);
+  --bg-color: var(--background);
   --text-color: var(--foreground);
   --primary-color: var(--primary);
-  --secondary-color: var(--accent);
+  --primary-foreground: var(--foreground);
+  --secondary-color: var(--secondary);
+  --accent-color: var(--accent);
+  --card-color: var(--card);
+  --muted-color: var(--muted);
+  --muted-foreground-color: var(--muted-foreground);
+  --border-color: var(--border);
 
   --font-family: 'Inter', 'Arial', sans-serif;
   --font-family-heading: 'Playfair Display', 'Georgia', serif;
