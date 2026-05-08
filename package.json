@@ -1,4 +1,11 @@
 {
+  "name": "kandb-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix kandb",
+    "build": "npm run build --prefix kandb",
+    "preview": "npm run preview --prefix kandb"
+  },
   "dependencies": {
     "lucide-react": "^1.14.0"
   }
