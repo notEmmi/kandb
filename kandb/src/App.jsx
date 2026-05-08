@@ -9,61 +9,80 @@ function App() {
   const closeMobileMenu = () => setMobileMenuOpen(false)
 
   return (
-    <div className='app'>
-      <div className='top-nav'>
-        <div className='logo'>
-          <img className='logo-img' src={logo} alt='K & B Logo' />
+    <div className="app">
+      {/* Navigation */}
+      <nav className="top-nav">
+        <div className="logo">
+          {/* Replace with your logo: <img src="/logo.svg" alt="K & B Logo" /> */}
+          <div className="logo-text">
+            <span className="logo-main">K & B</span>
+            <span className="logo-tagline">Dry Cleaning & Alterations</span>
+          </div>
         </div>
 
-        <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id='primary-navigation'>
-          <a href='#services' onClick={closeMobileMenu}>Services</a>
-          <a href='#about' onClick={closeMobileMenu}>About Us</a>
-          <a href='#contact' onClick={closeMobileMenu}>Contact</a>
+        <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id="primary-navigation">
+          <a href="#services" onClick={closeMobileMenu}>Services</a>
+          <a href="#about" onClick={closeMobileMenu}>About Us</a>
+          <a href="#contact" onClick={closeMobileMenu}>Contact</a>
         </div>
 
         <button
-          className='nav-toggle'
-          type='button'
+          className="nav-toggle"
+          type="button"
           aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={mobileMenuOpen}
-          aria-controls='primary-navigation'
+          aria-controls="primary-navigation"
           onClick={() => setMobileMenuOpen((currentValue) => !currentValue)}
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
-      </div>
+      </nav>
 
-      <div className='main'>
-        <section className='hero' aria-labelledby='hero-title'>
-          <div className='hero-copy'>
-            <div className='hero-tags'>
-              <div className='tag'>DRY CLEANING</div>
-              <div className='dot' aria-hidden='true'></div>
-              <div className='tag'>ALTERATIONS</div>
+      <main className="main">
+        {/* Hero Section */}
+        <section className="hero" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <div className="hero-tags">
+              <div className="tag">Dry Cleaning</div>
+              <div className="dot" aria-hidden="true"></div>
+              <div className="tag">Alterations</div>
             </div>
 
-            <h1 id='hero-title'>Meticulous care for</h1>
-            <h1 className='accent'><i>your finest garments</i></h1>
+            <h1 id="hero-title">Meticulous care for</h1>
+            <h1 className="accent"><i>your finest garments</i></h1>
             <p>Where precision meets elegance. Expert cleaning, tailoring, and preservation for everything from everyday wear to cherished heirlooms.</p>
 
-            <button className='btn'>Request More Info</button>
-            <a className='secondary-link' href='#services'>View Services</a>
+            <div className="hero-cta">
+              <button className="btn btn-primary">Request More Info</button>
+              <a className="btn btn-secondary" href="#services">View Services</a>
+            </div>
           </div>
 
-          <div className='hero-visual' role='img' aria-label='Placeholder image for clothing care and tailoring services'>
-            <span>Image Placeholder</span>
+          <div className="hero-visual">
+            {/* Replace with your image: <img src="/hero-image.jpg" alt="Garment care" /> */}
+            <div className="placeholder-image" role="img" aria-label="Professional garment care services">
+              <span>Hero Image</span>
+              <small>Replace with your image</small>
+            </div>
           </div>
         </section>
 
-        <section className='services' id='services'>
-          <h2>Our Services</h2>
-          <h1>What We Clean and Restore</h1>
-          <p>We handle everyday care and specialty items with the same attention to detail, including leather, UGGs, wedding dress preservation, and delicate formalwear.</p>
+        {/* Services Section */}
+        <section className="services" id="services">
+          <span className="section-label">Our Services</span>
+          <h2>What We Clean and Restore</h2>
+          <p className="section-description">We handle everyday care and specialty items with the same attention to detail, including leather, UGGs, wedding dress preservation, and delicate formalwear.</p>
 
-          <div className='service-grid'>
-            <article className='service-card'>
+          <div className="service-grid">
+            <article className="service-card">
+              <div className="service-icon">
+                {/* Replace with image: <img src="/dry-cleaning.jpg" alt="Dry cleaning" /> */}
+                <div className="placeholder-icon">
+                  <span>Image</span>
+                </div>
+              </div>
               <h3>Dry Cleaning</h3>
               <ul>
                 <li>Shirts, pants, jackets, and suits</li>
@@ -73,7 +92,13 @@ function App() {
               </ul>
             </article>
 
-            <article className='service-card'>
+            <article className="service-card">
+              <div className="service-icon">
+                {/* Replace with image: <img src="/alterations.jpg" alt="Alterations" /> */}
+                <div className="placeholder-icon">
+                  <span>Image</span>
+                </div>
+              </div>
               <h3>Alterations</h3>
               <ul>
                 <li>Hemming and shortening</li>
@@ -82,36 +107,86 @@ function App() {
                 <li>Measurements, fitting, and adjustments</li>
               </ul>
             </article>
+
+            <article className="service-card">
+              <div className="service-icon">
+                {/* Replace with image: <img src="/specialties.jpg" alt="Specialty items" /> */}
+                <div className="placeholder-icon">
+                  <span>Image</span>
+                </div>
+              </div>
+              <h3>Specialties</h3>
+              <ul>
+                <li>Wedding dress boxed & preserved</li>
+                <li>Leather and suede care</li>
+                <li>Comforters and bedding</li>
+                <li>Delicate and vintage garments</li>
+              </ul>
+            </article>
+          </div>
+
+          <div className="service-note">
+            <span className="note-dot"></span>
+            <p>Expedited turnaround available upon request</p>
           </div>
         </section>
 
-        <section className='about' id='about'>
-          <h2>About Us</h2>
-          <h1>Coming Soon</h1>
-          <p></p>
-        </section>
-
-        <section className='contact' id='contact'>
-          <h2>Contact Us</h2>
-          <h1>Call, Visit, or Find Us</h1>
-
-          <div className='contact-layout'>
-            <div className='contact-details'>
-              <p><strong>Phone:</strong> (555) 123-4567</p>
-              <p><strong>Location:</strong> 123 Main Street, Your City, ST 00000</p>
-              <p>Reach out for drop-off questions, pickup timing, and custom garment care.</p>
-              <button className='btn'>Contact Us</button>
-            </div>
-
-            <div className='map-placeholder' role='img' aria-label='Map placeholder showing business location'>
-              <span>Map Placeholder</span>
+        {/* About Section */}
+        <section className="about" id="about">
+          <div className="about-content">
+            <span className="section-label">About Us</span>
+            <h2>A Legacy of Care</h2>
+            <p>For over 50 years, our doors have been open to this community, built on a foundation of precision, pride,, and genuine love for the people we serve</p>
+            <p>Every garment that comes through our doors is treated with the same care we would give our own clothes. From everyday items to cherished heirlooms, we take pride in returning each piece looking its absolute best.</p>
+          </div>
+          <div className="about-visual">
+            {/* Replace with image: <img src="/about-image.jpg" alt="Our shop" /> */}
+            <div className="placeholder-image" role="img" aria-label="K & B dry cleaning shop">
+              <span>About Image</span>
+              <small>Replace with your image</small>
             </div>
           </div>
         </section>
-      </div>
 
-      <footer className='footer'>
-        <p>K &amp; B Dry Cleaning and Alterations</p>
+        {/* Contact Section */}
+        <section className="contact" id="contact">
+          <span className="section-label">Contact Us</span>
+          <h2>Call, Visit, or Find Us</h2>
+
+          <div className="contact-layout">
+            <div className="contact-details">
+              <div className="contact-info">
+                <div className="info-item">
+                  <strong>Phone</strong>
+                  <p>(555) 123-4567</p>
+                </div>
+                <div className="info-item">
+                  <strong>Location</strong>
+                  <p>123 Main Street<br />Your City, ST 00000</p>
+                </div>
+                <div className="info-item">
+                  <strong>Hours</strong>
+                  <p>Mon–Fri: 7am–7pm<br />Sat: 8am–5pm<br />Sun: Closed</p>
+                </div>
+              </div>
+              <p className="contact-note">Reach out for drop-off questions, pickup timing, and custom garment care.</p>
+              <a href="tel:5551234567" className="btn btn-primary">Call Now</a>
+            </div>
+
+            <div className="map-placeholder">
+              {/* Replace with Google Maps embed or image */}
+              <div className="placeholder-image" role="img" aria-label="Map showing business location">
+                <span>Map</span>
+                <small>Add Google Maps embed</small>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="footer">
+        <p>&copy; {new Date().getFullYear()} K & B Dry Cleaning and Alterations. All rights reserved.</p>
       </footer>
     </div>
   )
