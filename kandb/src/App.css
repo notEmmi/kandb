@@ -650,6 +650,15 @@ section {
   font-size: 0.95rem;
 }
 
+.phone-link {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.phone-link:hover {
+  color: var(--accent);
+}
+
 .contact-note {
   margin: var(--space-6) 0 !important;
   font-size: 0.9rem;

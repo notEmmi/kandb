@@ -180,7 +180,9 @@ function App() {
               <div className="contact-info">
                 <div className="info-item">
                   <strong>Phone</strong>
-                  <p>(716) 668-3088</p>
+                  <p>
+                    <a className="phone-link" href="tel:+17166683088">(716) 668-3088</a>
+                  </p>
                 </div>
                 <div className="info-item">
                   <strong>Location</strong>
