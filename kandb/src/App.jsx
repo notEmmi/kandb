@@ -10,11 +10,9 @@ function App() {
 
   return (
     <div className="app">
-      {/* Navigation */}
       <nav className="top-nav">
-        <div className="logo-text">
+        <div className="logo">
           <img className="logo-img" src={logo} alt="K & B logo" />
-          <span className="logo-tagline">Dry Cleaning <br></br>& Alterations</span>
         </div>
 
         <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id="primary-navigation">
@@ -38,7 +36,6 @@ function App() {
       </nav>
 
       <main className="main">
-        {/* Hero Section */}
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
             <div className="hero-tags">
@@ -58,7 +55,6 @@ function App() {
           </div>
 
           <div className="hero-visual">
-            {/* Replace with your image: <img src="/hero-image.jpg" alt="Garment care" /> */}
             <div className="placeholder-image" role="img" aria-label="Professional garment care services">
               <span>Hero Image</span>
               <small>Replace with your image</small>
@@ -66,60 +62,91 @@ function App() {
           </div>
         </section>
 
-        {/* Services Section */}
         <section className="services" id="services">
-          <span className="section-label">Our Services</span>
-          <h2>What We Clean and Restore</h2>
-          <p className="section-description">We handle everyday care and specialty items with the same attention to detail, including leather, UGGs, wedding dress preservation, and delicate formalwear.</p>
+          <div className="services-header">
+            <span className="section-label">Our Services</span>
+            <h2>What We Offer</h2>
+            <div className="header-line" aria-hidden="true"></div>
+          </div>
 
-          <div className="service-grid">
-            <article className="service-card">
-              <div className="service-icon">
-                {/* Replace with image: <img src="/dry-cleaning.jpg" alt="Dry cleaning" /> */}
-                <div className="placeholder-icon">
-                  <span>Image</span>
-                </div>
+          <div className="service-featured">
+            <div className="service-featured-visual service-bg-warm">
+              <div className="placeholder-featured">
+                <span>Dry Cleaning Image</span>
               </div>
+            </div>
+            <div className="service-featured-content">
+              <span className="service-number">01</span>
               <h3>Dry Cleaning</h3>
-              <ul>
-                <li>Shirts, pants, jackets, and suits</li>
-                <li>Leather cleaning and refresh</li>
-                <li>UGGs and specialty footwear care</li>
-                <li>Wedding dress preservation</li>
-              </ul>
-            </article>
-
-            <article className="service-card">
-              <div className="service-icon">
-                {/* Replace with image: <img src="/alterations.jpg" alt="Alterations" /> */}
-                <div className="placeholder-icon">
-                  <span>Image</span>
-                </div>
+              <p>Expert care for your everyday and fine garments, from business attire to delicate fabrics.</p>
+              <div className="service-items">
+                <span className="service-item">Suits</span>
+                <span className="service-item">Shirts</span>
+                <span className="service-item">Pants</span>
+                <span className="service-item">Jackets</span>
+                <span className="service-item">Dresses</span>
+                <span className="service-item">Coats</span>
               </div>
+            </div>
+          </div>
+
+          <div className="service-featured service-featured-reverse">
+            <div className="service-featured-visual service-bg-sage">
+              <div className="placeholder-featured">
+                <span>Alterations Image</span>
+              </div>
+            </div>
+            <div className="service-featured-content">
+              <span className="service-number">02</span>
               <h3>Alterations</h3>
-              <ul>
-                <li>Hemming and shortening</li>
-                <li>Lengthening and taking in</li>
-                <li>Taking out and reshaping</li>
-                <li>Measurements, fitting, and adjustments</li>
-              </ul>
-            </article>
-
-            <article className="service-card">
-              <div className="service-icon">
-                {/* Replace with image: <img src="/specialties.jpg" alt="Specialty items" /> */}
-                <div className="placeholder-icon">
-                  <span>Image</span>
-                </div>
+              <p>Precision tailoring to ensure the perfect fit, from simple hems to complete garment reshaping.</p>
+              <div className="service-items">
+                <span className="service-item">Hemming</span>
+                <span className="service-item">Shortening</span>
+                <span className="service-item">Lengthening</span>
+                <span className="service-item">Taking In</span>
+                <span className="service-item">Taking Out</span>
+                <span className="service-item">Fitting</span>
               </div>
+            </div>
+          </div>
+
+          <div className="specialties-section">
+            <div className="specialties-header">
+              <span className="service-number">03</span>
               <h3>Specialties</h3>
-              <ul>
-                <li>Wedding dress boxed & preserved</li>
-                <li>Leather and suede care</li>
-                <li>Comforters and bedding</li>
-                <li>Delicate and vintage garments</li>
-              </ul>
-            </article>
+              <p>We handle items that require extra care and expertise</p>
+            </div>
+
+            <div className="specialty-grid">
+              <article className="specialty-card specialty-bg-blush">
+                <div className="specialty-image">
+                  <div className="placeholder-specialty"><span>Image</span></div>
+                </div>
+                <h4>Leather & Suede</h4>
+              </article>
+
+              <article className="specialty-card specialty-bg-sky">
+                <div className="specialty-image">
+                  <div className="placeholder-specialty"><span>Image</span></div>
+                </div>
+                <h4>UGGs & Footwear</h4>
+              </article>
+
+              <article className="specialty-card specialty-bg-cream">
+                <div className="specialty-image">
+                  <div className="placeholder-specialty"><span>Image</span></div>
+                </div>
+                <h4>Wedding Dress Preservation</h4>
+              </article>
+
+              <article className="specialty-card specialty-bg-lavender">
+                <div className="specialty-image">
+                  <div className="placeholder-specialty"><span>Image</span></div>
+                </div>
+                <h4>Comforters & Bedding</h4>
+              </article>
+            </div>
           </div>
 
           <div className="service-note">
@@ -128,7 +155,6 @@ function App() {
           </div>
         </section>
 
-        {/* About Section */}
         <section className="about" id="about">
           <div className="about-content">
             <span className="section-label">About Us</span>
@@ -138,8 +164,8 @@ function App() {
             <p>While we are beginning a New Chapter, our heart remains the same. We still believe in knwoing your name, rembering your preferences, and treating eery piece of clothing as if it were our own.</p>
             <p className="">Same Location. Same Heart. Still Caring.</p>
           </div>
+
           <div className="about-visual">
-            {/* Replace with image: <img src="/about-image.jpg" alt="Our shop" /> */}
             <div className="placeholder-image" role="img" aria-label="K & B dry cleaning shop">
               <span>About Image</span>
               <small>Replace with your image</small>
@@ -147,7 +173,6 @@ function App() {
           </div>
         </section>
 
-        {/* Contact Section */}
         <section className="contact" id="contact">
           <span className="section-label">Contact Us</span>
           <h2>Call, Visit, or Find Us</h2>
@@ -173,7 +198,6 @@ function App() {
             </div>
 
             <div className="map-placeholder">
-              {/* Replace with Google Maps embed or image */}
               <div className="placeholder-image" role="img" aria-label="Map showing business location">
                 <span>Map</span>
                 <small>Add Google Maps embed</small>
@@ -183,7 +207,6 @@ function App() {
         </section>
       </main>
 
-      {/* Footer */}
       <footer className="footer">
         <p>&copy; {new Date().getFullYear()} K & B Dry Cleaning and Alterations. All rights reserved.</p>
       </footer>
