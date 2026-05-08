@@ -4,91 +4,116 @@ import logo from './assets/logo.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const closeMobileMenu = () => setMobileMenuOpen(false)
 
   return (
-    
-      <div className='app'>
-
-        {/* Top Navigation */}
-        <div className='top-nav'>
-
-          <div className='logo'>
-            <img className='logo-img' src={logo} alt='K & B Logo' />
-          </div>
-          
-          <div className='nav-links'>
-            <a href='#services'>Services</a>
-            <a href='#about'>About Us</a>
-            <a href='#contact'>Contact</a>
-          </div>
-
+    <div className='app'>
+      <div className='top-nav'>
+        <div className='logo'>
+          <img className='logo-img' src={logo} alt='K & B Logo' />
         </div>
-        {/* End Top Navigation */}
 
-        {/*  */}
-        <div className='main'>
+        <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id='primary-navigation'>
+          <a href='#services' onClick={closeMobileMenu}>Services</a>
+          <a href='#about' onClick={closeMobileMenu}>About Us</a>
+          <a href='#contact' onClick={closeMobileMenu}>Contact</a>
+        </div>
 
-          {/* Hero Section */}
-          <div className='hero'>
+        <button
+          className='nav-toggle'
+          type='button'
+          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={mobileMenuOpen}
+          aria-controls='primary-navigation'
+          onClick={() => setMobileMenuOpen((currentValue) => !currentValue)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div className='main'>
+        <section className='hero' aria-labelledby='hero-title'>
+          <div className='hero-copy'>
             <div className='hero-tags'>
               <div className='tag'>DRY CLEANING</div>
-              <div className='dot' aria-hidden></div>
+              <div className='dot' aria-hidden='true'></div>
               <div className='tag'>ALTERATIONS</div>
             </div>
-            <h1>Meticulous care for</h1>
+
+            <h1 id='hero-title'>Meticulous care for</h1>
             <h1 className='accent'><i>your finest garments</i></h1>
             <p>Where precision meets elegance. Expert cleaning, tailoring, and preservation for everything from everyday wear to cherished heirlooms.</p>
-            
+
             <button className='btn'>Request More Info</button>
             <a className='secondary-link' href='#services'>View Services</a>
-
           </div>
-          {/* End Hero Section */}
 
-          {/* Services Section */}
-            <div className='services' id='services'>
-              <h2>Our Services</h2>
-              <h1>What We Offer</h1>
-              <p>Quality care for every garment. All prices are starting rates and may vary based on fabric type, embellishments, and specific requirements.</p>
-              
-              {/* Service Navigation */}
-              <div className="service-nav">
-                <div className='service-nav-item'>
-                  <h3>Dry Cleaning</h3>
-                  <p>Expert care for delicate fabrics, ensuring your garments are impeccably cleaned and preserved.</p>
-                </div>
-                
-                <div className='service-nav-item'>
-                  <h3>Alterations</h3>
-                  <p>Precision tailoring to ensure the perfect fit, enhancing the comfort and style of your clothing.</p>
-                </div>
+          <div className='hero-visual' role='img' aria-label='Placeholder image for clothing care and tailoring services'>
+            <span>Image Placeholder</span>
+          </div>
+        </section>
 
-                <div className='service-nav-item'>
-                  <h3>Specials</h3>
-                  <p>Exclusive offers and seasonal promotions to provide exceptional value for our discerning clients.</p>
-                </div>
+        <section className='services' id='services'>
+          <h2>Our Services</h2>
+          <h1>What We Clean and Restore</h1>
+          <p>We handle everyday care and specialty items with the same attention to detail, including leather, UGGs, wedding dress preservation, and delicate formalwear.</p>
 
-              </div>
-              {/* End Service Navigation */}
+          <div className='service-grid'>
+            <article className='service-card'>
+              <h3>Dry Cleaning</h3>
+              <ul>
+                <li>Shirts, pants, jackets, and suits</li>
+                <li>Leather cleaning and refresh</li>
+                <li>UGGs and specialty footwear care</li>
+                <li>Wedding dress preservation</li>
+              </ul>
+            </article>
 
-            </div>
-            {/* End Services Section */}
+            <article className='service-card'>
+              <h3>Alterations</h3>
+              <ul>
+                <li>Hemming and shortening</li>
+                <li>Lengthening and taking in</li>
+                <li>Taking out and reshaping</li>
+                <li>Measurements, fitting, and adjustments</li>
+              </ul>
+            </article>
+          </div>
+        </section>
 
-            {/* Contact Section */}
-            <div className='contact'>
-              <h2>Contact Us</h2>
-              <h1>Get in Touch</h1>
-              <p>Have questions or need assistance? Our team is here to help. Reach out to us for personalized support and expert advice.</p>
+        <section className='about' id='about'>
+          <h2>About Us</h2>
+          <h1>Coming Soon</h1>
+          <p></p>
+        </section>
 
+        <section className='contact' id='contact'>
+          <h2>Contact Us</h2>
+          <h1>Call, Visit, or Find Us</h1>
+
+          <div className='contact-layout'>
+            <div className='contact-details'>
+              <p><strong>Phone:</strong> (555) 123-4567</p>
+              <p><strong>Location:</strong> 123 Main Street, Your City, ST 00000</p>
+              <p>Reach out for drop-off questions, pickup timing, and custom garment care.</p>
               <button className='btn'>Contact Us</button>
-
             </div>
-            {/* End Contact Section */}
-          </div>
-          {/* End Main Content */}
 
+            <div className='map-placeholder' role='img' aria-label='Map placeholder showing business location'>
+              <span>Map Placeholder</span>
+            </div>
+          </div>
+        </section>
       </div>
+
+      <footer className='footer'>
+        <p>K &amp; B Dry Cleaning and Alterations</p>
+      </footer>
+    </div>
   )
 }
 
