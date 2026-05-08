@@ -1,6 +1,4 @@
 import { useState } from 'react'
-
-import logo from './assets/logo.svg'
 import './App.css'
 
 function App() {
@@ -12,7 +10,7 @@ function App() {
     <div className='app'>
       <div className='top-nav'>
         <div className='logo'>
-          <img className='logo-img' src={logo} alt='K & B Logo' />
+          <span className='logo-text'>K & B</span>
         </div>
 
         <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id='primary-navigation'>

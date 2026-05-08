@@ -176,8 +176,12 @@ p label {
   padding: 16px 24px;
 }
 
-.logo-img {
-  width: 180px;
+.logo-text {
+  font-family: var(--font-family-heading);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  letter-spacing: 0.05em;
 }
 
 .nav-links {
