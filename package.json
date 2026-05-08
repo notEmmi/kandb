@@ -7,6 +7,8 @@
     "preview": "npm run preview --prefix kandb"
   },
   "dependencies": {
-    "lucide-react": "^1.14.0"
+    "@vitejs/plugin-react": "^6.0.1",
+    "lucide-react": "^1.14.0",
+    "vite": "^8.0.11"
   }
 }
