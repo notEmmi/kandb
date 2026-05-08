@@ -12,12 +12,9 @@ function App() {
     <div className="app">
       {/* Navigation */}
       <nav className="top-nav">
-        <div className="logo">
-          {/* Replace with your logo: <img src="/logo.svg" alt="K & B Logo" /> */}
-          <div className="logo-text">
-            <span className="logo-main">K & B</span>
-            <span className="logo-tagline">Dry Cleaning & Alterations</span>
-          </div>
+        <div className="logo-text">
+          <img className="logo-img" src={logo} alt="K & B logo" />
+          <span className="logo-tagline">Dry Cleaning <br></br>& Alterations</span>
         </div>
 
         <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id="primary-navigation">
@@ -136,8 +133,10 @@ function App() {
           <div className="about-content">
             <span className="section-label">About Us</span>
             <h2>A Legacy of Care</h2>
-            <p>For over 50 years, our doors have been open to this community, built on a foundation of precision, pride,, and genuine love for the people we serve</p>
-            <p>Every garment that comes through our doors is treated with the same care we would give our own clothes. From everyday items to cherished heirlooms, we take pride in returning each piece looking its absolute best.</p>
+            <p>For over 50 years, our doors have been open to this community, built on a foundation of precision, pride,, and genuine love for the people we serve. What started as a one man's dedication to the craft of quality dry cleaning has grown into a local landmark of trust.</p>
+            <p>Two years ago, we stepped into this story as the new stewards of his legacy. To us, this isn't just a business-it's a responsibility. We are commited to honoring the history of this shop by providing the same meticulous attention to detail-from expert repairs and alterations to careful handling of every garment.</p>
+            <p>While we are beginning a New Chapter, our heart remains the same. We still believe in knwoing your name, rembering your preferences, and treating eery piece of clothing as if it were our own.</p>
+            <p className="">Same Location. Same Heart. Still Caring.</p>
           </div>
           <div className="about-visual">
             {/* Replace with image: <img src="/about-image.jpg" alt="Our shop" /> */}

@@ -118,20 +118,15 @@ section {
   border-bottom: 1px solid var(--border);
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.logo img {
-  height: 48px;
+.logo-img {
+  height: 100px;
   width: auto;
 }
 
 .logo-text {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .logo-main {
