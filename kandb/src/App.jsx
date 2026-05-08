@@ -11,8 +11,9 @@ function App() {
   return (
     <div className="app">
       <nav className="top-nav">
-        <div className="logo">
+        <div className="logo-text">
           <img className="logo-img" src={logo} alt="K & B logo" />
+          <span className="logo-tagline">Dry Cleaning &<br/>Alterations</span>
         </div>
 
         <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id="primary-navigation">
@@ -182,15 +183,15 @@ function App() {
               <div className="contact-info">
                 <div className="info-item">
                   <strong>Phone</strong>
-                  <p>(555) 123-4567</p>
+                  <p>(716) 668-3088</p>
                 </div>
                 <div className="info-item">
                   <strong>Location</strong>
-                  <p>123 Main Street<br />Your City, ST 00000</p>
+                  <p>3451 Clinton St,<br/>West Seneca,<br/> NY 14224</p>
                 </div>
                 <div className="info-item">
                   <strong>Hours</strong>
-                  <p>Mon–Fri: 7am–7pm<br />Sat: 8am–5pm<br />Sun: Closed</p>
+                  <p>Mon–Fri: 9am–5pm<br />Sat: 9am–3pm<br />Sun, Wed: Closed</p>
                 </div>
               </div>
               <p className="contact-note">Reach out for drop-off questions, pickup timing, and custom garment care.</p>
@@ -198,10 +199,13 @@ function App() {
             </div>
 
             <div className="map-placeholder">
-              <div className="placeholder-image" role="img" aria-label="Map showing business location">
-                <span>Map</span>
-                <small>Add Google Maps embed</small>
-              </div>
+              <iframe
+                className="google-map"
+                title="K & B Dry Cleaning location"
+                src="https://www.google.com/maps?q=3451+Clinton+St,+West+Seneca,+NY+14224&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </section>
