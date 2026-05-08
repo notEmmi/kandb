@@ -1,6 +1,8 @@
 import { useState } from 'react'
 
 import logo from './assets/logo.svg'
+import interiorImage from './assets/interior.png'
+import hungClothesImage from './assets/clotheshung.png'
 import './App.css'
 
 function App() {
@@ -72,9 +74,7 @@ function App() {
 
           <div className="service-featured">
             <div className="service-featured-visual service-bg-warm">
-              <div className="placeholder-featured">
-                <span>Dry Cleaning Image</span>
-              </div>
+              <img className="service-image" src={hungClothesImage} alt="Hung clothes ready for dry cleaning" />
             </div>
             <div className="service-featured-content">
               <span className="service-number">01</span>
@@ -167,10 +167,7 @@ function App() {
           </div>
 
           <div className="about-visual">
-            <div className="placeholder-image" role="img" aria-label="K & B dry cleaning shop">
-              <span>About Image</span>
-              <small>Replace with your image</small>
-            </div>
+            <img className="about-image" src={interiorImage} alt="Interior of K & B dry cleaning shop" />
           </div>
         </section>
 
@@ -195,7 +192,7 @@ function App() {
                 </div>
               </div>
               <p className="contact-note">Reach out for drop-off questions, pickup timing, and custom garment care.</p>
-              <a href="tel:5551234567" className="btn btn-primary">Call Now</a>
+              <a href="tel:(716) 668-3088" className="btn btn-primary">Call Now</a>
             </div>
 
             <div className="map-placeholder">
