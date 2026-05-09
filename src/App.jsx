@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './App.css'
 
 import logo from './assets/logo.svg'
 import interiorImage from './assets/interior.png'
@@ -8,7 +9,7 @@ import leatherImage from './assets/leather.jpg'
 import uggsImage from './assets/uggs.jpg'
 import weddingDressImage from './assets/weddingdress.jpg'
 import beddingImage from './assets/bedding.jpg'
-import './App.css'
+import heroImage from './assets/hero.png'
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -50,6 +51,8 @@ function App() {
               <div className="tag">Dry Cleaning</div>
               <div className="dot" aria-hidden="true"></div>
               <div className="tag">Alterations</div>
+              <div className="dot" aria-hidden="true"></div>
+              <div className="tag">Pressing</div>
             </div>
 
             <h1 id="hero-title">Meticulous care for</h1>
@@ -63,10 +66,7 @@ function App() {
           </div>
 
           <div className="hero-visual">
-            <div className="placeholder-image" role="img" aria-label="Professional garment care services">
-              <span>Hero Image</span>
-              <small>Replace with your image</small>
-            </div>
+            <img className="hero-image" src={heroImage} alt="Professional garment care services" />
           </div>
         </section>
 
