@@ -3,6 +3,11 @@ import { useState } from 'react'
 import logo from './assets/logo.svg'
 import interiorImage from './assets/interior.png'
 import hungClothesImage from './assets/clotheshung.png'
+import sewingMachineImage from './assets/sewingmachine.png'
+import leatherImage from './assets/leather.jpg'
+import uggsImage from './assets/uggs.jpg'
+import weddingDressImage from './assets/weddingdress.jpg'
+import beddingImage from './assets/bedding.jpg'
 import './App.css'
 
 function App() {
@@ -93,9 +98,7 @@ function App() {
 
           <div className="service-featured service-featured-reverse">
             <div className="service-featured-visual service-bg-sage">
-              <div className="placeholder-featured">
-                <span>Alterations Image</span>
-              </div>
+              <img className="service-image" src={sewingMachineImage} alt="Sewing machine for alterations" />
             </div>
             <div className="service-featured-content">
               <span className="service-number">02</span>
@@ -122,28 +125,28 @@ function App() {
             <div className="specialty-grid">
               <article className="specialty-card specialty-bg-blush">
                 <div className="specialty-image">
-                  <div className="placeholder-specialty"><span>Image</span></div>
+                  <img className="service-image" src={leatherImage} alt="Leather garment care" />
                 </div>
                 <h4>Leather & Suede</h4>
               </article>
 
               <article className="specialty-card specialty-bg-sky">
                 <div className="specialty-image">
-                  <div className="placeholder-specialty"><span>Image</span></div>
+                  <img className="service-image" src={uggsImage} alt="UGGs and footwear care" />
                 </div>
                 <h4>UGGs & Footwear</h4>
               </article>
 
               <article className="specialty-card specialty-bg-cream">
                 <div className="specialty-image">
-                  <div className="placeholder-specialty"><span>Image</span></div>
+                  <img className="service-image" src={weddingDressImage} alt="Wedding dress preservation" />
                 </div>
                 <h4>Wedding Dress Preservation</h4>
               </article>
 
               <article className="specialty-card specialty-bg-lavender">
                 <div className="specialty-image">
-                  <div className="placeholder-specialty"><span>Image</span></div>
+                  <img className="service-image" src={beddingImage} alt="Comforters and bedding care" />
                 </div>
                 <h4>Comforters & Bedding</h4>
               </article>
