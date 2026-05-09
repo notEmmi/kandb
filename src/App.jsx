@@ -188,6 +188,12 @@ function App() {
                   </p>
                 </div>
                 <div className="info-item">
+                  <strong>Email</strong>
+                  <p>
+                    <a className="phone-link" href="mailto:kandbcleaner@gmail.com">kandbcleaner@gmail.com</a>
+                  </p>
+                </div>
+                <div className="info-item">
                   <strong>Location</strong>
                   <p>3451 Clinton St,<br/>West Seneca,<br/> NY 14224</p>
                 </div>
