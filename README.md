@@ -1,16 +1,51 @@
-# React + Vite
+# K & B Dry Cleaning and Alterations
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a small business marketing website for K & B Dry Cleaning and Alterations. It presents the shop’s services, specialties, about section, contact information, and a map for local customers.
 
-Currently, two official plugins are available:
+## What It Is
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The site is a single-page React app built to showcase:
 
-## React Compiler
+- Dry cleaning and alteration services
+- Specialty garment care for items like leather, suede, wedding dresses, and bedding
+- Business hours, location, phone number, and email
+- A simple mobile-friendly navigation experience
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React 19
+- Vite
+- ESLint
+- gh-pages for deployment
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Dependencies
+
+### Runtime dependencies
+
+- react
+- react-dom
+
+### Development dependencies
+
+- @eslint/js
+- @types/react
+- @types/react-dom
+- @vitejs/plugin-react
+- eslint
+- eslint-plugin-react-hooks
+- eslint-plugin-react-refresh
+- globals
+- gh-pages
+- vite
+
+## Available Scripts
+
+- `npm run dev` - start the Vite development server
+- `npm run build` - create a production build
+- `npm run preview` - preview the production build locally
+- `npm run lint` - run ESLint across the project
+- `npm run deploy` - publish the built site with GitHub Pages
+
+## Notes
+
+The app content is located in `src/App.jsx`, with styling in `src/App.css` and assets in `src/assets/`.

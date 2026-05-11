@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="app">
       <nav className="top-nav">
-        <div className="logo-text">
+        <div className="logo">
           <img className="logo-img" src={logo} alt="K & B logo" />
           <span className="logo-tagline">Dry Cleaning &<br/>Alterations</span>
         </div>
@@ -60,7 +60,12 @@ function App() {
             <p>Where precision meets elegance. Expert cleaning, tailoring, and preservation for everything from everyday wear to cherished heirlooms.</p>
 
             <div className="hero-cta">
-              <button className="btn btn-primary">Request More Info</button>
+              <button
+                className="btn btn-primary"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Request More Info
+              </button>
               <a className="btn btn-secondary" href="#services">View Services</a>
             </div>
           </div>

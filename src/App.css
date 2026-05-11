@@ -63,6 +63,10 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
+h2 {
+  font-size: 1.75rem;
+}
+
 p {
   color: var(--muted-foreground);
 }
@@ -79,6 +83,9 @@ ul {
 li {
   margin-top: var(--space-2);
   color: var(--muted-foreground);
+}
+
+div {
 }
 
 /* ========================================
@@ -123,19 +130,11 @@ section {
   width: auto;
 }
 
-.logo-text {
+.logo {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
-
-.logo-main {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: var(--primary);
-  line-height: 1;
 }
 
 .logo-tagline {
@@ -143,6 +142,8 @@ section {
   color: var(--muted-foreground);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  padding-bottom: 0;
+  margin: 0;
 }
 
 .nav-links {
@@ -736,10 +737,9 @@ section {
     font-size: 2rem;
   }
 
-  .services h2,
-  .about h2,
-  .contact h2 {
-    font-size: 1.75rem;
+  .hero-tags {
+    flex-direction: column;
+    gap: var(--space-2);
   }
 }
 
@@ -763,6 +763,7 @@ section {
 
   .hero-tags {
     justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   .hero-cta {
