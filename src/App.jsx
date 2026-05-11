@@ -3,7 +3,7 @@ import './App.css'
 
 import logo from './assets/logo.svg'
 import interiorImage from './assets/interior.png'
-import hungClothesImage from './assets/clothes.png'
+import hungClothesImage from './assets/clothes.jpg'
 import sewingMachineImage from './assets/sewingmachine.jpg'
 import leatherImage from './assets/leather.jpg'
 import uggsImage from './assets/uggs.jpg'
