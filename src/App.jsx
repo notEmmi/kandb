@@ -155,6 +155,29 @@ function App() {
                 </div>
                 <h4>Comforters & Bedding</h4>
               </article>
+
+              <article className="specialty-card specialty-bg-blush">
+                <div className="specialty-image">
+                  <img className="service-image"  alt="Wool garment care" />
+                </div>
+                <h4>Wool</h4>
+              </article>
+
+              <article className="specialty-card specialty-bg-sky">
+                <div className="specialty-image">
+                  <img className="service-image" alt="Cashmere garment care" />
+                </div>
+                <h4>Cashmere</h4>
+              </article>
+
+              <article className="specialty-card specialty-bg-cream">
+                <div className="specialty-image">
+                  <img className="service-image"  alt="Silk garment care" />
+                </div>
+                <h4>Silk</h4>
+              </article>
+
+              
             </div>
           </div>
 
