@@ -501,10 +501,10 @@ section {
 
 /* Subcategory variant used when specialties are nested under a service */
 .sub-specialties {
-  margin-top: var(--space-4);
-  margin-bottom: var(--space-24);
-  padding-top: var(--space-6);
-  border-top: 1px solid transparent;
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-12);
+  padding-top: 0;
+  border-top: 0;
   width: 100%;
   grid-column: 1 / -1;
 }
@@ -522,7 +522,7 @@ section {
 
 .specialties-header {
   text-align: left;
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-8);
 }
 
 .specialties-header h3 {
