@@ -9,7 +9,7 @@ import leatherImage from './assets/leather.jpg'
 import uggsImage from './assets/uggs.jpg'
 import weddingDressImage from './assets/weddingdress.jpg'
 import beddingImage from './assets/bedding.jpg'
-import heroImage from './assets/hero.jpg'
+import heroImage from './assets/hero.png'
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -63,7 +63,7 @@ function App() {
       <nav className="top-nav">
         <div className="logo">
           <img className="logo-img" src={logo} alt="K & B logo" />
-          <span className="logo-tagline">Dry Cleaning &<br/>Alterations</span>
+          <span className="logo-tagline">Dry Cleaners &<br/>Alterations</span>
         </div>
 
         <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id="primary-navigation">

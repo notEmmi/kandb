@@ -13,7 +13,7 @@
   --secondary: #f4efe8;
   --muted: #ebe6df;
   --muted-foreground: #6b5d52;
-  --accent: #9a5d4c;
+  --accent: #C24B44;
   --border: #e5dfd8;
 
   /* Typography */
@@ -146,7 +146,7 @@ section {
 }
 
 .logo-tagline {
-  font-size: 0.7rem;
+  font-size: 0.55rem;
   color: var(--muted-foreground);
   letter-spacing: 0.05em;
   text-transform: uppercase;
