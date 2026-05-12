@@ -88,7 +88,7 @@ function App() {
             </div>
             <div className="service-featured-content">
               <span className="service-number">01</span>
-              <h3>Dry Cleaning</h3>
+              <h3>Dry Cleaning & Pressing</h3>
               <p>Expert care for your everyday and fine garments, from business attire to delicate fabrics.</p>
               <div className="service-items">
                 <span className="service-item">Suits</span>
