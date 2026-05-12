@@ -67,6 +67,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h2 {
   font-size: 1.75rem;
+  margin-top: 0;
 }
 
 p {
@@ -87,8 +88,6 @@ li {
   color: var(--muted-foreground);
 }
 
-div {
-}
 
 /* ========================================
    Layout
@@ -109,6 +108,13 @@ section {
   padding: var(--space-24) 0;
   max-width: 1100px;
   margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
 }
 
 /* ========================================
@@ -389,7 +395,6 @@ section {
 /* ========================================
    Services Section
    ======================================== */
-
 .services-header {
   margin-bottom: var(--space-16);
 }
