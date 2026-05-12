@@ -3,7 +3,7 @@ import './App.css'
 
 import logo from './assets/logo.svg'
 import interiorImage from './assets/aboutme.jpg'
-import hungClothesImage from './assets/clothes.jpg'
+import hungClothesImage from './assets/clothes.png'
 import sewingMachineImage from './assets/sewingmachine.jpg'
 import leatherImage from './assets/leather.jpg'
 import uggsImage from './assets/uggs.jpg'
@@ -111,6 +111,7 @@ function App() {
               <a className="btn btn-secondary" href="#services">View Services</a>
             </div>
           </div>
+        
 
           <div className="hero-visual">
             <img className="hero-image" src={heroImage} alt="Professional garment care services" />
@@ -143,28 +144,9 @@ function App() {
             </div>
           </div>
 
-          <div className="service-featured service-featured-reverse">
-            <div className="service-featured-visual service-bg-sage">
-              <img className="service-image" src={sewingMachineImage} alt="Sewing machine for alterations" />
-            </div>
-            <div className="service-featured-content">
-              <span className="service-number">02</span>
-              <h3>Alterations</h3>
-              <p>Precision tailoring to ensure the perfect fit, from simple hems to complete garment reshaping.</p>
-              <div className="service-items">
-                <span className="service-item">Hemming</span>
-                <span className="service-item">Shortening</span>
-                <span className="service-item">Lengthening</span>
-                <span className="service-item">Taking In</span>
-                <span className="service-item">Taking Out</span>
-                <span className="service-item">Fitting</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="specialties-section">
+          {/* Specialties grouped under Dry Cleaning (full width below image + content) */}
+          <div className="specialties-section sub-specialties">
             <div className="specialties-header">
-              <span className="service-number">03</span>
               <h3>Specialties</h3>
               <p>We handle items that require extra care and expertise</p>
             </div>
@@ -218,12 +200,29 @@ function App() {
                 </div>
                 <h4>Silk</h4>
               </article>
-
-              {/* OTHERS (e.g., customs, etc., ) */}
-
-              
             </div>
           </div>
+
+          <div className="service-featured service-featured-reverse">
+            <div className="service-featured-visual service-bg-sage">
+              <img className="service-image" src={sewingMachineImage} alt="Sewing machine for alterations" />
+            </div>
+            <div className="service-featured-content">
+              <span className="service-number">02</span>
+              <h3>Alterations</h3>
+              <p>Precision tailoring to ensure the perfect fit, from simple hems to complete garment reshaping.</p>
+              <div className="service-items">
+                <span className="service-item">Hemming</span>
+                <span className="service-item">Shortening</span>
+                <span className="service-item">Lengthening</span>
+                <span className="service-item">Taking In</span>
+                <span className="service-item">Taking Out</span>
+                <span className="service-item">Fitting</span>
+              </div>
+            </div>
+          </div>
+
+          
 
           <div className="service-note">
             <span className="note-dot"></span>
