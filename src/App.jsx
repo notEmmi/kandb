@@ -7,7 +7,7 @@ import hungClothesImage from './assets/clothes.png'
 import sewingMachineImage from './assets/sewingmachine.jpg'
 import leatherImage from './assets/leather.jpg'
 import uggsImage from './assets/uggs.jpg'
-import weddingDressImage from './assets/weddingdress.jpg'
+import weddingDressImage from './assets/weddingdress.png'
 import beddingImage from './assets/bedding.jpg'
 import heroImage from './assets/hero.png'
 
@@ -141,13 +141,18 @@ function App() {
                 <span className="service-item">Dresses</span>
                 <span className="service-item">Coats</span>
               </div>
+              <div className="service-note">
+                <span className="note-dot"></span>
+                <p>Expedited turnaround available upon request</p>
+              </div>
             </div>
+            
           </div>
 
           {/* Specialties grouped under Dry Cleaning (full width below image + content) */}
           <div className="specialties-section sub-specialties">
             <div className="specialties-header">
-              <h3>Specialties</h3>
+              <h4>Specialties</h4>
               <p>We handle items that require extra care and expertise</p>
             </div>
 
@@ -201,9 +206,13 @@ function App() {
                 <h4>Silk</h4>
               </article>
             </div>
+            
           </div>
 
+          <div className="services-divider" aria-hidden="true"></div>
+
           <div className="service-featured service-featured-reverse">
+            
             <div className="service-featured-visual service-bg-sage">
               <img className="service-image" src={sewingMachineImage} alt="Sewing machine for alterations" />
             </div>
@@ -222,12 +231,6 @@ function App() {
             </div>
           </div>
 
-          
-
-          <div className="service-note">
-            <span className="note-dot"></span>
-            <p>Expedited turnaround available upon request</p>
-          </div>
         </section>
 
         <section className="about" id="about">
