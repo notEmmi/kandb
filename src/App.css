@@ -670,6 +670,28 @@ section {
   font-size: 0.95rem;
 }
 
+/* Compact hours table used in contact section */
+.hours-table {
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+.hours-table td {
+  padding: 2px 6px;
+  vertical-align: top;
+}
+.hours-table td:first-child {
+  width: 3.2rem;
+  font-weight: 600;
+  color: var(--primary);
+  padding-right: 8px;
+}
+.open-now {
+  color: var(--accent);
+  font-weight: 700;
+  margin-left: 6px;
+}
+
 .phone-link {
   color: var(--primary);
   font-weight: 600;

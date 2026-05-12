@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 import logo from './assets/logo.svg'
@@ -15,6 +15,48 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const closeMobileMenu = () => setMobileMenuOpen(false)
+
+  // Business hours (America/New_York)
+  const hoursSchedule = [
+    { day: 'Mon', open: true, start: 9 * 60, end: 17 * 60 },
+    { day: 'Tue', open: true, start: 9 * 60, end: 17 * 60 },
+    { day: 'Wed', open: false },
+    { day: 'Thu', open: true, start: 9 * 60, end: 17 * 60 },
+    { day: 'Fri', open: true, start: 9 * 60, end: 17 * 60 },
+    { day: 'Sat', open: true, start: 9 * 60, end: 15 * 60 },
+    { day: 'Sun', open: false },
+  ]
+
+  const getNYTime = () => {
+    const now = new Date()
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/New_York',
+      weekday: 'short',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    }).formatToParts(now)
+
+    const weekday = parts.find((p) => p.type === 'weekday')?.value || ''
+    const hour = parseInt(parts.find((p) => p.type === 'hour')?.value || '0', 10)
+    const minute = parseInt(parts.find((p) => p.type === 'minute')?.value || '0', 10)
+    return { weekday, minutes: hour * 60 + minute }
+  }
+
+  const [nowNY, setNowNY] = useState(getNYTime())
+
+  useEffect(() => {
+    const id = setInterval(() => setNowNY(getNYTime()), 30 * 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  const formatTime = (minutes) => {
+    const h = Math.floor(minutes / 60)
+    const m = minutes % 60
+    const ampm = h >= 12 ? 'PM' : 'AM'
+    const hr12 = ((h + 11) % 12) + 1
+    return `${hr12}:${m.toString().padStart(2, '0')} ${ampm}`
+  }
 
   return (
     <div className="app">
@@ -229,7 +271,26 @@ function App() {
                 </div>
                 <div className="info-item">
                   <strong>Hours</strong>
-                  <p>Mon–Fri: 9am–5pm<br />Sat: 9am–3pm<br />Sun, Wed: Closed</p>
+                  <table className="hours-table" aria-label="Business hours">
+                    <tbody>
+                      {hoursSchedule.map((h) => {
+                        const isToday = nowNY.weekday === h.day
+                        const isOpen = h.open && nowNY.minutes >= h.start && nowNY.minutes < h.end
+                        const timeText = h.open ? `${formatTime(h.start)} – ${formatTime(h.end)}` : 'Closed'
+                        return (
+                          <tr key={h.day} className={isToday ? 'today' : ''}>
+                            <td>{h.day}</td>
+                            <td>
+                              {timeText}
+                              {isToday && isOpen ? (
+                                <span className="open-now">Open now</span>
+                              ) : null}
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
                 </div>
               </div>
               <p className="contact-note">Reach out for drop-off questions, pickup timing, and custom garment care.</p>
