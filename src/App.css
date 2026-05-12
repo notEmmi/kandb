@@ -502,7 +502,7 @@ section {
 /* Subcategory variant used when specialties are nested under a service */
 .sub-specialties {
   margin-top: var(--space-4);
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-24);
   padding-top: var(--space-6);
   border-top: 1px solid transparent;
   width: 100%;
