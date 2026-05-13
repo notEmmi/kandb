@@ -10,6 +10,9 @@ import uggsImage from './assets/uggs.jpg'
 import weddingDressImage from './assets/weddingdress.png'
 import beddingImage from './assets/bedding.jpg'
 import heroImage from './assets/hero.png'
+import woolImage from './assets/wool.jpg'
+import cashmereImage from './assets/cashmere.jpg'
+import silkImage from './assets/silk.jpg'
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -187,21 +190,21 @@ function App() {
 
               <article className="specialty-card specialty-bg-blush">
                 <div className="specialty-image">
-                  <img className="service-image"  alt="Wool garment care" />
+                  <img className="service-image" src={woolImage} alt="Wool garment care" />
                 </div>
                 <h4>Wool</h4>
               </article>
 
               <article className="specialty-card specialty-bg-sky">
                 <div className="specialty-image">
-                  <img className="service-image" alt="Cashmere garment care" />
+                  <img className="service-image" src={cashmereImage} alt="Cashmere garment care" />
                 </div>
                 <h4>Cashmere</h4>
               </article>
 
               <article className="specialty-card specialty-bg-cream">
                 <div className="specialty-image">
-                  <img className="service-image"  alt="Silk garment care" />
+                  <img className="service-image" src={silkImage} alt="Silk garment care" />
                 </div>
                 <h4>Silk</h4>
               </article>
