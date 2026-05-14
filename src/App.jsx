@@ -13,6 +13,7 @@ import heroImage from './assets/hero.png'
 import woolImage from './assets/wool.jpg'
 import cashmereImage from './assets/cashmere.jpg'
 import silkImage from './assets/silk.jpg'
+import sportswearImage from './assets/sportswear.png'
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -207,6 +208,20 @@ function App() {
                   <img className="service-image" src={silkImage} alt="Silk garment care" />
                 </div>
                 <h4>Silk</h4>
+              </article>
+
+              <article className="specialty-card specialty-bg-lavender">
+                <div className="specialty-image">
+                  <img className="service-image" src={sportswearImage} alt="Sports wear care" />
+                </div>
+                <h4>Sports Wear</h4>
+              </article>
+
+              <article className='specialty-card specialty-bg-blush'>
+                <div className="specialty-image">
+                  <img className="service-image"  alt="Custom garment care" />
+                </div>
+                <h4>Customs</h4>
               </article>
             </div>
             
