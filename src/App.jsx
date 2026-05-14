@@ -257,6 +257,8 @@ function App() {
                 <span className="service-item">Taking In</span>
                 <span className="service-item">Taking Out</span>
                 <span className="service-item">Fitting</span>
+                <span className="service-item">Reshaping</span>
+                <span className="service-item">And More...</span>
               </div>
             </div>
           </div>
