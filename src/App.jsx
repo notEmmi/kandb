@@ -14,6 +14,7 @@ import woolImage from './assets/wool.jpg'
 import cashmereImage from './assets/cashmere.jpg'
 import silkImage from './assets/silk.jpg'
 import sportswearImage from './assets/sportswear.png'
+import customImage from './assets/customs.png'
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -219,7 +220,7 @@ function App() {
 
               <article className='specialty-card specialty-bg-blush'>
                 <div className="specialty-image">
-                  <img className="service-image"  alt="Custom garment care" />
+                  <img className="service-image" src={customImage} alt="Custom garment care" />
                 </div>
                 <h4>Customs</h4>
               </article>
