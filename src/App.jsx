@@ -16,6 +16,7 @@ import silkImage from './assets/silk.jpg'
 import sportswearImage from './assets/sportswear.png'
 import customImage from './assets/customs.png'
 import accessoriesImage from './assets/accessories.png'
+import instagramQRCode from './assets/kandbcleaners_qr.png'
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
