@@ -14,7 +14,7 @@ import woolImage from './assets/wool.jpg'
 import cashmereImage from './assets/cashmere.jpg'
 import silkImage from './assets/silk.jpg'
 import sportswearImage from './assets/sportswear.png'
-import customImage from './assets/customs.png'
+import customImage from './assets/customs.jpg'
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
