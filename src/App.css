@@ -10,6 +10,7 @@
   --foreground: #1b130f;
   --card: #faf8f6;
   --primary: #2d2420;
+  --primary-foreground: #ffffff;
   --secondary: #f4efe8;
   --muted: #ebe6df;
   --muted-foreground: #6b5d52;
@@ -751,30 +752,86 @@ section {
    ======================================== */
 
 .footer {
-  padding: var(--space-8) var(--space-6);
-  text-align: center;
-  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
   margin-top: var(--space-16);
 }
 
-.footer p, .footer a {
-  margin: 0;
-  font-size: 0.85rem;
+.top-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  background: var(--card);
+}
+
+.footer-instagram,
+.footer-partner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.footer-instagram span,
+.footer-partner span {
+  font-size: 0.8rem;
   color: var(--muted-foreground);
 }
 
+.footer-instagram a,
+.footer-partner a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-instagram a:hover,
+.footer-partner a:hover {
+  color: var(--accent);
+}
 
 .bottom-footer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: var(--space-4);
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  background: var(--primary);
+  color: var(--primary-foreground);
 }
 
-.bottom-footer div {
+.bottom-footer > p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.footer-contact {
   display: flex;
-  flex-direction: row;
-  gap: var(--space-4);
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer-contact p {
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}
+
+.footer-contact a {
+  color: var(--primary-foreground);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.2s ease;
+}
+
+.footer-contact a:hover {
+  opacity: 0.8;
 }
 
 /* ========================================

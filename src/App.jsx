@@ -346,15 +346,34 @@ function App() {
       </main>
 
       <footer className="footer">
-        <div className='top-footer'>
-          
+        <div className="top-footer">
+          <div className="footer-instagram">
+            <span>Follow us on Instagram</span>
+            <a 
+              href="https://www.instagram.com/kandbcleaners/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @kandbcleaners
+            </a>
+          </div>
+          <div className="footer-partner">
+            <span>Associated with</span>
+            <a 
+              href="https://www.tomandluigistailorshop.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tom and Luigi Tailor Shop
+            </a>
+          </div>
         </div>
-        <div className='bottom-footer'>
-          <p>&copy; {new Date().getFullYear()} K & B Dry Cleaning and Alterations. All rights reserved.</p>
-          <div>
+        <div className="bottom-footer">
+          <p>&copy; {new Date().getFullYear()} K & B Dry Cleaners and Alterations. All rights reserved.</p>
+          <div className="footer-contact">
             <p>Contact Us</p>
-            <a href='mailto:kandbcleaner@gmail.com'>kandbcleaner@gmail.com</a>
-            <a href='tel:+17166683088'>(716) 668-3088</a>
+            <a href="mailto:kandbcleaner@gmail.com">kandbcleaner@gmail.com</a>
+            <a href="tel:+17166683088">(716) 668-3088</a>
           </div>
         </div>
       </footer>
