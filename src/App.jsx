@@ -1,27 +1,75 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 import logo from './assets/logo.svg'
-import interiorImage from './assets/interior.png'
-import hungClothesImage from './assets/clotheshung.png'
-import sewingMachineImage from './assets/sewingmachine.png'
+import interiorImage from './assets/aboutme.jpg'
+import hungClothesImage from './assets/clothes.png'
+import sewingMachineImage from './assets/sewingmachine.jpg'
 import leatherImage from './assets/leather.jpg'
 import uggsImage from './assets/uggs.jpg'
-import weddingDressImage from './assets/weddingdress.jpg'
+import weddingDressImage from './assets/weddingdress.png'
 import beddingImage from './assets/bedding.jpg'
 import heroImage from './assets/hero.png'
+import woolImage from './assets/wool.jpg'
+import cashmereImage from './assets/cashmere.jpg'
+import silkImage from './assets/silk.jpg'
+import sportswearImage from './assets/sportswear.png'
+import customImage from './assets/customs.png'
+import accessoriesImage from './assets/accessories.png'
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const closeMobileMenu = () => setMobileMenuOpen(false)
 
+  // Business hours (America/New_York)
+  const hoursSchedule = [
+    { day: 'Mon', open: true, start: 9 * 60, end: 17 * 60 },
+    { day: 'Tue', open: true, start: 9 * 60, end: 17 * 60 },
+    { day: 'Wed', open: false },
+    { day: 'Thu', open: true, start: 9 * 60, end: 17 * 60 },
+    { day: 'Fri', open: true, start: 9 * 60, end: 17 * 60 },
+    { day: 'Sat', open: true, start: 9 * 60, end: 15 * 60 },
+    { day: 'Sun', open: false },
+  ]
+
+  const getNYTime = () => {
+    const now = new Date()
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/New_York',
+      weekday: 'short',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    }).formatToParts(now)
+
+    const weekday = parts.find((p) => p.type === 'weekday')?.value || ''
+    const hour = parseInt(parts.find((p) => p.type === 'hour')?.value || '0', 10)
+    const minute = parseInt(parts.find((p) => p.type === 'minute')?.value || '0', 10)
+    return { weekday, minutes: hour * 60 + minute }
+  }
+
+  const [nowNY, setNowNY] = useState(getNYTime())
+
+  useEffect(() => {
+    const id = setInterval(() => setNowNY(getNYTime()), 30 * 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  const formatTime = (minutes) => {
+    const h = Math.floor(minutes / 60)
+    const m = minutes % 60
+    const ampm = h >= 12 ? 'PM' : 'AM'
+    const hr12 = ((h + 11) % 12) + 1
+    return `${hr12}:${m.toString().padStart(2, '0')} ${ampm}`
+  }
+
   return (
     <div className="app">
       <nav className="top-nav">
-        <div className="logo-text">
+        <div className="logo">
           <img className="logo-img" src={logo} alt="K & B logo" />
-          <span className="logo-tagline">Dry Cleaning &<br/>Alterations</span>
+          <span className="logo-tagline">Dry Cleaners &<br/>Alterations</span>
         </div>
 
         <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id="primary-navigation">
@@ -60,10 +108,16 @@ function App() {
             <p>Where precision meets elegance. Expert cleaning, tailoring, and preservation for everything from everyday wear to cherished heirlooms.</p>
 
             <div className="hero-cta">
-              <button className="btn btn-primary">Request More Info</button>
+              <button
+                className="btn btn-primary"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Request More Info
+              </button>
               <a className="btn btn-secondary" href="#services">View Services</a>
             </div>
           </div>
+        
 
           <div className="hero-visual">
             <img className="hero-image" src={heroImage} alt="Professional garment care services" />
@@ -83,7 +137,7 @@ function App() {
             </div>
             <div className="service-featured-content">
               <span className="service-number">01</span>
-              <h3>Dry Cleaning</h3>
+              <h3>Dry Cleaning & Pressing</h3>
               <p>Expert care for your everyday and fine garments, from business attire to delicate fabrics.</p>
               <div className="service-items">
                 <span className="service-item">Suits</span>
@@ -92,33 +146,22 @@ function App() {
                 <span className="service-item">Jackets</span>
                 <span className="service-item">Dresses</span>
                 <span className="service-item">Coats</span>
+                <span className="service-item">Skirts</span>
+                <span className="service-item">Blouses</span>
+                <span className="service-item">And More...</span>
+              </div>
+              <div className="service-note">
+                <span className="note-dot"></span>
+                <p>Expedited turnaround available upon request</p>
               </div>
             </div>
+            
           </div>
 
-          <div className="service-featured service-featured-reverse">
-            <div className="service-featured-visual service-bg-sage">
-              <img className="service-image" src={sewingMachineImage} alt="Sewing machine for alterations" />
-            </div>
-            <div className="service-featured-content">
-              <span className="service-number">02</span>
-              <h3>Alterations</h3>
-              <p>Precision tailoring to ensure the perfect fit, from simple hems to complete garment reshaping.</p>
-              <div className="service-items">
-                <span className="service-item">Hemming</span>
-                <span className="service-item">Shortening</span>
-                <span className="service-item">Lengthening</span>
-                <span className="service-item">Taking In</span>
-                <span className="service-item">Taking Out</span>
-                <span className="service-item">Fitting</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="specialties-section">
+          {/* Specialties grouped under Dry Cleaning (full width below image + content) */}
+          <div className="specialties-section sub-specialties">
             <div className="specialties-header">
-              <span className="service-number">03</span>
-              <h3>Specialties</h3>
+              <h4>Specialties</h4>
               <p>We handle items that require extra care and expertise</p>
             </div>
 
@@ -150,23 +193,86 @@ function App() {
                 </div>
                 <h4>Comforters & Bedding</h4>
               </article>
+
+              <article className="specialty-card specialty-bg-blush">
+                <div className="specialty-image">
+                  <img className="service-image" src={woolImage} alt="Wool garment care" />
+                </div>
+                <h4>Wool</h4>
+              </article>
+
+              <article className="specialty-card specialty-bg-sky">
+                <div className="specialty-image">
+                  <img className="service-image" src={cashmereImage} alt="Cashmere garment care" />
+                </div>
+                <h4>Cashmere</h4>
+              </article>
+
+              <article className="specialty-card specialty-bg-cream">
+                <div className="specialty-image">
+                  <img className="service-image" src={silkImage} alt="Silk garment care" />
+                </div>
+                <h4>Silk</h4>
+              </article>
+
+              <article className="specialty-card specialty-bg-lavender">
+                <div className="specialty-image">
+                  <img className="service-image" src={sportswearImage} alt="Sports wear care" />
+                </div>
+                <h4>Sports Wear</h4>
+              </article>
+
+              <article className='specialty-card specialty-bg-blush'>
+                <div className="specialty-image">
+                  <img className="service-image" src={customImage} alt="Custom garment care" />
+                </div>
+                <h4>Customs</h4>
+              </article>
+
+              <article className='specialty-card specialty-bg-sky'>
+                <div className="specialty-image">
+                  <img className="service-image" src={accessoriesImage} alt="Accessory care services" />  
+                </div>
+                <h4>Accessories</h4>
+              </article>
+            </div>
+            
+          </div>
+
+          <div className="services-divider" aria-hidden="true"></div>
+
+          <div className="service-featured service-featured-reverse">
+            
+            <div className="service-featured-visual service-bg-sage">
+              <img className="service-image" src={sewingMachineImage} alt="Sewing machine for alterations" />
+            </div>
+            <div className="service-featured-content">
+              <span className="service-number">02</span>
+              <h3>Alterations</h3>
+              <p>Precision tailoring to ensure the perfect fit, from simple hems to complete garment reshaping.</p>
+              <div className="service-items">
+                <span className="service-item">Hemming</span>
+                <span className="service-item">Shortening</span>
+                <span className="service-item">Lengthening</span>
+                <span className="service-item">Taking In</span>
+                <span className="service-item">Taking Out</span>
+                <span className="service-item">Fitting</span>
+                <span className="service-item">Reshaping</span>
+                <span className="service-item">And More...</span>
+              </div>
             </div>
           </div>
 
-          <div className="service-note">
-            <span className="note-dot"></span>
-            <p>Expedited turnaround available upon request</p>
-          </div>
         </section>
 
         <section className="about" id="about">
           <div className="about-content">
             <span className="section-label">About Us</span>
             <h2>A Legacy of Care</h2>
-            <p>For over 50 years, our doors have been open to this community, built on a foundation of precision, pride,, and genuine love for the people we serve. What started as a one man's dedication to the craft of quality dry cleaning has grown into a local landmark of trust.</p>
-            <p>Two years ago, we stepped into this story as the new stewards of his legacy. To us, this isn't just a business-it's a responsibility. We are commited to honoring the history of this shop by providing the same meticulous attention to detail-from expert repairs and alterations to careful handling of every garment.</p>
-            <p>While we are beginning a New Chapter, our heart remains the same. We still believe in knwoing your name, rembering your preferences, and treating eery piece of clothing as if it were our own.</p>
-            <p className="">Same Location. Same Heart. Still Caring.</p>
+            <p>For over 50 years, our doors have been open to this community, built on a foundation of precision, pride, and genuine love for the people we serve. What started as a one man's dedication to the craft of quality dry cleaning has grown into a local landmark of trust.</p>
+            <p>Two years ago, we stepped into this story as the new stewards of his legacy. To us, this isn't just a business—it's a responsibility. We are committed to honoring the history of this shop by providing the same meticulous attention to detail from expert repairs and alterations to careful handling of every garment.</p>
+            <p>While we are beginning a new chapter, our heart remains the same. We still believe in knowing your name, remembering your preferences, and treating every piece of clothing as if it were our own.</p>
+            <p><b>Same Location. Same Heart. Still Caring.</b></p>
           </div>
 
           <div className="about-visual">
@@ -199,7 +305,26 @@ function App() {
                 </div>
                 <div className="info-item">
                   <strong>Hours</strong>
-                  <p>Mon–Fri: 9am–5pm<br />Sat: 9am–3pm<br />Sun, Wed: Closed</p>
+                  <table className="hours-table" aria-label="Business hours">
+                    <tbody>
+                      {hoursSchedule.map((h) => {
+                        const isToday = nowNY.weekday === h.day
+                        const isOpen = h.open && nowNY.minutes >= h.start && nowNY.minutes < h.end
+                        const timeText = h.open ? `${formatTime(h.start)} – ${formatTime(h.end)}` : 'Closed'
+                        return (
+                          <tr key={h.day} className={isToday ? 'today' : ''}>
+                            <td>{h.day}</td>
+                            <td>
+                              {timeText}
+                              {isToday && isOpen ? (
+                                <span className="open-now">Open now</span>
+                              ) : null}
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
                 </div>
               </div>
               <p className="contact-note">Reach out for drop-off questions, pickup timing, and custom garment care.</p>

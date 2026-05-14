@@ -2,6 +2,8 @@
    K & B Dry Cleaning - Design System
    ======================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
   /* Colors */
   --background: #ffffff;
@@ -11,7 +13,7 @@
   --secondary: #f4efe8;
   --muted: #ebe6df;
   --muted-foreground: #6b5d52;
-  --accent: #9a5d4c;
+  --accent: #C24B44;
   --border: #e5dfd8;
 
   /* Typography */
@@ -35,6 +37,9 @@
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
+
+  /* Sticky header offset for anchor targets */
+  --anchor-offset: 0.50rem;
 }
 
 /* ========================================
@@ -56,11 +61,21 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  scroll-padding-top: var(--anchor-offset);
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: 500;
   color: var(--primary);
   line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 p {
@@ -81,6 +96,7 @@ li {
   color: var(--muted-foreground);
 }
 
+
 /* ========================================
    Layout
    ======================================== */
@@ -100,6 +116,14 @@ section {
   padding: var(--space-24) 0;
   max-width: 1100px;
   margin: 0 auto;
+  scroll-margin-top: var(--anchor-offset);
+}
+
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
 }
 
 /* ========================================
@@ -113,7 +137,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-4) var(--space-6);
+  padding: var(--space-4) var(--space-6) 0 var(--space-6);
   background: var(--background);
   border-bottom: 1px solid var(--border);
 }
@@ -123,26 +147,20 @@ section {
   width: auto;
 }
 
-.logo-text {
+.logo {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.logo-main {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: var(--primary);
-  line-height: 1;
-}
-
 .logo-tagline {
-  font-size: 0.7rem;
+  font-size: 0.55rem;
   color: var(--muted-foreground);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  padding-bottom: 0;
+  margin: 0;
 }
 
 .nav-links {
@@ -386,7 +404,6 @@ section {
 /* ========================================
    Services Section
    ======================================== */
-
 .services-header {
   margin-bottom: var(--space-16);
 }
@@ -452,7 +469,7 @@ section {
 
 .service-number {
   font-family: var(--font-serif);
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--accent);
   margin-bottom: var(--space-2);
 }
@@ -491,9 +508,37 @@ section {
   border-top: 1px solid var(--border);
 }
 
+/* Subcategory variant used when specialties are nested under a service */
+.sub-specialties {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-12);
+  padding-top: 0;
+  border-top: 0;
+  width: 100%;
+  grid-column: 1 / -1;
+}
+
+.services-divider {
+  width: 100%;
+  height: 1px;
+  margin: 0 0 var(--space-12);
+  background: var(--border);
+}
+
+.subsection-title {
+  font-size: 1.125rem;
+  margin: 0 0 var(--space-2);
+}
+
+.subsection-desc {
+  margin: 0 0 var(--space-3);
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+}
+
 .specialties-header {
   text-align: left;
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-8);
 }
 
 .specialties-header h3 {
@@ -587,9 +632,8 @@ section {
   align-items: center;
   gap: var(--space-3);
   margin-top: var(--space-12);
-  padding: var(--space-4) var(--space-6);
-  background: var(--card);
-  border: 1px solid var(--border);
+  /* background: var(--card);
+  border: 1px solid var(--border); */
 }
 
 .note-dot {
@@ -660,6 +704,28 @@ section {
 .info-item p {
   margin: 0;
   font-size: 0.95rem;
+}
+
+/* Compact hours table used in contact section */
+.hours-table {
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+.hours-table td {
+  padding: 2px 6px;
+  vertical-align: top;
+}
+.hours-table td:first-child {
+  width: 3.2rem;
+  font-weight: 600;
+  color: var(--primary);
+  padding-right: 8px;
+}
+.open-now {
+  color: var(--accent);
+  font-weight: 700;
+  margin-left: 6px;
 }
 
 .phone-link {
@@ -736,10 +802,9 @@ section {
     font-size: 2rem;
   }
 
-  .services h2,
-  .about h2,
-  .contact h2 {
-    font-size: 1.75rem;
+  .hero-tags {
+    flex-direction: column;
+    gap: var(--space-2);
   }
 }
 
@@ -763,6 +828,7 @@ section {
 
   .hero-tags {
     justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   .hero-cta {
