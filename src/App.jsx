@@ -14,7 +14,8 @@ import woolImage from './assets/wool.jpg'
 import cashmereImage from './assets/cashmere.jpg'
 import silkImage from './assets/silk.jpg'
 import sportswearImage from './assets/sportswear.png'
-import customImage from './assets/customs.jpg'
+import customImage from './assets/customs.png'
+import accessoriesImage from './assets/accessories.png'
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -228,7 +229,12 @@ function App() {
                 <h4>Customs</h4>
               </article>
 
-
+              <article className='specialty-card specialty-bg-sky'>
+                <div className="specialty-image">
+                  <img className="service-image" src={accessoriesImage} alt="Accessory care services" />  
+                </div>
+                <h4>Accessories</h4>
+              </article>
             </div>
             
           </div>
