@@ -346,7 +346,17 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} K & B Dry Cleaning and Alterations. All rights reserved.</p>
+        <div className='top-footer'>
+          
+        </div>
+        <div className='bottom-footer'>
+          <p>&copy; {new Date().getFullYear()} K & B Dry Cleaning and Alterations. All rights reserved.</p>
+          <div>
+            <p>Contact Us</p>
+            <a href='mailto:kandbcleaner@gmail.com'>kandbcleaner@gmail.com</a>
+            <a href='tel:+17166683088'>(716) 668-3088</a>
+          </div>
+        </div>
       </footer>
     </div>
   )

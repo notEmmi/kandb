@@ -757,9 +757,24 @@ section {
   margin-top: var(--space-16);
 }
 
-.footer p {
+.footer p, .footer a {
   margin: 0;
   font-size: 0.85rem;
+  color: var(--muted-foreground);
+}
+
+
+.bottom-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.bottom-footer div {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-4);
 }
 
 /* ========================================
