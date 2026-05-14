@@ -145,6 +145,9 @@ function App() {
                 <span className="service-item">Jackets</span>
                 <span className="service-item">Dresses</span>
                 <span className="service-item">Coats</span>
+                <span className="service-item">Skirts</span>
+                <span className="service-item">Blouses</span>
+                <span className="service-item">And More...</span>
               </div>
               <div className="service-note">
                 <span className="note-dot"></span>
@@ -224,6 +227,8 @@ function App() {
                 </div>
                 <h4>Customs</h4>
               </article>
+
+
             </div>
             
           </div>
