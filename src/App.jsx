@@ -113,9 +113,19 @@ function App() {
                 className="btn btn-primary"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Request More Info
+                <span>Request More Info</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
               </button>
-              <a className="btn btn-secondary" href="#services">View Services</a>
+              <a className="btn btn-secondary" href="#services">
+                <span>View Services</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
             </div>
           </div>
         
@@ -289,23 +299,46 @@ function App() {
             <div className="contact-details">
               <div className="contact-info">
                 <div className="info-item">
-                  <strong>Phone</strong>
+                  <div className="info-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <strong>Phone</strong>
+                  </div>
                   <p>
                     <a className="phone-link" href="tel:+17166683088">(716) 668-3088</a>
                   </p>
                 </div>
                 <div className="info-item">
-                  <strong>Email</strong>
+                  <div className="info-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                    <strong>Email</strong>
+                  </div>
                   <p>
                     <a className="phone-link" href="mailto:kandbcleaner@gmail.com">kandbcleaner@gmail.com</a>
                   </p>
                 </div>
                 <div className="info-item">
-                  <strong>Location</strong>
+                  <div className="info-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <strong>Location</strong>
+                  </div>
                   <p>3451 Clinton St,<br/>West Seneca,<br/> NY 14224</p>
                 </div>
                 <div className="info-item">
-                  <strong>Hours</strong>
+                  <div className="info-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <strong>Hours</strong>
+                  </div>
                   <table className="hours-table" aria-label="Business hours">
                     <tbody>
                       {hoursSchedule.map((h) => {
@@ -329,7 +362,12 @@ function App() {
                 </div>
               </div>
               <p className="contact-note">Reach out for drop-off questions, pickup timing, and custom garment care.</p>
-              <a href="tel:(716) 668-3088" className="btn btn-primary">Call Now</a>
+              <a href="tel:(716) 668-3088" className="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Now</span>
+              </a>
             </div>
 
             <div className="map-placeholder">

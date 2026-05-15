@@ -278,6 +278,7 @@ section {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--space-2);
   padding: var(--space-4) var(--space-8);
   font-family: var(--font-sans);
   font-size: 0.875rem;
@@ -287,6 +288,15 @@ section {
   border: 1px solid transparent;
   cursor: pointer;
   transition: all 0.2s ease;
+}
+
+.btn svg {
+  flex-shrink: 0;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .btn-primary {
@@ -692,14 +702,32 @@ section {
   gap: var(--space-6);
 }
 
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.info-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.info-header svg {
+  flex-shrink: 0;
+  color: var(--primary);
+  width: 20px;
+  height: 20px;
+}
+
 .info-item strong {
-  display: block;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--primary);
-  margin-bottom: var(--space-1);
+  margin: 0;
 }
 
 .info-item p {
@@ -745,6 +773,56 @@ section {
 
 .contact .btn {
   margin-top: var(--space-2);
+}
+
+/* ========================================
+   Icon Utilities
+   ======================================== */
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-md {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-lg {
+  width: 24px;
+  height: 24px;
+}
+
+.icon svg {
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-primary {
+  color: var(--primary);
+}
+
+.icon-accent {
+  color: var(--accent);
+}
+
+.icon-white {
+  color: var(--primary-foreground);
+}
+
+.icon-muted {
+  color: var(--muted-foreground);
 }
 
 /* ========================================
@@ -896,6 +974,10 @@ section {
    ======================================== */
 
 @media (max-width: 767px) {
+  :root {
+    --anchor-offset: 0.5rem;
+  }
+
   .nav-toggle {
     display: inline-flex;
   }
@@ -962,6 +1044,10 @@ section {
 }
 
 @media (min-width: 768px) {
+  :root {
+    --anchor-offset: 0.5rem;
+  }
+
   .main {
     padding: 0 var(--space-12);
   }
