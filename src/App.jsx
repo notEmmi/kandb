@@ -2,21 +2,25 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 import logo from './assets/logo.svg'
-import interiorImage from './assets/aboutme.webp'
-import hungClothesImage from './assets/clothes.webp'
-import sewingMachineImage from './assets/sewingmachine.webp'
-import leatherImage from './assets/leather.webp'
-import uggsImage from './assets/uggs.webp'
-import weddingDressImage from './assets/weddingdress.webp'
-import beddingImage from './assets/bedding.webp'
 import heroImage from './assets/hero.webp'
-import woolImage from './assets/wool.webp'
-import cashmereImage from './assets/cashmere.webp'
-import silkImage from './assets/silk.webp'
-import sportswearImage from './assets/sportswear.webp'
-import customImage from './assets/customs.webp'
-import accessoriesImage from './assets/accessories.webp'
-import instagramQRCode from './assets/kandbcleaners_qr.webp'
+
+// Below-the-fold images use direct paths to avoid critical chain
+const imageAssets = {
+  interiorImage: './assets/aboutme.webp',
+  hungClothesImage: './assets/clothes.webp',
+  sewingMachineImage: './assets/sewingmachine.webp',
+  leatherImage: './assets/leather.webp',
+  uggsImage: './assets/uggs.webp',
+  weddingDressImage: './assets/weddingdress.webp',
+  beddingImage: './assets/bedding.webp',
+  woolImage: './assets/wool.webp',
+  cashmereImage: './assets/cashmere.webp',
+  silkImage: './assets/silk.webp',
+  sportswearImage: './assets/sportswear.webp',
+  customImage: './assets/customs.webp',
+  accessoriesImage: './assets/accessories.webp',
+  instagramQRCode: './assets/kandbcleaners_qr.webp',
+}
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -131,7 +135,7 @@ function App() {
         
 
           <div className="hero-visual">
-            <img className="hero-image" src={heroImage} alt="Professional garment care services" />
+            <img className="hero-image" src={heroImage} alt="Professional garment care services" fetchPriority="high" />
           </div>
         </section>
 
@@ -144,7 +148,7 @@ function App() {
 
           <div className="service-featured">
             <div className="service-featured-visual service-bg-warm">
-              <img className="service-image" src={hungClothesImage} alt="Hung clothes ready for dry cleaning" />
+              <img className="service-image" src={imageAssets.hungClothesImage} alt="Hung clothes ready for dry cleaning" />
             </div>
             <div className="service-featured-content">
               <span className="service-number">01</span>
@@ -179,70 +183,70 @@ function App() {
             <div className="specialty-grid">
               <article className="specialty-card specialty-bg-blush">
                 <div className="specialty-image">
-                  <img className="service-image" src={leatherImage} alt="Leather garment care" />
+                  <img className="service-image" src={imageAssets.leatherImage} alt="Leather garment care" />
                 </div>
                 <h4>Leather & Suede</h4>
               </article>
 
               <article className="specialty-card specialty-bg-sky">
                 <div className="specialty-image">
-                  <img className="service-image" src={uggsImage} alt="UGGs and footwear care" />
+                  <img className="service-image" src={imageAssets.uggsImage} alt="UGGs and footwear care" />
                 </div>
                 <h4>UGGs & Footwear</h4>
               </article>
 
               <article className="specialty-card specialty-bg-cream">
                 <div className="specialty-image">
-                  <img className="service-image" src={weddingDressImage} alt="Wedding dress preservation" />
+                  <img className="service-image" src={imageAssets.weddingDressImage} alt="Wedding dress preservation" />
                 </div>
                 <h4>Wedding Dress Preservation</h4>
               </article>
 
               <article className="specialty-card specialty-bg-lavender">
                 <div className="specialty-image">
-                  <img className="service-image" src={beddingImage} alt="Comforters and bedding care" />
+                  <img className="service-image" src={imageAssets.beddingImage} alt="Comforters and bedding care" />
                 </div>
                 <h4>Comforters & Bedding</h4>
               </article>
 
               <article className="specialty-card specialty-bg-blush">
                 <div className="specialty-image">
-                  <img className="service-image" src={woolImage} alt="Wool garment care" />
+                  <img className="service-image" src={imageAssets.woolImage} alt="Wool garment care" />
                 </div>
                 <h4>Wool</h4>
               </article>
 
               <article className="specialty-card specialty-bg-sky">
                 <div className="specialty-image">
-                  <img className="service-image" src={cashmereImage} alt="Cashmere garment care" />
+                  <img className="service-image" src={imageAssets.cashmereImage} alt="Cashmere garment care" />
                 </div>
                 <h4>Cashmere</h4>
               </article>
 
               <article className="specialty-card specialty-bg-cream">
                 <div className="specialty-image">
-                  <img className="service-image" src={silkImage} alt="Silk garment care" />
+                  <img className="service-image" src={imageAssets.silkImage} alt="Silk garment care" />
                 </div>
                 <h4>Silk</h4>
               </article>
 
               <article className="specialty-card specialty-bg-lavender">
                 <div className="specialty-image">
-                  <img className="service-image" src={sportswearImage} alt="Sports wear care" />
+                  <img className="service-image" src={imageAssets.sportswearImage} alt="Sports wear care" />
                 </div>
                 <h4>Sports Wear</h4>
               </article>
 
               <article className='specialty-card specialty-bg-blush'>
                 <div className="specialty-image">
-                  <img className="service-image" src={customImage} alt="Custom garment care" />
+                  <img className="service-image" src={imageAssets.customImage} alt="Custom garment care" />
                 </div>
                 <h4>Customs</h4>
               </article>
 
               <article className='specialty-card specialty-bg-sky'>
                 <div className="specialty-image">
-                  <img className="service-image" src={accessoriesImage} alt="Accessory care services" />  
+                  <img className="service-image" src={imageAssets.accessoriesImage} alt="Accessory care services" />  
                 </div>
                 <h4>Accessories</h4>
               </article>
@@ -255,7 +259,7 @@ function App() {
           <div className="service-featured service-featured-reverse">
             
             <div className="service-featured-visual service-bg-sage">
-              <img className="service-image" src={sewingMachineImage} alt="Sewing machine for alterations" />
+              <img className="service-image" src={imageAssets.sewingMachineImage} alt="Sewing machine for alterations" />
             </div>
             <div className="service-featured-content">
               <span className="service-number">02</span>
@@ -287,7 +291,7 @@ function App() {
           </div>
 
           <div className="about-visual">
-            <img className="about-image" src={interiorImage} alt="Interior of K & B dry cleaning shop" />
+            <img className="about-image" src={imageAssets.interiorImage} alt="Interior of K & B dry cleaning shop" />
           </div>
         </section>
 
