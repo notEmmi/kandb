@@ -2,21 +2,21 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 import logo from './assets/logo.svg'
-import interiorImage from './assets/aboutme.jpg'
-import hungClothesImage from './assets/clothes.png'
-import sewingMachineImage from './assets/sewingmachine.jpg'
-import leatherImage from './assets/leather.jpg'
-import uggsImage from './assets/uggs.jpg'
-import weddingDressImage from './assets/weddingdress.png'
-import beddingImage from './assets/bedding.jpg'
-import heroImage from './assets/hero.png'
-import woolImage from './assets/wool.jpg'
-import cashmereImage from './assets/cashmere.jpg'
-import silkImage from './assets/silk.jpg'
-import sportswearImage from './assets/sportswear.png'
-import customImage from './assets/customs.png'
-import accessoriesImage from './assets/accessories.png'
-import instagramQRCode from './assets/kandbcleaners_qr.png'
+import interiorImage from './assets/aboutme.webp'
+import hungClothesImage from './assets/clothes.webp'
+import sewingMachineImage from './assets/sewingmachine.webp'
+import leatherImage from './assets/leather.webp'
+import uggsImage from './assets/uggs.webp'
+import weddingDressImage from './assets/weddingdress.webp'
+import beddingImage from './assets/bedding.webp'
+import heroImage from './assets/hero.webp'
+import woolImage from './assets/wool.webp'
+import cashmereImage from './assets/cashmere.webp'
+import silkImage from './assets/silk.webp'
+import sportswearImage from './assets/sportswear.webp'
+import customImage from './assets/customs.webp'
+import accessoriesImage from './assets/accessories.webp'
+import instagramQRCode from './assets/kandbcleaners_qr.webp'
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -113,9 +113,19 @@ function App() {
                 className="btn btn-primary"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Request More Info
+                <span>Request More Info</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
               </button>
-              <a className="btn btn-secondary" href="#services">View Services</a>
+              <a className="btn btn-secondary" href="#services">
+                <span>View Services</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
             </div>
           </div>
         
@@ -289,23 +299,46 @@ function App() {
             <div className="contact-details">
               <div className="contact-info">
                 <div className="info-item">
-                  <strong>Phone</strong>
+                  <div className="info-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <strong>Phone</strong>
+                  </div>
                   <p>
                     <a className="phone-link" href="tel:+17166683088">(716) 668-3088</a>
                   </p>
                 </div>
                 <div className="info-item">
-                  <strong>Email</strong>
+                  <div className="info-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                    <strong>Email</strong>
+                  </div>
                   <p>
                     <a className="phone-link" href="mailto:kandbcleaner@gmail.com">kandbcleaner@gmail.com</a>
                   </p>
                 </div>
                 <div className="info-item">
-                  <strong>Location</strong>
+                  <div className="info-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <strong>Location</strong>
+                  </div>
                   <p>3451 Clinton St,<br/>West Seneca,<br/> NY 14224</p>
                 </div>
                 <div className="info-item">
-                  <strong>Hours</strong>
+                  <div className="info-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <strong>Hours</strong>
+                  </div>
                   <table className="hours-table" aria-label="Business hours">
                     <tbody>
                       {hoursSchedule.map((h) => {
@@ -329,7 +362,12 @@ function App() {
                 </div>
               </div>
               <p className="contact-note">Reach out for drop-off questions, pickup timing, and custom garment care.</p>
-              <a href="tel:(716) 668-3088" className="btn btn-primary">Call Now</a>
+              <a href="tel:(716) 668-3088" className="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Now</span>
+              </a>
             </div>
 
             <div className="map-placeholder">
@@ -347,25 +385,60 @@ function App() {
 
       <footer className="footer">
         <div className="top-footer">
-          <div className="footer-instagram">
-            <span>Follow us on Instagram</span>
-            <a 
-              href="https://www.instagram.com/kandbcleaners/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @kandbcleaners
-            </a>
+          <div className="footer-social">
+            <span>Follow Us</span>
+            <div className="social-links">
+              <a 
+                href="https://www.instagram.com/kandbcleaners/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>Instagram</span>
+              </a>
+              <a 
+                href="https://www.facebook.com/people/KB-dry-cleaners/61589575148506/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Facebook"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+                <span>Facebook</span>
+              </a>
+            </div>
           </div>
           <div className="footer-partner">
             <span>Associated with</span>
-            <a 
-              href="https://www.tomandluigistailorshop.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Tom and Luigi Tailor Shop
-            </a>
+            <div className="footer-partner-links">
+              <a 
+                href="https://www.tomandluigistailorshop.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+                Tom and Luigi Tailor Shop
+              </a>
+              <a 
+                href="mailto:tomandluigis@gmail.com"
+                className="partner-email"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                tomandluigis@gmail.com
+              </a>
+            </div>
           </div>
         </div>
         <div className="bottom-footer">
