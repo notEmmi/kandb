@@ -347,25 +347,60 @@ function App() {
 
       <footer className="footer">
         <div className="top-footer">
-          <div className="footer-instagram">
-            <span>Follow us on Instagram</span>
-            <a 
-              href="https://www.instagram.com/kandbcleaners/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @kandbcleaners
-            </a>
+          <div className="footer-social">
+            <span>Follow Us</span>
+            <div className="social-links">
+              <a 
+                href="https://www.instagram.com/kandbcleaners/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>Instagram</span>
+              </a>
+              <a 
+                href="https://www.facebook.com/people/KB-dry-cleaners/61589575148506/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Facebook"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+                <span>Facebook</span>
+              </a>
+            </div>
           </div>
           <div className="footer-partner">
             <span>Associated with</span>
-            <a 
-              href="https://www.tomandluigistailorshop.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Tom and Luigi Tailor Shop
-            </a>
+            <div className="footer-partner-links">
+              <a 
+                href="https://www.tomandluigistailorshop.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+                Tom and Luigi Tailor Shop
+              </a>
+              <a 
+                href="mailto:tomandluigis@gmail.com"
+                className="partner-email"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                tomandluigis@gmail.com
+              </a>
+            </div>
           </div>
         </div>
         <div className="bottom-footer">

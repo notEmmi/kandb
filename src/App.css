@@ -760,44 +760,97 @@ section {
 .top-footer {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-8);
   padding: var(--space-8) var(--space-6);
   text-align: center;
   background: var(--card);
+  border-top: 1px solid var(--border);
 }
 
-.footer-instagram,
+.footer-social,
 .footer-partner {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  align-items: center;
+  gap: var(--space-3);
 }
 
-.footer-instagram span,
-.footer-partner span {
-  font-size: 0.8rem;
+.footer-social > span,
+.footer-partner > span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--muted-foreground);
 }
 
-.footer-instagram a,
-.footer-partner a {
-  font-size: 0.95rem;
+.social-links {
+  display: flex;
+  gap: var(--space-6);
+  align-items: center;
+  justify-content: center;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--primary);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.footer-instagram a:hover,
+.social-links a:hover {
+  color: var(--accent);
+}
+
+.social-links svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.footer-partner-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.footer-partner a {
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
 .footer-partner a:hover {
   color: var(--accent);
+}
+
+.footer-partner svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.partner-email {
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+  color: var(--muted-foreground) !important;
+}
+
+.partner-email:hover {
+  color: var(--accent) !important;
 }
 
 .bottom-footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: var(--space-6);
+  gap: var(--space-4);
+  align-items: center;
   padding: var(--space-8) var(--space-6);
   text-align: center;
   background: var(--primary);
@@ -806,24 +859,25 @@ section {
 
 .bottom-footer > p {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--primary-foreground);
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .footer-contact {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: var(--space-4);
 }
 
 .footer-contact p {
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--primary-foreground);
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .footer-contact a {
@@ -831,11 +885,10 @@ section {
   text-decoration: none;
   font-size: 0.8rem;
   transition: opacity 0.2s ease;
-  margin: 0;
 }
 
 .footer-contact a:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 /* ========================================
