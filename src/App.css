@@ -1095,8 +1095,19 @@ section {
   }
 
   .hero-tags {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: var(--space-2);
+  }
+
+  .tag {
+    padding: 3px 8px;
+    font-size: 0.68rem;
+  }
+
+  .dot {
+    width: 4px;
+    height: 4px;
   }
 
   .top-footer {
@@ -1121,6 +1132,33 @@ section {
 
   .footer-contact a {
     overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-contact {
+    gap: var(--space-2);
+  }
+
+  .quick-contact-status {
+    font-size: 0.72rem;
+  }
+
+  .quick-contact-right {
+    gap: var(--space-2);
+  }
+
+  .quick-contact-link {
+    font-size: 0.72rem;
+  }
+
+  .quick-contact-icon {
+    width: 28px;
+    height: 28px;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #fff;
   }
 }
 
