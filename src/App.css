@@ -131,6 +131,71 @@ section {
    Navigation
    ======================================== */
 
+.quick-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-6);
+  border-bottom: 1px solid var(--border);
+  background: #fafafa;
+  font-size: 0.8rem;
+}
+
+.quick-contact-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.quick-contact-status.is-open {
+  color: #166534;
+}
+
+.quick-contact-status.is-closed {
+  color: var(--muted-foreground);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.quick-contact-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.quick-contact-link,
+.quick-contact-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary);
+  transition: color 0.2s ease;
+}
+
+.quick-contact-link {
+  font-weight: 500;
+}
+
+.quick-contact-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.quick-contact-link:hover,
+.quick-contact-icon:hover {
+  color: var(--accent);
+}
+
 .top-nav {
   position: sticky;
   top: 0;
@@ -976,6 +1041,22 @@ section {
 @media (max-width: 767px) {
   :root {
     --anchor-offset: 0.5rem;
+  }
+
+  .quick-contact {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .quick-contact-right {
+    width: 100%;
+    justify-content: flex-start;
+    gap: var(--space-2) var(--space-3);
+  }
+
+  .quick-contact-link {
+    font-size: 0.78rem;
   }
 
   .nav-toggle {
