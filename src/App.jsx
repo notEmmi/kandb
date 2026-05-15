@@ -4,22 +4,21 @@ import './App.css'
 import logo from './assets/logo.svg'
 import heroImage from './assets/hero.webp'
 
-// Below-the-fold images use direct paths to avoid critical chain
 const imageAssets = {
-  interiorImage: './assets/aboutme.webp',
-  hungClothesImage: './assets/clothes.webp',
-  sewingMachineImage: './assets/sewingmachine.webp',
-  leatherImage: './assets/leather.webp',
-  uggsImage: './assets/uggs.webp',
-  weddingDressImage: './assets/weddingdress.webp',
-  beddingImage: './assets/bedding.webp',
-  woolImage: './assets/wool.webp',
-  cashmereImage: './assets/cashmere.webp',
-  silkImage: './assets/silk.webp',
-  sportswearImage: './assets/sportswear.webp',
-  customImage: './assets/customs.webp',
-  accessoriesImage: './assets/accessories.webp',
-  instagramQRCode: './assets/kandbcleaners_qr.webp',
+  interiorImage: new URL('./assets/aboutme.webp', import.meta.url).href,
+  hungClothesImage: new URL('./assets/clothes.webp', import.meta.url).href,
+  sewingMachineImage: new URL('./assets/sewingmachine.webp', import.meta.url).href,
+  leatherImage: new URL('./assets/leather.webp', import.meta.url).href,
+  uggsImage: new URL('./assets/uggs.webp', import.meta.url).href,
+  weddingDressImage: new URL('./assets/weddingdress.webp', import.meta.url).href,
+  beddingImage: new URL('./assets/bedding.webp', import.meta.url).href,
+  woolImage: new URL('./assets/wool.webp', import.meta.url).href,
+  cashmereImage: new URL('./assets/cashmere.webp', import.meta.url).href,
+  silkImage: new URL('./assets/silk.webp', import.meta.url).href,
+  sportswearImage: new URL('./assets/sportswear.webp', import.meta.url).href,
+  customImage: new URL('./assets/customs.webp', import.meta.url).href,
+  accessoriesImage: new URL('./assets/accessories.webp', import.meta.url).href,
+  instagramQRCode: new URL('./assets/kandbcleaners_qr.webp', import.meta.url).href,
 }
 
 function App() {
