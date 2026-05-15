@@ -7,15 +7,15 @@
 :root {
   /* Colors */
   --background: #ffffff;
-  --foreground: #1b130f;
-  --card: #faf8f6;
-  --primary: #2d2420;
+  --foreground: #000000;
+  --card: #f5f5f5;
+  --primary: #000000;
   --primary-foreground: #ffffff;
-  --secondary: #f4efe8;
-  --muted: #ebe6df;
-  --muted-foreground: #6b5d52;
+  --secondary: #f0f0f0;
+  --muted: #e0e0e0;
+  --muted-foreground: #666666;
   --accent: #C24B44;
-  --border: #e5dfd8;
+  --border: #d0d0d0;
 
   /* Typography */
   --font-sans: 'Inter', system-ui, sans-serif;
