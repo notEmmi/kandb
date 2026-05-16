@@ -2,21 +2,24 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 import logo from './assets/logo.svg'
-import interiorImage from './assets/aboutme.webp'
-import hungClothesImage from './assets/clothes.webp'
-import sewingMachineImage from './assets/sewingmachine.webp'
-import leatherImage from './assets/leather.webp'
-import uggsImage from './assets/uggs.webp'
-import weddingDressImage from './assets/weddingdress.webp'
-import beddingImage from './assets/bedding.webp'
 import heroImage from './assets/hero.webp'
-import woolImage from './assets/wool.webp'
-import cashmereImage from './assets/cashmere.webp'
-import silkImage from './assets/silk.webp'
-import sportswearImage from './assets/sportswear.webp'
-import customImage from './assets/customs.webp'
-import accessoriesImage from './assets/accessories.webp'
-import instagramQRCode from './assets/kandbcleaners_qr.webp'
+
+const imageAssets = {
+  interiorImage: new URL('./assets/aboutme.webp', import.meta.url).href,
+  hungClothesImage: new URL('./assets/clothes.webp', import.meta.url).href,
+  sewingMachineImage: new URL('./assets/sewingmachine.webp', import.meta.url).href,
+  leatherImage: new URL('./assets/leather.webp', import.meta.url).href,
+  uggsImage: new URL('./assets/uggs.webp', import.meta.url).href,
+  weddingDressImage: new URL('./assets/weddingdress.webp', import.meta.url).href,
+  beddingImage: new URL('./assets/bedding.webp', import.meta.url).href,
+  woolImage: new URL('./assets/wool.webp', import.meta.url).href,
+  cashmereImage: new URL('./assets/cashmere.webp', import.meta.url).href,
+  silkImage: new URL('./assets/silk.webp', import.meta.url).href,
+  sportswearImage: new URL('./assets/sportswear.webp', import.meta.url).href,
+  customImage: new URL('./assets/customs.webp', import.meta.url).href,
+  accessoriesImage: new URL('./assets/accessories.webp', import.meta.url).href,
+  instagramQRCode: new URL('./assets/kandbcleaners_qr.webp', import.meta.url).href,
+}
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -57,6 +60,13 @@ function App() {
     return () => clearInterval(id)
   }, [])
 
+  const todaySchedule = hoursSchedule.find((h) => h.day === nowNY.weekday)
+  const isCurrentlyOpen = Boolean(
+    todaySchedule?.open &&
+      nowNY.minutes >= todaySchedule.start &&
+      nowNY.minutes < todaySchedule.end
+  )
+
   const formatTime = (minutes) => {
     const h = Math.floor(minutes / 60)
     const m = minutes % 60
@@ -67,6 +77,45 @@ function App() {
 
   return (
     <div className="app">
+      <div className="quick-contact">
+        <div className={`quick-contact-status ${isCurrentlyOpen ? 'is-open' : 'is-closed'}`}>
+          <span className="status-dot" aria-hidden="true"></span>
+          <span>{isCurrentlyOpen ? 'Open now' : 'Closed'}</span>
+        </div>
+
+        <div className="quick-contact-right">
+          <a href="tel:+17166683088" className="quick-contact-link" aria-label="Call K and B Dry Cleaners">
+            (716) 668-3088
+          </a>
+          <a href="mailto:kandbcleaner@gmail.com" className="quick-contact-link" aria-label="Email K and B Dry Cleaners">
+            kandbcleaner@gmail.com
+          </a>
+          <a
+            href="https://www.instagram.com/kandbcleaners/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="quick-contact-icon"
+            aria-label="Follow us on Instagram"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a
+            href="https://www.facebook.com/people/KB-dry-cleaners/61589575148506/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="quick-contact-icon"
+            aria-label="Follow us on Facebook"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
       <nav className="top-nav">
         <div className="logo">
           <img className="logo-img" src={logo} alt="K & B logo" />
@@ -131,7 +180,7 @@ function App() {
         
 
           <div className="hero-visual">
-            <img className="hero-image" src={heroImage} alt="Professional garment care services" />
+            <img className="hero-image" src={heroImage} alt="Professional garment care services" fetchPriority="high" />
           </div>
         </section>
 
@@ -144,7 +193,7 @@ function App() {
 
           <div className="service-featured">
             <div className="service-featured-visual service-bg-warm">
-              <img className="service-image" src={hungClothesImage} alt="Hung clothes ready for dry cleaning" />
+              <img className="service-image" src={imageAssets.hungClothesImage} alt="Hung clothes ready for dry cleaning" />
             </div>
             <div className="service-featured-content">
               <span className="service-number">01</span>
@@ -179,70 +228,70 @@ function App() {
             <div className="specialty-grid">
               <article className="specialty-card specialty-bg-blush">
                 <div className="specialty-image">
-                  <img className="service-image" src={leatherImage} alt="Leather garment care" />
+                  <img className="service-image" src={imageAssets.leatherImage} alt="Leather garment care" />
                 </div>
                 <h4>Leather & Suede</h4>
               </article>
 
               <article className="specialty-card specialty-bg-sky">
                 <div className="specialty-image">
-                  <img className="service-image" src={uggsImage} alt="UGGs and footwear care" />
+                  <img className="service-image" src={imageAssets.uggsImage} alt="UGGs and footwear care" />
                 </div>
                 <h4>UGGs & Footwear</h4>
               </article>
 
               <article className="specialty-card specialty-bg-cream">
                 <div className="specialty-image">
-                  <img className="service-image" src={weddingDressImage} alt="Wedding dress preservation" />
+                  <img className="service-image" src={imageAssets.weddingDressImage} alt="Wedding dress preservation" />
                 </div>
                 <h4>Wedding Dress Preservation</h4>
               </article>
 
               <article className="specialty-card specialty-bg-lavender">
                 <div className="specialty-image">
-                  <img className="service-image" src={beddingImage} alt="Comforters and bedding care" />
+                  <img className="service-image" src={imageAssets.beddingImage} alt="Comforters and bedding care" />
                 </div>
                 <h4>Comforters & Bedding</h4>
               </article>
 
               <article className="specialty-card specialty-bg-blush">
                 <div className="specialty-image">
-                  <img className="service-image" src={woolImage} alt="Wool garment care" />
+                  <img className="service-image" src={imageAssets.woolImage} alt="Wool garment care" />
                 </div>
                 <h4>Wool</h4>
               </article>
 
               <article className="specialty-card specialty-bg-sky">
                 <div className="specialty-image">
-                  <img className="service-image" src={cashmereImage} alt="Cashmere garment care" />
+                  <img className="service-image" src={imageAssets.cashmereImage} alt="Cashmere garment care" />
                 </div>
                 <h4>Cashmere</h4>
               </article>
 
               <article className="specialty-card specialty-bg-cream">
                 <div className="specialty-image">
-                  <img className="service-image" src={silkImage} alt="Silk garment care" />
+                  <img className="service-image" src={imageAssets.silkImage} alt="Silk garment care" />
                 </div>
                 <h4>Silk</h4>
               </article>
 
               <article className="specialty-card specialty-bg-lavender">
                 <div className="specialty-image">
-                  <img className="service-image" src={sportswearImage} alt="Sports wear care" />
+                  <img className="service-image" src={imageAssets.sportswearImage} alt="Sports wear care" />
                 </div>
                 <h4>Sports Wear</h4>
               </article>
 
               <article className='specialty-card specialty-bg-blush'>
                 <div className="specialty-image">
-                  <img className="service-image" src={customImage} alt="Custom garment care" />
+                  <img className="service-image" src={imageAssets.customImage} alt="Custom garment care" />
                 </div>
                 <h4>Customs</h4>
               </article>
 
               <article className='specialty-card specialty-bg-sky'>
                 <div className="specialty-image">
-                  <img className="service-image" src={accessoriesImage} alt="Accessory care services" />  
+                  <img className="service-image" src={imageAssets.accessoriesImage} alt="Accessory care services" />  
                 </div>
                 <h4>Accessories</h4>
               </article>
@@ -255,7 +304,7 @@ function App() {
           <div className="service-featured service-featured-reverse">
             
             <div className="service-featured-visual service-bg-sage">
-              <img className="service-image" src={sewingMachineImage} alt="Sewing machine for alterations" />
+              <img className="service-image" src={imageAssets.sewingMachineImage} alt="Sewing machine for alterations" />
             </div>
             <div className="service-featured-content">
               <span className="service-number">02</span>
@@ -287,7 +336,7 @@ function App() {
           </div>
 
           <div className="about-visual">
-            <img className="about-image" src={interiorImage} alt="Interior of K & B dry cleaning shop" />
+            <img className="about-image" src={imageAssets.interiorImage} alt="Interior of K & B dry cleaning shop" />
           </div>
         </section>
 
