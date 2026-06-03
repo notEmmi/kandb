@@ -87,7 +87,7 @@ function App() {
           <a href="tel:+17166683088" className="quick-contact-link" aria-label="Call K and B Dry Cleaners">
             (716) 668-3088
           </a>
-          <a href="mailto:kandbcleaner@gmail.com" className="quick-contact-link" aria-label="Email K and B Dry Cleaners">
+          <a href="mailto:kandbcleaners3451@gmail.com" className="quick-contact-link" aria-label="Email K and B Dry Cleaners">
             kandbcleaner@gmail.com
           </a>
           <a
@@ -367,7 +367,7 @@ function App() {
                     <strong>Email</strong>
                   </div>
                   <p>
-                    <a className="phone-link" href="mailto:kandbcleaner@gmail.com">kandbcleaner@gmail.com</a>
+                    <a className="phone-link" href="mailto:kandbcleaners3451@gmail.com">kandbcleaners3451@gmail.com</a>
                   </p>
                 </div>
                 <div className="info-item">
@@ -494,7 +494,7 @@ function App() {
           <p>&copy; {new Date().getFullYear()} K & B Dry Cleaners and Alterations. All rights reserved.</p>
           <div className="footer-contact">
             <p>Contact Us</p>
-            <a href="mailto:kandbcleaner@gmail.com">kandbcleaner@gmail.com</a>
+            <a href="mailto:kandbcleaners3451@gmail.com">kandbcleaners3451@gmail.com</a>
             <a href="tel:+17166683088">(716) 668-3088</a>
           </div>
         </div>
