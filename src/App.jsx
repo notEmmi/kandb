@@ -88,7 +88,7 @@ function App() {
             (716) 668-3088
           </a>
           <a href="mailto:kandbcleaners3451@gmail.com" className="quick-contact-link" aria-label="Email K and B Dry Cleaners">
-            kandbcleaner@gmail.com
+            kandbcleaners3451@gmail.com
           </a>
           <a
             href="https://www.instagram.com/kandbcleaners/"
