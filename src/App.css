@@ -206,7 +206,8 @@ section {
   justify-content: space-between;
   align-items: center;
   gap: var(--space-4);
-  padding: var(--space-4) var(--space-6) 0 var(--space-6);
+  padding-top: var(--space-4);
+  padding-top: var(--space-10);
   background: var(--background);
   border-bottom: 1px solid var(--border);
 }
