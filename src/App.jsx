@@ -124,6 +124,7 @@ function App() {
 
         <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id="primary-navigation">
           <a href="#services" onClick={closeMobileMenu}>Services</a>
+          <a href="#reviews" onClick={closeMobileMenu}>Reviews</a>
           <a href="#about" onClick={closeMobileMenu}>About Us</a>
           <a href="#contact" onClick={closeMobileMenu}>Contact</a>
         </div>
