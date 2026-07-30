@@ -23,6 +23,8 @@ const imageAssets = {
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  
+  const publicUrl = import.meta.env.BASE_URL || '/kandb/'
 
   const closeMobileMenu = () => setMobileMenuOpen(false)
 
@@ -181,7 +183,7 @@ function App() {
         
 
           <div className="hero-visual">
-            <img className="hero-image" src='/hero.jpg' alt="Professional garment care services" fetchPriority="high" />
+            <img className="hero-image" src={`${publicUrl}hero.jpg`} alt="Professional garment care services" fetchPriority="high" />
           </div>
         </section>
 
