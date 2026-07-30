@@ -181,7 +181,7 @@ function App() {
         
 
           <div className="hero-visual">
-            <img className="hero-image" src={heroImage} alt="Professional garment care services" fetchPriority="high" />
+            <img className="hero-image" src='/hero.jpg' alt="Professional garment care services" fetchPriority="high" />
           </div>
         </section>
 
