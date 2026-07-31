@@ -410,7 +410,6 @@ section {
   width: 100%;
   max-width: 100%;
   height: auto;
-  border-radius: var(--radius-md);
   object-fit: cover;
 }
 
@@ -439,7 +438,6 @@ section {
   min-height: 320px;
   background: linear-gradient(135deg, var(--card), var(--secondary));
   border: 2px dashed var(--border);
-  border-radius: var(--radius-md);
 }
 
 .placeholder-image span {
@@ -462,7 +460,6 @@ section {
   height: 140px;
   background: linear-gradient(135deg, var(--card), var(--secondary));
   border: 1px dashed var(--border);
-  border-radius: var(--radius-md);
 }
 
 .placeholder-icon span {
@@ -478,7 +475,6 @@ section {
   min-height: 320px;
   max-width: 100%;
   object-fit: cover;
-  border-radius: var(--radius-md);
 }
 
 /* ========================================
@@ -505,7 +501,6 @@ section {
 
 .service-featured-visual {
   position: relative;
-  border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 4 / 3;
 }
@@ -524,7 +519,6 @@ section {
   height: 100%;
   min-height: 240px;
   border: 2px dashed rgba(0, 0, 0, 0.1);
-  border-radius: var(--radius-md);
 }
 
 .placeholder-featured span {
@@ -578,7 +572,6 @@ section {
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--primary);
-  border-radius: var(--radius-sm);
 }
 
 /* Specialties Section */
@@ -641,7 +634,7 @@ section {
 .specialty-card {
   position: relative;
   padding: var(--space-4);
-  border-radius: var(--radius-lg);
+
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -654,7 +647,7 @@ section {
 .specialty-image {
   aspect-ratio: 1;
   margin-bottom: var(--space-3);
-  border-radius: var(--radius-md);
+
   overflow: hidden;
 }
 
@@ -673,7 +666,7 @@ section {
   min-height: 100px;
   background: rgba(255, 255, 255, 0.5);
   border: 1px dashed rgba(0, 0, 0, 0.1);
-  border-radius: var(--radius-md);
+
 }
 
 .placeholder-specialty span {
