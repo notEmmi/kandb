@@ -32,8 +32,8 @@ const facebookSVG = (
 )
 
 function App() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)  
+
   const publicUrl = import.meta.env.BASE_URL || '/kandb/'
 
   const closeMobileMenu = () => setMobileMenuOpen(false)
@@ -87,6 +87,7 @@ function App() {
     return `${hr12}:${m.toString().padStart(2, '0')} ${ampm}`
   }
 
+
   return (
     <div className="app">
       <div className="quick-contact">
@@ -125,7 +126,7 @@ function App() {
       <nav className="top-nav">
         <div className="logo">
           <img className="logo-img" src={`${publicUrl}logo.svg`} alt="K & B logo" />
-          <span className="logo-tagline">Dry Cleaners &<br/>Alterations</span>
+          <p className="logo-tagline">Dry Cleaners &<br/>Alterations</p>
         </div>
 
         <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id="primary-navigation">
