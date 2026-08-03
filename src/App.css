@@ -139,7 +139,7 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: var(--space-2) clamp(20px, 4vw, 24px);
-  background: var(--foreground);
+  background: var(--background);
   font-size: clamp(0.8125rem, 0.3vw + 0.75rem, 0.875rem); 
 }
 
@@ -205,11 +205,11 @@ section {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: var(--space-4);
-  padding-top: var(--space-4);
-  padding-top: var(--space-10);
-  background: var(--background);
-  border-bottom: 1px solid var(--border);
+  padding: clamp(12px, 2vw, 16px) clamp(16px, 4vw, 40px);
+
+  background: var(--foreground);
+  border-bottom: 1px solid var(--primary);
+  border-top: 1px solid var(--primary);
 }
 
 .logo-img {
