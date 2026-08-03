@@ -205,7 +205,7 @@ section {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: clamp(12px, 2vw, 16px) clamp(16px, 4vw, 40px);
+  padding: clamp(8px, 1.5vw, 12px) clamp(16px, 4vw, 40px);
   background: var(--foreground);
   border-bottom: 1px solid color-mix(in srgb, var(--primary) 10%, var(--muted) 90%);
   border-top: 1px solid color-mix(in srgb, var(--primary) 10%, var(--muted) 90%);
@@ -224,6 +224,7 @@ section {
 
 .logo-tagline {
   font-size: clamp(0.75rem, 0.2vw + 0.7rem, 0.8rem); 
+  line-height: 1.2;
   text-transform: uppercase;
   padding-bottom: 0;
   margin: 0;
