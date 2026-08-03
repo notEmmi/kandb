@@ -139,9 +139,8 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: var(--space-2) clamp(20px, 4vw, 24px);
-  border-bottom: 1px solid var(--border);
   background: var(--foreground);
-  font-size: 0.8rem;
+  font-size: clamp(0.8125rem, 0.3vw + 0.75rem, 0.875rem); 
 }
 
 .quick-contact-status {
@@ -150,7 +149,7 @@ section {
   gap: 8px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: clamp(0.8125rem, 0.3vw + 0.75rem, 0.875rem); 
 }
 
 .quick-contact-status.is-open {
