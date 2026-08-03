@@ -194,7 +194,7 @@ function App() {
 
         <section className="services" id="services">
           <div className="services-header">
-            <span className="section-label">Our Services</span>
+            <span className="section-label label">Our Services</span>
             <h2>What We Offer</h2>
             <div className="header-line" aria-hidden="true"></div>
           </div>

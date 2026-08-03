@@ -88,7 +88,7 @@ p {
   color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
 }
 
-.small p {
+.label, .small p {
   font-size: clamp(0.8125rem, 0.3vw + 0.75rem, 0.875rem); 
   color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
   line-height: 1.4; 
@@ -207,8 +207,8 @@ section {
   align-items: center;
   padding: clamp(8px, 1.5vw, 12px) clamp(16px, 4vw, 40px);
   background: var(--foreground);
-  border-bottom: 1px solid color-mix(in srgb, var(--primary) 10%, var(--muted) 90%);
-  border-top: 1px solid color-mix(in srgb, var(--primary) 10%, var(--muted) 90%);
+  border-bottom: 1px solid var(--accent);
+  border-top: 1px solid var(--accent);
 }
 
 .logo-img {
@@ -230,24 +230,20 @@ section {
   margin: 0;
 }
 
-.logo-tagline.is-hidden {
-  display: none;
-}
-
 .nav-links {
   display: flex;
-  gap: var(--space-8);
+  gap: 24px;
 }
 
 .nav-links a {
-  font-size: 0.9rem;
+  font-size: clamp(0.875rem, 0.3vw + 0.75rem, 1rem);
   font-weight: 500;
-  color: var(--muted-foreground);
+  color: var(--primary);
   transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 .nav-toggle {
