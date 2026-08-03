@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
-import logo from './assets/logo.svg'
-import heroImage from './assets/hero.webp'
-
 const imageAssets = {
   interiorImage: new URL('./assets/aboutme.webp', import.meta.url).href,
   hungClothesImage: new URL('./assets/clothes.webp', import.meta.url).href,
@@ -18,7 +15,6 @@ const imageAssets = {
   sportswearImage: new URL('./assets/sportswear.webp', import.meta.url).href,
   customImage: new URL('./assets/customs.webp', import.meta.url).href,
   accessoriesImage: new URL('./assets/accessories.webp', import.meta.url).href,
-  instagramQRCode: new URL('./assets/kandbcleaners_qr.webp', import.meta.url).href,
 }
 
 const instagramSVG = (  
