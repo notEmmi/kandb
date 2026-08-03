@@ -120,8 +120,8 @@ function App() {
       </div>
       <nav className="top-nav">
         <div className="logo">
-          <img className="logo-img" src={logo} alt="K & B logo" />
-          {/* <span className="logo-tagline">Dry Cleaners &<br/>Alterations</span> */}
+          <img className="logo-img" src={`${publicUrl}logo.svg`} alt="K & B logo" />
+          <span className="logo-tagline">Dry Cleaners &<br/>Alterations</span>
         </div>
 
         <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id="primary-navigation">
