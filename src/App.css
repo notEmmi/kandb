@@ -206,15 +206,13 @@ section {
   justify-content: space-between;
   align-items: center;
   padding: clamp(12px, 2vw, 16px) clamp(16px, 4vw, 40px);
-
   background: var(--foreground);
-  border-bottom: 1px solid var(--primary);
-  border-top: 1px solid var(--primary);
+  border-bottom: 1px solid color-mix(in srgb, var(--primary) 10%, var(--muted) 90%);
+  border-top: 1px solid color-mix(in srgb, var(--primary) 10%, var(--muted) 90%);
 }
 
 .logo-img {
-  height: 78px;
-  width: auto;
+  width: 120px;
 }
 
 .logo {
@@ -226,7 +224,7 @@ section {
 
 .logo-tagline {
   font-size: 0.7rem;
-  color: var(--muted-foreground);
+  color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding-bottom: 0;
