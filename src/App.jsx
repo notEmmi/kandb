@@ -163,7 +163,7 @@ function App() {
 
             <h1 id="hero-title">Meticulous care for</h1>
             <h1 className="accent"><i>your finest garments</i></h1>
-            <p>Where precision meets elegance. Expert cleaning, tailoring, and preservation for everything from everyday wear to cherished heirlooms.</p>
+            <p>Where precision meets elegance. Expert cleaning, tailoring, and pressing for everything from everyday wear to cherished heirlooms.</p>
 
             <div className="hero-cta">
               <button

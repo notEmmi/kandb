@@ -88,9 +88,10 @@ p {
   color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
 }
 
-.label, .small p {
-  font-size: clamp(0.8125rem, 0.3vw + 0.75rem, 0.875rem); 
+.label {
+  font-size: clamp(0.875rem, 0.3vw + 0.75rem, 1rem);
   color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
+  font-weight: 700;  
   line-height: 1.4; 
   letter-spacing: 0.06em–0.1em; 
   margin: 0 0 10px;
@@ -121,13 +122,6 @@ a {
   padding: 0 clamp(20px, 4vw, 24px);
 }
 
-section {
-  padding: clamp(48px, 8vw, 96px);
-  max-width: 1100px;
-  margin: 0 auto;
-  scroll-margin-top: var(--anchor-offset);
-}
-
 
 
 /* ========================================
@@ -139,8 +133,9 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: var(--space-2) clamp(20px, 4vw, 24px);
-  background: var(--background);
-  font-size: clamp(0.8125rem, 0.3vw + 0.75rem, 0.875rem); 
+  background: var(--primary);
+  font-size: clamp(0.8125rem, 0.3vw + 0.75rem, 0.875rem);
+  color: var(--background); 
 }
 
 .quick-contact-status {
@@ -153,11 +148,11 @@ section {
 }
 
 .quick-contact-status.is-open {
-  color: #166534;
+  color: #aeffcd;
 }
 
 .quick-contact-status.is-closed {
-  color: #991b1b;
+  color: #ffadad;
 }
 
 .status-dot {
@@ -178,7 +173,7 @@ section {
 .quick-contact-icon {
   display: inline-flex;
   align-items: center;
-  color: var(--primary);
+  color: var(--background);
   transition: color 0.2s ease;
 }
 
@@ -206,7 +201,7 @@ section {
   justify-content: space-between;
   align-items: center;
   padding: clamp(8px, 1.5vw, 12px) clamp(16px, 4vw, 40px);
-  background: var(--foreground);
+  background: var(--background);
   border-bottom: 1px solid var(--accent);
   border-top: 1px solid var(--accent);
 }
@@ -275,35 +270,40 @@ section {
    ======================================== */
 
 .hero {
-  display: grid;
-  gap: var(--space-12);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   align-items: center;
+  gap: 64px;
   min-height: 85vh;
-  padding-top: var(--space-16) !important;
-  padding-bottom: var(--space-16) !important;
+  padding: clamp(48px, 8vw, 96px) 0;
 }
 
 .hero-copy {
+  display: block;
   text-align: center;
 }
 
 .hero-tags {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-10);
+  gap: 10px;
+  margin-bottom: 28px;
 }
 
 .tag {
-  padding: var(--space-2) var(--space-4);
-  background: var(--card);
-  border: 1px solid var(--border);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  font-size: clamp(0.75rem, 0.2vw + 0.7rem, 0.8rem); 
+  font-weight: 700;
+  background: var(--foreground);
+  padding: clamp(2px, 0.2vw + 2px, 4px) clamp(6px, 0.5vw + 4px, 8px);
   text-transform: uppercase;
-  color: var(--primary);
+  color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
+  line-height: normal;
+  letter-spacing: 0.06em;
 }
 
 .dot {
@@ -320,6 +320,8 @@ section {
 
 .hero h1.accent {
   color: var(--accent);
+  font-weight: 500;
+  font-style: italic;
 }
 
 .hero p {
