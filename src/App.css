@@ -16,26 +16,19 @@
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-serif: 'Playfair Display', serif;
 
-  /* Spacing */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-10: 40px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-24: 96px;
-  --space-32: 128px;
-
-  /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
-
   /* Sticky header offset for anchor targets */
   --anchor-offset: 0.50rem;
+  /* Fluid spacing scale (clamp: min, preferred, max) */
+  --space-1: clamp(3px, calc(0.2vw + 4px), 6px);
+  --space-2: clamp(6px, calc(0.3vw + 8px), 12px);
+  --space-3: clamp(9px, calc(0.4vw + 12px), 16px);
+  --space-4: clamp(12px, calc(0.5vw + 16px), 20px);
+  --space-6: clamp(18px, calc(0.6vw + 24px), 30px);
+  --space-8: clamp(24px, calc(0.8vw + 32px), 40px);
+  --space-10: clamp(30px, calc(1vw + 40px), 48px);
+  --space-12: clamp(36px, calc(1.2vw + 48px), 60px);
+  --space-16: clamp(48px, calc(1.6vw + 64px), 80px);
+  --space-32: clamp(96px, calc(3vw + 128px), 160px);
 }
 
 /* ========================================
@@ -70,7 +63,7 @@ h1 {
 
 h2 {
   font-size: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
-  margin: 0 0 12px;
+  margin: 0 0 var(--space-3);
   line-height: 1.2;
 }
 
@@ -132,7 +125,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-2) clamp(20px, 4vw, 24px);
+  padding: 8px clamp(20px, 4vw, 24px);
   background: var(--foreground);
   font-size: clamp(0.8125rem, 0.3vw + 0.75rem, 0.875rem);
   color: var(--background); 
@@ -141,7 +134,7 @@ a {
 .quick-contact-status {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2);
   font-weight: 600;
   text-transform: uppercase;
   font-size: clamp(0.8125rem, 0.3vw + 0.75rem, 0.875rem); 
@@ -165,7 +158,7 @@ a {
 .quick-contact-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-3);
   flex-wrap: wrap;
 }
 
@@ -228,7 +221,7 @@ a {
 
 .nav-links {
   display: flex;
-  gap: 24px;
+  gap: var(--space-6);
 }
 
 .nav-links a {
@@ -330,7 +323,7 @@ a {
 }
 
 .hero p {
-  margin: 16px auto 0;
+  margin: var(--space-4) auto 0;
   max-width: 480px;
 }
 
@@ -339,7 +332,7 @@ a {
   justify-content: flex-start;
   flex-wrap: wrap;
   align-items: stretch;
-  gap: 16px;
+  gap: var(--space-4);
   flex-wrap: wrap;
 }
 
@@ -353,8 +346,8 @@ a {
   align-items: center;
   justify-content: flex-start;
   flex-wrap: nowrap;
-  gap: 8px;
-  padding: var(--space-4) var(--space-8);
+  gap: var(--space-2);
+  padding: 16px 24px;
   font-family: var(--font-sans);
   font-size: clamp(0.75rem, 0.3vw + 0.75rem, 0.875rem);
   font-weight: 700;
@@ -496,7 +489,7 @@ a {
    Services Section
    ======================================== */
 .services-header {
-  margin-bottom: var(--space-16);
+  margin-bottom: 48px;
 }
 
 .header-line {
@@ -619,7 +612,7 @@ a {
 }
 
 .subsection-desc {
-  margin: 0 0 var(--space-3);
+  margin: 0 0 12px;
   color: var(--muted-foreground);
   font-size: 0.95rem;
 }
@@ -751,7 +744,7 @@ a {
 }
 
 .about p {
-  margin: var(--space-4) auto 0;
+  margin: 16px auto 0;
   max-width: 540px;
 }
 
@@ -782,13 +775,13 @@ a {
 .info-item {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 8px;
 }
 
 .info-header {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: 8px;
 }
 
 .info-header svg {
@@ -927,7 +920,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-3);
+  gap: 12px;
 }
 
 .footer-social > span,
@@ -941,7 +934,7 @@ a {
 
 .social-links {
   display: flex;
-  gap: var(--space-6);
+  gap: 24px;
   align-items: center;
   justify-content: center;
 }
@@ -949,7 +942,7 @@ a {
 .social-links a {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: 8px;
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--primary);
@@ -971,7 +964,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-2);
+  gap: 8px;
 }
 
 .footer-partner a {
@@ -1023,7 +1016,7 @@ a {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: var(--space-4);
+  gap: 16px;
 }
 
 .footer-contact p {
@@ -1046,249 +1039,3 @@ a {
   opacity: 0.7;
 }
 
-/* ========================================
-   Responsive Design
-   ======================================== */
-
-@media (max-width: 767px) {
-  :root {
-    --anchor-offset: 0.5rem;
-  }
-
-  .quick-contact {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: var(--space-2) var(--space-4);
-  }
-
-  .quick-contact-right {
-    width: 100%;
-    justify-content: flex-start;
-    gap: var(--space-2) var(--space-3);
-  }
-
-  .quick-contact-link {
-    font-size: 0.78rem;
-  }
-
-  .nav-toggle {
-    display: inline-flex;
-  }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    gap: 0;
-    padding: var(--space-4);
-    background: var(--background);
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 16px 32px rgba(27, 19, 15, 0.1);
-  }
-
-  .nav-links.is-open {
-    display: flex;
-  }
-
-  .nav-links a {
-    padding: var(--space-3) 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero-tags {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-  }
-
-  .tag {
-    padding: 3px 8px;
-    font-size: 0.68rem;
-  }
-
-  .dot {
-    width: 4px;
-    height: 4px;
-  }
-
-  .top-footer {
-    padding: var(--space-6) var(--space-4);
-  }
-
-  .bottom-footer {
-    flex-direction: column;
-    align-items: center;
-    padding: var(--space-6) var(--space-4);
-  }
-
-  .bottom-footer > p {
-    max-width: 28rem;
-  }
-
-  .footer-contact {
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-2);
-  }
-
-  .footer-contact a {
-    overflow-wrap: anywhere;
-  }
-}
-
-@media (max-width: 480px) {
-  .quick-contact {
-    gap: var(--space-2);
-  }
-
-  .quick-contact-status {
-    font-size: 0.72rem;
-  }
-
-  .quick-contact-right {
-    gap: var(--space-2);
-  }
-
-  .quick-contact-link {
-    font-size: 0.72rem;
-  }
-
-  .quick-contact-icon {
-    width: 28px;
-    height: 28px;
-    justify-content: center;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: #fff;
-  }
-}
-
-@media (min-width: 768px) {
-  :root {
-    --anchor-offset: 0.5rem;
-  }
-
-  .main {
-    padding: 0 var(--space-12);
-  }
-
-  section {
-    padding: var(--space-32) 0;
-  }
-
-  .hero {
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: var(--space-16);
-  }
-
-  .hero-copy {
-    text-align: left;
-  }
-
-  .hero-tags {
-    justify-content: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .hero-cta {
-    margin-top: 24px;
-    justify-content: flex-start;
-  }
-
-  .hero h1 {
-    font-size: 3rem;
-  }
-
-  .service-featured {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12);
-    align-items: center;
-  }
-
-  .service-featured-reverse {
-    direction: rtl;
-  }
-
-  .service-featured-reverse > * {
-    direction: ltr;
-  }
-
-  .service-featured-visual {
-    aspect-ratio: 1;
-  }
-
-  .specialty-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .about {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .about-content {
-    text-align: left;
-  }
-
-  .about p {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .about-image {
-    max-width: 560px;
-  }
-
-  .contact-layout {
-    grid-template-columns: 1fr 1.2fr;
-    align-items: stretch;
-  }
-
-  .map-placeholder,
-  .google-map {
-    height: 100%;
-    min-height: 280px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .main {
-    padding: 0 var(--space-16);
-  }
-
-  .hero h1 {
-    font-size: 3.5rem;
-  }
-
-  .placeholder-image {
-    min-height: 400px;
-  }
-
-  .map-placeholder,
-  .google-map {
-    min-height: 400px;
-  }
-
-  .specialty-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-6);
-  }
-
-  .specialty-card {
-    padding: var(--space-6);
-  }
-
-  .placeholder-specialty {
-    min-height: 140px;
-  }
-}
