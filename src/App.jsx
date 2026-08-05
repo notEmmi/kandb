@@ -31,6 +31,13 @@ const facebookSVG = (
   </svg>
 )
 
+const arrowRightSVG = (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+  </svg>
+)
+
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)  
 
@@ -92,7 +99,7 @@ function App() {
     <div className="app">
       <div className="quick-contact">
         <div className={`quick-contact-status ${isCurrentlyOpen ? 'is-open' : 'is-closed'}`}>
-          <span className="status-dot" aria-hidden="true"></span>
+          <span className="dot" aria-hidden="true"></span>
           <span>{isCurrentlyOpen ? 'Open now' : 'Closed'}</span>
         </div>
 
@@ -161,8 +168,10 @@ function App() {
               <div className="tag">Pressing</div>
             </div>
 
-            <h1 id="hero-title">Meticulous care for</h1>
-            <h1 className="accent"><i>your finest garments</i></h1>
+            <h1 id="hero-title">Meticulous care for<br/>
+              <span className="accent"><i>your finest garments</i></span>
+            </h1>
+            
             <p>Where precision meets elegance. Expert cleaning, tailoring, and pressing for everything from everyday wear to cherished heirlooms.</p>
 
             <div className="hero-cta">
@@ -171,17 +180,11 @@ function App() {
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <span>Request More Info</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
+                {arrowRightSVG}
               </button>
               <a className="btn btn-secondary" href="#services">
                 <span>View Services</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
+                {arrowRightSVG}
               </a>
             </div>
           </div>
@@ -219,7 +222,7 @@ function App() {
                 <span className="service-item">And More...</span>
               </div>
               <div className="service-note">
-                <span className="note-dot"></span>
+                <span className="note dot"></span>
                 <p>Expedited turnaround available upon request</p>
               </div>
             </div>
