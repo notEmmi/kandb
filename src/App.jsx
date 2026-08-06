@@ -190,17 +190,19 @@ function App() {
           </div>
         
 
-          <div className="hero-visual">
+          <div className="image-container">
             <img className="hero-image" src={`${publicUrl}hero.jpg`} alt="Suite " fetchPriority="high" />
           </div>
         </section>
 
         <section className="services" id="services">
           <div className="services-header">
-            <span className="section-label label">Our Services</span>
-            <h2>What We Offer</h2>
+            <p className="section-label small accent">WHAT WE OFFER</p>
+            <h2>Our Services</h2>
             <div className="header-line" aria-hidden="true"></div>
           </div>
+          <div className="dry-cleaning">
+            
 
           <div className="service-featured">
             <div className="service-featured-visual service-bg-warm">
