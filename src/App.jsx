@@ -201,7 +201,15 @@ function App() {
             <h2>Our Services</h2>
             <div className="header-line" aria-hidden="true"></div>
           </div>
-          <div className="dry-cleaning">
+          <div className="dry-cleaning-content">
+            <div className="dry-cleaning-header">
+              <h3>Dry Cleaning</h3>
+              <p>We provide expert dry cleaning services for a wide range of garments, from everyday wear to delicate fabrics.</p>
+            </div>
+            <div className="dry-cleaning-items">
+              
+            </div>
+          </div>
             
 
           <div className="service-featured">
