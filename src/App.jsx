@@ -17,7 +17,30 @@ const imageAssets = {
   accessoriesImage: new URL('./assets/accessories.webp', import.meta.url).href,
 }
 
-const instagramSVG = (  
+const dryCleaningItems = [
+  { id: 'dc-leather', label: 'Leather & Suede', image: imageAssets.leatherImage, alt: 'Leather garment care' },
+  { id: 'dc-uggs', label: 'UGGs & Footwear', image: imageAssets.uggsImage, alt: 'UGGs and footwear care' },
+  { id: 'dc-wedding', label: 'Wedding Dress Preservation', image: imageAssets.weddingDressImage, alt: 'Wedding dress preservation' },
+  { id: 'dc-bedding', label: 'Comforters & Bedding', image: imageAssets.beddingImage, alt: 'Comforters and bedding care' },
+  { id: 'dc-wool', label: 'Wool', image: imageAssets.woolImage, alt: 'Wool garment care' },
+  { id: 'dc-cashmere', label: 'Cashmere', image: imageAssets.cashmereImage, alt: 'Cashmere garment care' },
+  { id: 'dc-silk', label: 'Silk', image: imageAssets.silkImage, alt: 'Silk garment care' },
+  { id: 'dc-sportswear', label: 'Sports Wear', image: imageAssets.sportswearImage, alt: 'Sports wear care' },
+  { id: 'dc-customs', label: 'Customs', image: imageAssets.customImage, alt: 'Custom garment care' },
+  { id: 'dc-accessories', label: 'Accessories', image: imageAssets.accessoriesImage, alt: 'Accessory care services' },
+]
+
+// PLACEHOLDER CONTENT — these are example testimonials from the design mockup,
+// not real customer reviews. Swap for real Google reviews before this ships.
+const reviews = [
+  { id: 'review-1', initial: 'M', name: 'Marie T.', location: 'West Seneca, NY', quote: "They treat every garment like it's their own. My wedding dress came back better than new." },
+  { id: 'review-2', initial: 'D', name: 'David R.', location: 'Buffalo, NY', quote: 'Fast, friendly, and the alterations are flawless. This is the only cleaners I trust with suits.' },
+  { id: 'review-3', initial: 'L', name: 'Linda S.', location: 'West Seneca, NY', quote: "Same great care since they took over. I've been a customer for over a decade." },
+]
+
+const giftTierValues = [25, 50, 100, 150]
+
+const instagramSVG = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -38,8 +61,37 @@ const arrowRightSVG = (
   </svg>
 )
 
+// Holiday closures (America/New_York). Fixed-date holidays are hardcoded;
+// floating holidays are derived by weekday rule so they stay correct every year.
+const getNthWeekdayOfMonth = (year, month, weekday, n) => {
+  const d = new Date(Date.UTC(year, month - 1, 1))
+  let count = 0
+  while (true) {
+    if (d.getUTCDay() === weekday) {
+      count += 1
+      if (count === n) return d.getUTCDate()
+    }
+    d.setUTCDate(d.getUTCDate() + 1)
+  }
+}
+
+const getLastWeekdayOfMonth = (year, month, weekday) => {
+  const d = new Date(Date.UTC(year, month, 0))
+  while (d.getUTCDay() !== weekday) d.setUTCDate(d.getUTCDate() - 1)
+  return d.getUTCDate()
+}
+
+const getHolidaysForYear = (year) => [
+  { name: "New Year's Day", month: 1, day: 1 },
+  { name: 'Memorial Day', month: 5, day: getLastWeekdayOfMonth(year, 5, 1) },
+  { name: 'Independence Day', month: 7, day: 4 },
+  { name: 'Labor Day', month: 9, day: getNthWeekdayOfMonth(year, 9, 1, 1) },
+  { name: 'Thanksgiving', month: 11, day: getNthWeekdayOfMonth(year, 11, 4, 4) },
+  { name: 'Christmas Day', month: 12, day: 25 },
+]
+
 function App() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)  
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const publicUrl = import.meta.env.BASE_URL || '/kandb/'
 
@@ -60,16 +112,26 @@ function App() {
     const now = new Date()
     const parts = new Intl.DateTimeFormat('en-US', {
       timeZone: 'America/New_York',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
       weekday: 'short',
       hour: '2-digit',
       minute: '2-digit',
       hour12: false,
     }).formatToParts(now)
 
-    const weekday = parts.find((p) => p.type === 'weekday')?.value || ''
-    const hour = parseInt(parts.find((p) => p.type === 'hour')?.value || '0', 10)
-    const minute = parseInt(parts.find((p) => p.type === 'minute')?.value || '0', 10)
-    return { weekday, minutes: hour * 60 + minute }
+    const getPart = (type) => parts.find((p) => p.type === type)?.value || ''
+    const weekday = getPart('weekday')
+    const hour = parseInt(getPart('hour') || '0', 10)
+    const minute = parseInt(getPart('minute') || '0', 10)
+    return {
+      weekday,
+      minutes: hour * 60 + minute,
+      year: parseInt(getPart('year') || '0', 10),
+      month: parseInt(getPart('month') || '0', 10),
+      day: parseInt(getPart('day') || '0', 10),
+    }
   }
 
   const [nowNY, setNowNY] = useState(getNYTime())
@@ -79,12 +141,25 @@ function App() {
     return () => clearInterval(id)
   }, [])
 
+  const todaysHoliday = getHolidaysForYear(nowNY.year).find(
+    (h) => h.month === nowNY.month && h.day === nowNY.day
+  )
+
   const todaySchedule = hoursSchedule.find((h) => h.day === nowNY.weekday)
   const isCurrentlyOpen = Boolean(
-    todaySchedule?.open &&
+    !todaysHoliday &&
+      todaySchedule?.open &&
       nowNY.minutes >= todaySchedule.start &&
       nowNY.minutes < todaySchedule.end
   )
+
+  const statusLabel = todaysHoliday
+    ? `Closed — ${todaysHoliday.name}`
+    : isCurrentlyOpen
+    ? 'Open now'
+    : 'Closed'
+
+  const statusClass = todaysHoliday ? 'is-holiday' : isCurrentlyOpen ? 'is-open' : 'is-closed'
 
   const formatTime = (minutes) => {
     const h = Math.floor(minutes / 60)
@@ -94,13 +169,49 @@ function App() {
     return `${hr12}:${m.toString().padStart(2, '0')} ${ampm}`
   }
 
+  // Gift card request form — client-side only, no backend wired up yet.
+  // Wire submitGiftCard to a real email/order endpoint before launch.
+  const [giftTier, setGiftTier] = useState(50)
+  const [customAmount, setCustomAmount] = useState('')
+  const [recipientName, setRecipientName] = useState('')
+  const [recipientEmail, setRecipientEmail] = useState('')
+  const [giftMessage, setGiftMessage] = useState('')
+  const [giftSubmitted, setGiftSubmitted] = useState(false)
+
+  const giftAmount = customAmount ? parseInt(customAmount, 10) || 0 : giftTier || 0
+  const giftAmountDisplay = giftAmount > 0 ? `$${giftAmount}` : '$0'
+  const giftSubmitDisabled = !(giftAmount > 0 && recipientEmail)
+
+  const selectGiftTier = (value) => {
+    setGiftTier(value)
+    setCustomAmount('')
+  }
+
+  const handleCustomAmount = (e) => {
+    setCustomAmount(e.target.value.replace(/[^0-9]/g, ''))
+    setGiftTier(null)
+  }
+
+  const submitGiftCard = (e) => {
+    e.preventDefault()
+    if (giftAmount > 0 && recipientEmail) setGiftSubmitted(true)
+  }
+
+  const resetGiftCard = () => {
+    setGiftTier(50)
+    setCustomAmount('')
+    setRecipientName('')
+    setRecipientEmail('')
+    setGiftMessage('')
+    setGiftSubmitted(false)
+  }
 
   return (
     <div className="app">
       <div className="quick-contact">
-        <div className={`quick-contact-status ${isCurrentlyOpen ? 'is-open' : 'is-closed'}`}>
+        <div className={`quick-contact-status ${statusClass}`}>
           <span className="dot" aria-hidden="true"></span>
-          <span>{isCurrentlyOpen ? 'Open now' : 'Closed'}</span>
+          <span>{statusLabel}</span>
         </div>
 
         <div className="quick-contact-right">
@@ -139,6 +250,7 @@ function App() {
         <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id="primary-navigation">
           <a href="#services" onClick={closeMobileMenu}>Services</a>
           <a href="#reviews" onClick={closeMobileMenu}>Reviews</a>
+          <a href="#gift-cards" onClick={closeMobileMenu}>Gift Cards</a>
           <a href="#about" onClick={closeMobileMenu}>About Us</a>
           <a href="#contact" onClick={closeMobileMenu}>Contact</a>
         </div>
@@ -171,7 +283,7 @@ function App() {
             <h1 id="hero-title">Meticulous care for<br/>
               <span className="accent"><i>your finest garments</i></span>
             </h1>
-            
+
             <p>Where precision meets elegance. Expert cleaning, tailoring, and pressing for everything from everyday wear to cherished heirlooms.</p>
 
             <div className="hero-cta">
@@ -188,7 +300,6 @@ function App() {
               </a>
             </div>
           </div>
-        
 
           <div className="image-container">
             <img className="hero-image" src={`${publicUrl}hero.jpg`} alt="Suite " fetchPriority="high" />
@@ -197,153 +308,198 @@ function App() {
 
         <section className="services" id="services">
           <div className="services-header">
-            <p className="section-label small accent">WHAT WE OFFER</p>
+            <p className="section-label">WHAT WE DO</p>
             <h2>Our Services</h2>
             <div className="header-line" aria-hidden="true"></div>
           </div>
-          <div className="dry-cleaning-content">
-            <div className="dry-cleaning-header">
-              <h3>Dry Cleaning</h3>
-              <p>We provide expert dry cleaning services for a wide range of garments, from everyday wear to delicate fabrics.</p>
-            </div>
-            <div className="dry-cleaning-items">
-              
+
+          <div className="services-intro">
+            <h3>Dry Cleaning — Our Main Service</h3>
+            <p>We provide expert dry cleaning services for a wide range of garments, from everyday wear to delicate fabrics.</p>
+          </div>
+
+          <div className="dry-cleaning-grid">
+            {dryCleaningItems.map((item) => (
+              <article className="dry-cleaning-card" key={item.id}>
+                <div className="dry-cleaning-card-image">
+                  <img src={item.image} alt={item.alt} />
+                </div>
+                <div className="dry-cleaning-card-label">{item.label}</div>
+              </article>
+            ))}
+          </div>
+
+          <div className="service-chips-block">
+            <p className="section-label">Everyday & Casual Wear</p>
+            <div className="service-items">
+              <span className="service-item">Suits</span>
+              <span className="service-item">Shirts</span>
+              <span className="service-item">Pants</span>
+              <span className="service-item">Jackets</span>
+              <span className="service-item">Dresses</span>
+              <span className="service-item">Coats</span>
+              <span className="service-item">Skirts</span>
+              <span className="service-item">Blouses</span>
+              <span className="service-item">And More...</span>
             </div>
           </div>
-            
 
-          <div className="service-featured">
-            <div className="service-featured-visual service-bg-warm">
-              <img className="service-image" src={imageAssets.hungClothesImage} alt="Hung clothes ready for dry cleaning" />
-            </div>
-            <div className="service-featured-content">
-              <span className="service-number">01</span>
-              <h3>Dry Cleaning & Pressing</h3>
-              <p>Expert care for your everyday and fine garments, from business attire to delicate fabrics.</p>
-              <div className="service-items">
-                <span className="service-item">Suits</span>
-                <span className="service-item">Shirts</span>
-                <span className="service-item">Pants</span>
-                <span className="service-item">Jackets</span>
-                <span className="service-item">Dresses</span>
-                <span className="service-item">Coats</span>
-                <span className="service-item">Skirts</span>
-                <span className="service-item">Blouses</span>
-                <span className="service-item">And More...</span>
+          <p className="services-note">Expedited turnaround available upon request.</p>
+
+          <div className="services-grid">
+            <article className="service-card">
+              <div className="service-card-image">
+                <img src={imageAssets.sewingMachineImage} alt="Sewing machine for alterations" />
               </div>
-              <div className="service-note">
-                <span className="note dot"></span>
-                <p>Expedited turnaround available upon request</p>
+              <div className="service-card-content">
+                <h4>Alterations</h4>
+                <p>Precision tailoring to ensure the perfect fit, from simple hems to complete garment reshaping.</p>
+                <ul className="service-card-list">
+                  <li>Hemming</li>
+                  <li>Shortening</li>
+                  <li>Lengthening</li>
+                  <li>Taking In</li>
+                  <li>Taking Out</li>
+                  <li>Fitting</li>
+                  <li>Reshaping</li>
+                  <li>And More...</li>
+                </ul>
               </div>
+            </article>
+
+            <article className="service-card">
+              <div className="service-card-image">
+                <img src={imageAssets.hungClothesImage} alt="Freshly pressed clothes on hangers" />
+              </div>
+              <div className="service-card-content">
+                <h4>Pressing</h4>
+                <p>Crisp, professional pressing so everything you pick up looks ready to wear.</p>
+                <ul className="service-card-list">
+                  <li>Pressing with dry cleaning</li>
+                  <li>Pressing alone</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="reviews" id="reviews">
+          <div className="reviews-header">
+            <p className="section-label">CUSTOMER REVIEWS</p>
+            <h2>Trusted by our neighbors</h2>
+            {/* PLACEHOLDER — rating below is example copy from the design mockup, not a real figure. */}
+            <div className="reviews-rating">
+              <span className="reviews-stars">★★★★★</span>
+              <strong>4.9</strong>
+              <span>· based on Google reviews</span>
             </div>
-            
           </div>
 
-          {/* Specialties grouped under Dry Cleaning (full width below image + content) */}
-          <div className="specialties-section sub-specialties">
-            <div className="specialties-header">
-              <h4>Specialties</h4>
-              <p>We handle items that require extra care and expertise</p>
-            </div>
-
-            <div className="specialty-grid">
-              <article className="specialty-card specialty-bg-blush">
-                <div className="specialty-image">
-                  <img className="service-image" src={imageAssets.leatherImage} alt="Leather garment care" />
+          <div className="reviews-grid">
+            {reviews.map((review) => (
+              <article className="review-card" key={review.id}>
+                <div className="review-header">
+                  <div className="review-avatar" aria-hidden="true">{review.initial}</div>
+                  <div>
+                    <div className="review-name">{review.name}</div>
+                    <div className="review-location">{review.location}</div>
+                  </div>
                 </div>
-                <h4>Leather & Suede</h4>
+                <div className="review-stars">★★★★★</div>
+                <p className="review-quote">&ldquo;{review.quote}&rdquo;</p>
               </article>
-
-              <article className="specialty-card specialty-bg-sky">
-                <div className="specialty-image">
-                  <img className="service-image" src={imageAssets.uggsImage} alt="UGGs and footwear care" />
-                </div>
-                <h4>UGGs & Footwear</h4>
-              </article>
-
-              <article className="specialty-card specialty-bg-cream">
-                <div className="specialty-image">
-                  <img className="service-image" src={imageAssets.weddingDressImage} alt="Wedding dress preservation" />
-                </div>
-                <h4>Wedding Dress Preservation</h4>
-              </article>
-
-              <article className="specialty-card specialty-bg-lavender">
-                <div className="specialty-image">
-                  <img className="service-image" src={imageAssets.beddingImage} alt="Comforters and bedding care" />
-                </div>
-                <h4>Comforters & Bedding</h4>
-              </article>
-
-              <article className="specialty-card specialty-bg-blush">
-                <div className="specialty-image">
-                  <img className="service-image" src={imageAssets.woolImage} alt="Wool garment care" />
-                </div>
-                <h4>Wool</h4>
-              </article>
-
-              <article className="specialty-card specialty-bg-sky">
-                <div className="specialty-image">
-                  <img className="service-image" src={imageAssets.cashmereImage} alt="Cashmere garment care" />
-                </div>
-                <h4>Cashmere</h4>
-              </article>
-
-              <article className="specialty-card specialty-bg-cream">
-                <div className="specialty-image">
-                  <img className="service-image" src={imageAssets.silkImage} alt="Silk garment care" />
-                </div>
-                <h4>Silk</h4>
-              </article>
-
-              <article className="specialty-card specialty-bg-lavender">
-                <div className="specialty-image">
-                  <img className="service-image" src={imageAssets.sportswearImage} alt="Sports wear care" />
-                </div>
-                <h4>Sports Wear</h4>
-              </article>
-
-              <article className='specialty-card specialty-bg-blush'>
-                <div className="specialty-image">
-                  <img className="service-image" src={imageAssets.customImage} alt="Custom garment care" />
-                </div>
-                <h4>Customs</h4>
-              </article>
-
-              <article className='specialty-card specialty-bg-sky'>
-                <div className="specialty-image">
-                  <img className="service-image" src={imageAssets.accessoriesImage} alt="Accessory care services" />  
-                </div>
-                <h4>Accessories</h4>
-              </article>
-            </div>
-            
+            ))}
           </div>
+        </section>
 
-          <div className="services-divider" aria-hidden="true"></div>
+        <section className="gift-cards" id="gift-cards">
+          <div className="gift-cards-layout">
+            <div className="gift-cards-info">
+              <p className="section-label">GIFT CARDS</p>
+              <h2>Give the gift of great care</h2>
+              <p>A K&amp;B gift card covers dry cleaning, alterations, or pressing — perfect for a new home, a new job, or someone who deserves sharper clothes. Delivered by email, redeemable in-store.</p>
 
-          <div className="service-featured service-featured-reverse">
-            
-            <div className="service-featured-visual service-bg-sage">
-              <img className="service-image" src={imageAssets.sewingMachineImage} alt="Sewing machine for alterations" />
-            </div>
-            <div className="service-featured-content">
-              <span className="service-number">02</span>
-              <h3>Alterations</h3>
-              <p>Precision tailoring to ensure the perfect fit, from simple hems to complete garment reshaping.</p>
-              <div className="service-items">
-                <span className="service-item">Hemming</span>
-                <span className="service-item">Shortening</span>
-                <span className="service-item">Lengthening</span>
-                <span className="service-item">Taking In</span>
-                <span className="service-item">Taking Out</span>
-                <span className="service-item">Fitting</span>
-                <span className="service-item">Reshaping</span>
-                <span className="service-item">And More...</span>
+              <div className="gift-card-visual">
+                <div className="gift-card-brand">K&amp;B</div>
+                <div className="gift-card-label">Gift Card</div>
+                <div className="gift-card-sub">Dry Cleaners &amp; Alterations</div>
+                <div className="gift-card-amount">{giftAmountDisplay}</div>
               </div>
             </div>
-          </div>
 
+            <div className="gift-cards-form">
+              {giftSubmitted ? (
+                <div className="gift-cards-success">
+                  <div className="gift-cards-success-icon" aria-hidden="true">✓</div>
+                  <h4>Request received</h4>
+                  <p>We&apos;ll follow up at {recipientEmail} to complete your {giftAmountDisplay} gift card order.</p>
+                  <a href="#gift-cards" className="gift-cards-restart" onClick={(e) => { e.preventDefault(); resetGiftCard() }}>
+                    START OVER
+                  </a>
+                </div>
+              ) : (
+                <form onSubmit={submitGiftCard}>
+                  <div className="gift-cards-form-label">CHOOSE AN AMOUNT</div>
+                  <div className="gift-tier-grid">
+                    {giftTierValues.map((tier) => (
+                      <button
+                        type="button"
+                        key={tier}
+                        className={`gift-tier-btn ${giftTier === tier && !customAmount ? 'is-selected' : ''}`}
+                        onClick={() => selectGiftTier(tier)}
+                      >
+                        ${tier}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="gift-cards-custom">
+                    <label htmlFor="gift-custom-amount">Or enter a custom amount</label>
+                    <div className="gift-cards-amount-input">
+                      <span>$</span>
+                      <input
+                        id="gift-custom-amount"
+                        type="number"
+                        min="1"
+                        placeholder="75"
+                        value={customAmount}
+                        onChange={handleCustomAmount}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="gift-cards-divider" aria-hidden="true"></div>
+
+                  <div className="gift-cards-fields">
+                    <input
+                      type="text"
+                      placeholder="Recipient name"
+                      value={recipientName}
+                      onChange={(e) => setRecipientName(e.target.value)}
+                    />
+                    <input
+                      type="email"
+                      placeholder="Your email"
+                      required
+                      value={recipientEmail}
+                      onChange={(e) => setRecipientEmail(e.target.value)}
+                    />
+                    <textarea
+                      placeholder="Personal message (optional)"
+                      rows="3"
+                      value={giftMessage}
+                      onChange={(e) => setGiftMessage(e.target.value)}
+                    />
+                  </div>
+
+                  <button type="submit" className="btn btn-primary gift-cards-submit" disabled={giftSubmitDisabled}>
+                    <span>BUY {giftAmountDisplay} GIFT CARD</span>
+                    {arrowRightSVG}
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
         </section>
 
         <section className="about" id="about">
@@ -413,7 +569,8 @@ function App() {
                     <tbody>
                       {hoursSchedule.map((h) => {
                         const isToday = nowNY.weekday === h.day
-                        const isOpen = h.open && nowNY.minutes >= h.start && nowNY.minutes < h.end
+                        const isOpen =
+                          !todaysHoliday && h.open && nowNY.minutes >= h.start && nowNY.minutes < h.end
                         const timeText = h.open ? `${formatTime(h.start)} – ${formatTime(h.end)}` : 'Closed'
                         return (
                           <tr key={h.day} className={isToday ? 'today' : ''}>
@@ -458,7 +615,7 @@ function App() {
           <div className="footer-social">
             <span>Follow Us</span>
             <div className="social-links">
-              <a 
+              <a
                 href="https://www.instagram.com/kandbcleaners/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -467,7 +624,7 @@ function App() {
                 {instagramSVG}
                 <span>Instagram</span>
               </a>
-              <a 
+              <a
                 href="https://www.facebook.com/people/KB-dry-cleaners/61589575148506/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -481,7 +638,7 @@ function App() {
           <div className="footer-partner">
             <span>Associated with</span>
             <div className="footer-partner-links">
-              <a 
+              <a
                 href="https://www.tomandluigistailorshop.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -492,7 +649,7 @@ function App() {
                 </svg>
                 Tom and Luigi Tailor Shop
               </a>
-              <a 
+              <a
                 href="mailto:tomandluigis@gmail.com"
                 className="partner-email"
               >
