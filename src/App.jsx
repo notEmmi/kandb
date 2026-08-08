@@ -26,7 +26,7 @@ const dryCleaningItems = [
   { id: 'dc-cashmere', label: 'Cashmere', image: imageAssets.cashmereImage, alt: 'Cashmere garment care' },
   { id: 'dc-silk', label: 'Silk', image: imageAssets.silkImage, alt: 'Silk garment care' },
   { id: 'dc-sportswear', label: 'Sports Wear', image: imageAssets.sportswearImage, alt: 'Sports wear care' },
-  { id: 'dc-customs', label: 'Customs', image: imageAssets.customImage, alt: 'Custom garment care' },
+  { id: 'dc-customs', label: 'Costumes', image: imageAssets.customImage, alt: 'Custom garment care' },
   { id: 'dc-accessories', label: 'Accessories', image: imageAssets.accessoriesImage, alt: 'Accessory care services' },
 ]
 
