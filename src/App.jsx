@@ -215,12 +215,12 @@ function App() {
         </div>
 
         <div className="quick-contact-right">
-          <p className="quick-contact-link small"><a href="tel:+17166683088" aria-label="Call K and B Dry Cleaners">
+          <a href="tel:+17166683088" className="quick-contact-link small" aria-label="Call K and B Dry Cleaners">
             (716) 668-3088
-          </a></p>
-          <p className="quick-contact-link small"><a href="mailto:kandbcleaners3451@gmail.com" aria-label="Email K and B Dry Cleaners">
+          </a>
+          <a href="mailto:kandbcleaners3451@gmail.com" className="quick-contact-link small" aria-label="Email K and B Dry Cleaners">
             kandbcleaner@gmail.com
-          </a></p>
+          </a>
           <a
             href="https://www.instagram.com/kandbcleaners/"
             target="_blank"

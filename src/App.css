@@ -92,7 +92,7 @@ p {
   align-items: center;
 }
 
-p.small {
+p.small, a.small {
   font-size: clamp(0.75rem, 0.3vw + 0.75rem, 0.875rem);
   line-height: 1.5;
 }
@@ -199,7 +199,7 @@ img {
   gap: var(--space-2);
   font-weight: 600;
   text-transform: uppercase;
-  font-size: clamp(0.8125rem, 0.3vw + 0.75rem, 0.875rem);
+  font-size: clamp(0.75rem, 0.3vw + 0.75rem, 0.875rem);
 }
 
 .quick-contact-status.is-open {
