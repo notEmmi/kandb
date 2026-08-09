@@ -1,0 +1,70 @@
+/* ========================================
+   Hero Section
+   ======================================== */
+
+.hero {
+  background: var(--foreground);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 85vh;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  gap: var(--space-6);
+  flex-grow: 1;
+}
+
+.hero-tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.tag {
+  font-size: clamp(0.75rem, 0.2vw + 0.7rem, 0.8rem); 
+  font-weight: 700;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
+  line-height: normal;
+  letter-spacing: 0.06em;
+}
+
+.tag .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.hero h1 {
+  margin-bottom: 0;
+  line-height: 1.15;
+}
+
+.hero .accent {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.hero p {
+  max-width: 480px;
+}
+
+.hero-cta {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
