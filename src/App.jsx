@@ -66,8 +66,7 @@ const reviews = [
 
 const giftTierValues = [25, 50, 100, 150]
 
-// Holiday closures (America/New_York). Fixed-date holidays are hardcoded;
-// floating holidays are derived by weekday rule so they stay correct every year.
+// TIME & HOLIDAY CALCULATIONS
 const getNthWeekdayOfMonth = (year, month, weekday, n) => {
   const d = new Date(Date.UTC(year, month - 1, 1))
   let count = 0
@@ -104,32 +103,39 @@ const hoursSchedule = [
   { day: 'Sun', open: false}, // Closed
 ]
 
-  const getNYTime = () => {
-    const now = new Date()
-    const parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/New_York',
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric',
-      weekday: 'short',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false,
-    }).formatToParts(now)
+const getNYTime = () => {
+  const now = new Date()
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    weekday: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).formatToParts(now)
 
-    const getPart = (type) => parts.find((p) => p.type === type)?.value || ''
-    const weekday = getPart('weekday')
-    const hour = parseInt(getPart('hour') || '0', 10)
-    const minute = parseInt(getPart('minute') || '0', 10)
-    return {
-      weekday,
-      minutes: hour * 60 + minute,
-      year: parseInt(getPart('year') || '0', 10),
-      month: parseInt(getPart('month') || '0', 10),
-      day: parseInt(getPart('day') || '0', 10),
-    }
+  const getPart = (type) => parts.find((p) => p.type === type)?.value || ''
+  const weekday = getPart('weekday')
+  const hour = parseInt(getPart('hour') || '0', 10)
+  const minute = parseInt(getPart('minute') || '0', 10)
+  return {
+    weekday,
+    minutes: hour * 60 + minute,
+    year: parseInt(getPart('year') || '0', 10),
+    month: parseInt(getPart('month') || '0', 10),
+    day: parseInt(getPart('day') || '0', 10),
   }
+}
 
+const formatTime = (minutes) => {
+  const h = Math.floor(minutes / 60)
+  const m = minutes % 60
+  const ampm = h >= 12 ? 'PM' : 'AM'
+  const hr12 = ((h + 11) % 12) + 1
+  return `${hr12}:${m.toString().padStart(2, '0')} ${ampm}`
+}
 
 const HeroSection = () => {
   return (
@@ -301,7 +307,7 @@ const AboutSection = () => {
   )
 }
 
-const ContactSection = ({ nowNY, todaysHoliday, formatTime }) => {
+const ContactSection = ({ nowNY, todaysHoliday }) => {
   return (
     <section className="contact" id="contact">
           <span className="section-label">Contact Us</span>
@@ -429,14 +435,6 @@ function App() {
 
   const statusClass = todaysHoliday ? 'is-holiday' : isCurrentlyOpen ? 'is-open' : 'is-closed'
 
-  const formatTime = (minutes) => {
-    const h = Math.floor(minutes / 60)
-    const m = minutes % 60
-    const ampm = h >= 12 ? 'PM' : 'AM'
-    const hr12 = ((h + 11) % 12) + 1
-    return `${hr12}:${m.toString().padStart(2, '0')} ${ampm}`
-  }
-
   return (
     <div className="app">
       <div className="quick-contact">
@@ -511,7 +509,6 @@ function App() {
         <ContactSection
           nowNY={nowNY}
           todaysHoliday={todaysHoliday}
-          formatTime={formatTime}
         />
       </main>
 
