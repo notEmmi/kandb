@@ -294,7 +294,7 @@ const AboutSection = () => {
             <p><b>Same Location. Same Heart. Still Caring.</b></p>
           </div>
 
-          <div className="about-visual">
+          <div className="image-container">
             <img className="about-image" src={imageAssets.interiorImage} alt="Interior of K & B dry cleaning shop" />
           </div>
         </section>
@@ -383,7 +383,7 @@ const ContactSection = ({ nowNY, todaysHoliday, formatTime }) => {
               </a>
             </div>
 
-            <div className="map-placeholder">
+            <div className="map-container">
               <iframe
                 className="google-map"
                 title="K & B Dry Cleaning location"
