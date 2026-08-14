@@ -165,7 +165,7 @@ section {
   padding: var(--space-12) var(--space-6);
 }
 
-.image-container {
+.image-container, .map-container {
   position: relative;
   max-width: 600px;
   min-width: 320px;
@@ -331,7 +331,7 @@ img {
   .nav-toggle {
     display: flex;
   }
-
+  
   .nav-links {
     display: none;
     flex-direction: column;
