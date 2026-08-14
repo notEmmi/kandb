@@ -86,7 +86,6 @@ const getHolidaysForYear = (year) => [
   { name: 'Memorial Day', month: 5, day: getLastWeekdayOfMonth(year, 5, 1) },
   { name: 'Independence Day', month: 7, day: 4 },
   { name: 'Labor Day', month: 9, day: getNthWeekdayOfMonth(year, 9, 1, 1) },
-  { name: 'Thanksgiving', month: 11, day: getNthWeekdayOfMonth(year, 11, 4, 4) },
   { name: 'Christmas Day', month: 12, day: 25 },
 ]
 
