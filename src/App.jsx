@@ -66,7 +66,10 @@ const reviews = [
 
 const giftTierValues = [25, 50, 100, 150]
 
-// TIME & HOLIDAY CALCULATIONS
+// -----------------------------------------------------------------------------
+// TIME / HOLIDAY HELPERS
+// These are static or pure helpers and can live at module scope.
+// -----------------------------------------------------------------------------
 const getNthWeekdayOfMonth = (year, month, weekday, n) => {
   const d = new Date(Date.UTC(year, month - 1, 1))
   let count = 0
@@ -96,11 +99,11 @@ const getHolidaysForYear = (year) => [
 const hoursSchedule = [
   { day: 'Mon', open: true, start: 8 * 60, end: 18 * 60 }, // 8:00 AM - 6:00 PM
   { day: 'Tue', open: true, start: 8 * 60, end: 18 * 60 },
-  { day: 'Wed', open: false},
+  { day: 'Wed', open: false },
   { day: 'Thu', open: true, start: 8 * 60, end: 18 * 60 },
   { day: 'Fri', open: true, start: 8 * 60, end: 18 * 60 },
   { day: 'Sat', open: true, start: 8 * 60, end: 16 * 60 }, // 8:00 AM - 4:00 PM
-  { day: 'Sun', open: false}, // Closed
+  { day: 'Sun', open: false }, // Closed
 ]
 
 const getNYTime = () => {
@@ -120,6 +123,7 @@ const getNYTime = () => {
   const weekday = getPart('weekday')
   const hour = parseInt(getPart('hour') || '0', 10)
   const minute = parseInt(getPart('minute') || '0', 10)
+
   return {
     weekday,
     minutes: hour * 60 + minute,
@@ -137,6 +141,10 @@ const formatTime = (minutes) => {
   return `${hr12}:${m.toString().padStart(2, '0')} ${ampm}`
 }
 
+// -----------------------------------------------------------------------------
+// SECTION COMPONENTS
+// These render the page sections and use the static content + props above.
+// -----------------------------------------------------------------------------
 const HeroSection = () => {
   return (
     <section className="hero" aria-labelledby="hero-title">
@@ -404,6 +412,10 @@ const ContactSection = ({ nowNY, todaysHoliday }) => {
 }
 
 
+// -----------------------------------------------------------------------------
+// APP STATE / LIVE STATUS
+// These values depend on current time and UI state, so they belong in App.
+// -----------------------------------------------------------------------------
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const closeMobileMenu = () => setMobileMenuOpen(false)
