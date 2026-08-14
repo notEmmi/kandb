@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import './Sections.css'
+// import './Sections.css'
 
 // PUBLIC URL
 const publicUrl = import.meta.env.BASE_URL || '/kandb/'
