@@ -1,0 +1,129 @@
+const GiftCardsSection = () => {
+  // Gift card request form — client-side only, no backend wired up yet.
+  // Wire submitGiftCard to a real email/order endpoint before launch.
+  const [giftTier, setGiftTier] = useState(50)
+  const [customAmount, setCustomAmount] = useState('')
+  const [recipientName, setRecipientName] = useState('')
+  const [recipientEmail, setRecipientEmail] = useState('')
+  const [giftMessage, setGiftMessage] = useState('')
+  const [giftSubmitted, setGiftSubmitted] = useState(false)
+
+  const giftAmount = customAmount ? parseInt(customAmount, 10) || 0 : giftTier || 0
+  const giftAmountDisplay = giftAmount > 0 ? `$${giftAmount}` : '$0'
+  const giftSubmitDisabled = !(giftAmount > 0 && recipientEmail)
+
+  const selectGiftTier = (value) => {
+    setGiftTier(value)
+    setCustomAmount('')
+  }
+
+  const handleCustomAmount = (e) => {
+    setCustomAmount(e.target.value.replace(/[^0-9]/g, ''))
+    setGiftTier(null)
+  }
+
+  const submitGiftCard = (e) => {
+    e.preventDefault()
+    if (giftAmount > 0 && recipientEmail) setGiftSubmitted(true)
+  }
+
+  const resetGiftCard = () => {
+    setGiftTier(50)
+    setCustomAmount('')
+    setRecipientName('')
+    setRecipientEmail('')
+    setGiftMessage('')
+    setGiftSubmitted(false)
+  }
+  return (
+        <section className="gift-cards" id="gift-cards">
+          <div className="gift-cards-layout">
+            <div className="gift-cards-info">
+              <p className="section-label">GIFT CARDS</p>
+              <h2>Give the gift of great care</h2>
+              <p>A K&amp;B gift card covers dry cleaning, alterations, or pressing — perfect for a new home, a new job, or someone who deserves sharper clothes. Delivered by email, redeemable in-store.</p>
+
+              <div className="gift-card-visual">
+                <div className="gift-card-brand">K&amp;B</div>
+                <div className="gift-card-label">Gift Card</div>
+                <div className="gift-card-sub">Dry Cleaners &amp; Alterations</div>
+                <div className="gift-card-amount">{giftAmountDisplay}</div>
+              </div>
+            </div>
+
+            <div className="gift-cards-form">
+              {giftSubmitted ? (
+                <div className="gift-cards-success">
+                  <div className="gift-cards-success-icon" aria-hidden="true">✓</div>
+                  <h4>Request received</h4>
+                  <p>We&apos;ll follow up at {recipientEmail} to complete your {giftAmountDisplay} gift card order.</p>
+                  <a href="#gift-cards" className="gift-cards-restart" onClick={(e) => { e.preventDefault(); resetGiftCard() }}>
+                    START OVER
+                  </a>
+                </div>
+              ) : (
+                <form onSubmit={submitGiftCard}>
+                  <div className="gift-cards-form-label">CHOOSE AN AMOUNT</div>
+                  <div className="gift-tier-grid">
+                    {giftTierValues.map((tier) => (
+                      <button
+                        type="button"
+                        key={tier}
+                        className={`gift-tier-btn ${giftTier === tier && !customAmount ? 'is-selected' : ''}`}
+                        onClick={() => selectGiftTier(tier)}
+                      >
+                        ${tier}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="gift-cards-custom">
+                    <label htmlFor="gift-custom-amount">Or enter a custom amount</label>
+                    <div className="gift-cards-amount-input">
+                      <span>$</span>
+                      <input
+                        id="gift-custom-amount"
+                        type="number"
+                        min="1"
+                        placeholder="75"
+                        value={customAmount}
+                        onChange={handleCustomAmount}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="gift-cards-divider" aria-hidden="true"></div>
+
+                  <div className="gift-cards-fields">
+                    <input
+                      type="text"
+                      placeholder="Recipient name"
+                      value={recipientName}
+                      onChange={(e) => setRecipientName(e.target.value)}
+                    />
+                    <input
+                      type="email"
+                      placeholder="Your email"
+                      required
+                      value={recipientEmail}
+                      onChange={(e) => setRecipientEmail(e.target.value)}
+                    />
+                    <textarea
+                      placeholder="Personal message (optional)"
+                      rows="3"
+                      value={giftMessage}
+                      onChange={(e) => setGiftMessage(e.target.value)}
+                    />
+                  </div>
+
+                  <button type="submit" className="btn btn-primary gift-cards-submit" disabled={giftSubmitDisabled}>
+                    <span>BUY {giftAmountDisplay} GIFT CARD</span>
+                    {arrowRightSVG}
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+        </section>
+  )
+}

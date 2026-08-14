@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import './Sections.css'
 
+// PUBLIC URL
+const publicUrl = import.meta.env.BASE_URL || '/kandb/'
+
+// IMAGES
 const imageAssets = {
   interiorImage: new URL('./assets/aboutme.webp', import.meta.url).href,
   hungClothesImage: new URL('./assets/clothes.webp', import.meta.url).href,
@@ -31,16 +35,6 @@ const dryCleaningItems = [
   { id: 'dc-accessories', label: 'Accessories', image: imageAssets.accessoriesImage, alt: 'Accessory care services' },
 ]
 
-// PLACEHOLDER CONTENT — these are example testimonials from the design mockup,
-// not real customer reviews. Swap for real Google reviews before this ships.
-const reviews = [
-  { id: 'review-1', initial: 'M', name: 'Marie T.', location: 'West Seneca, NY', quote: "They treat every garment like it's their own. My wedding dress came back better than new." },
-  { id: 'review-2', initial: 'D', name: 'David R.', location: 'Buffalo, NY', quote: 'Fast, friendly, and the alterations are flawless. This is the only cleaners I trust with suits.' },
-  { id: 'review-3', initial: 'L', name: 'Linda S.', location: 'West Seneca, NY', quote: "Same great care since they took over. I've been a customer for over a decade." },
-]
-
-const giftTierValues = [25, 50, 100, 150]
-
 const instagramSVG = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -61,6 +55,16 @@ const arrowRightSVG = (
     <polyline points="12 5 19 12 12 19"></polyline>
   </svg>
 )
+
+// PLACEHOLDER CONTENT — these are example testimonials from the design mockup,
+// not real customer reviews. Swap for real Google reviews before this ships.
+const reviews = [
+  { id: 'review-1', initial: 'M', name: 'Marie T.', location: 'West Seneca, NY', quote: "They treat every garment like it's their own. My wedding dress came back better than new." },
+  { id: 'review-2', initial: 'D', name: 'David R.', location: 'Buffalo, NY', quote: 'Fast, friendly, and the alterations are flawless. This is the only cleaners I trust with suits.' },
+  { id: 'review-3', initial: 'L', name: 'Linda S.', location: 'West Seneca, NY', quote: "Same great care since they took over. I've been a customer for over a decade." },
+]
+
+const giftTierValues = [25, 50, 100, 150]
 
 // Holiday closures (America/New_York). Fixed-date holidays are hardcoded;
 // floating holidays are derived by weekday rule so they stay correct every year.
@@ -89,6 +93,42 @@ const getHolidaysForYear = (year) => [
   { name: 'Labor Day', month: 9, day: getNthWeekdayOfMonth(year, 9, 1, 1) },
   { name: 'Christmas Day', month: 12, day: 25 },
 ]
+
+const hoursSchedule = [
+  { day: 'Mon', open: true, start: 8 * 60, end: 18 * 60 }, // 8:00 AM - 6:00 PM
+  { day: 'Tue', open: true, start: 8 * 60, end: 18 * 60 },
+  { day: 'Wed', open: false},
+  { day: 'Thu', open: true, start: 8 * 60, end: 18 * 60 },
+  { day: 'Fri', open: true, start: 8 * 60, end: 18 * 60 },
+  { day: 'Sat', open: true, start: 8 * 60, end: 16 * 60 }, // 8:00 AM - 4:00 PM
+  { day: 'Sun', open: false}, // Closed
+]
+
+  const getNYTime = () => {
+    const now = new Date()
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/New_York',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      weekday: 'short',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    }).formatToParts(now)
+
+    const getPart = (type) => parts.find((p) => p.type === type)?.value || ''
+    const weekday = getPart('weekday')
+    const hour = parseInt(getPart('hour') || '0', 10)
+    const minute = parseInt(getPart('minute') || '0', 10)
+    return {
+      weekday,
+      minutes: hour * 60 + minute,
+      year: parseInt(getPart('year') || '0', 10),
+      month: parseInt(getPart('month') || '0', 10),
+      day: parseInt(getPart('day') || '0', 10),
+    }
+  }
 
 
 const HeroSection = () => {
@@ -241,99 +281,6 @@ const ReviewsSection = () => {
   )
 }
 
-const GiftCardsSection = () => {
-  return (
-<section className="gift-cards" id="gift-cards">
-          <div className="gift-cards-layout">
-            <div className="gift-cards-info">
-              <p className="section-label">GIFT CARDS</p>
-              <h2>Give the gift of great care</h2>
-              <p>A K&amp;B gift card covers dry cleaning, alterations, or pressing — perfect for a new home, a new job, or someone who deserves sharper clothes. Delivered by email, redeemable in-store.</p>
-
-              <div className="gift-card-visual">
-                <div className="gift-card-brand">K&amp;B</div>
-                <div className="gift-card-label">Gift Card</div>
-                <div className="gift-card-sub">Dry Cleaners &amp; Alterations</div>
-                <div className="gift-card-amount">{giftAmountDisplay}</div>
-              </div>
-            </div>
-
-            <div className="gift-cards-form">
-              {giftSubmitted ? (
-                <div className="gift-cards-success">
-                  <div className="gift-cards-success-icon" aria-hidden="true">✓</div>
-                  <h4>Request received</h4>
-                  <p>We&apos;ll follow up at {recipientEmail} to complete your {giftAmountDisplay} gift card order.</p>
-                  <a href="#gift-cards" className="gift-cards-restart" onClick={(e) => { e.preventDefault(); resetGiftCard() }}>
-                    START OVER
-                  </a>
-                </div>
-              ) : (
-                <form onSubmit={submitGiftCard}>
-                  <div className="gift-cards-form-label">CHOOSE AN AMOUNT</div>
-                  <div className="gift-tier-grid">
-                    {giftTierValues.map((tier) => (
-                      <button
-                        type="button"
-                        key={tier}
-                        className={`gift-tier-btn ${giftTier === tier && !customAmount ? 'is-selected' : ''}`}
-                        onClick={() => selectGiftTier(tier)}
-                      >
-                        ${tier}
-                      </button>
-                    ))}
-                  </div>
-
-                  <div className="gift-cards-custom">
-                    <label htmlFor="gift-custom-amount">Or enter a custom amount</label>
-                    <div className="gift-cards-amount-input">
-                      <span>$</span>
-                      <input
-                        id="gift-custom-amount"
-                        type="number"
-                        min="1"
-                        placeholder="75"
-                        value={customAmount}
-                        onChange={handleCustomAmount}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="gift-cards-divider" aria-hidden="true"></div>
-
-                  <div className="gift-cards-fields">
-                    <input
-                      type="text"
-                      placeholder="Recipient name"
-                      value={recipientName}
-                      onChange={(e) => setRecipientName(e.target.value)}
-                    />
-                    <input
-                      type="email"
-                      placeholder="Your email"
-                      required
-                      value={recipientEmail}
-                      onChange={(e) => setRecipientEmail(e.target.value)}
-                    />
-                    <textarea
-                      placeholder="Personal message (optional)"
-                      rows="3"
-                      value={giftMessage}
-                      onChange={(e) => setGiftMessage(e.target.value)}
-                    />
-                  </div>
-
-                  <button type="submit" className="btn btn-primary gift-cards-submit" disabled={giftSubmitDisabled}>
-                    <span>BUY {giftAmountDisplay} GIFT CARD</span>
-                    {arrowRightSVG}
-                  </button>
-                </form>
-              )}
-            </div>
-          </div>
-        </section>
-  )
-}
 
 const AboutSection = () => {
   return (
@@ -354,7 +301,7 @@ const AboutSection = () => {
   )
 }
 
-const ContactSection = () => {
+const ContactSection = ({ nowNY, todaysHoliday, formatTime }) => {
   return (
     <section className="contact" id="contact">
           <span className="section-label">Contact Us</span>
@@ -453,47 +400,7 @@ const ContactSection = () => {
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  const publicUrl = import.meta.env.BASE_URL || '/kandb/'
-
   const closeMobileMenu = () => setMobileMenuOpen(false)
-
-  // Business hours (America/New_York)
-  const hoursSchedule = [
-    { day: 'Mon', open: true, start: 9 * 60, end: 17 * 60 },
-    { day: 'Tue', open: true, start: 9 * 60, end: 17 * 60 },
-    { day: 'Wed', open: false },
-    { day: 'Thu', open: true, start: 9 * 60, end: 17 * 60 },
-    { day: 'Fri', open: true, start: 9 * 60, end: 17 * 60 },
-    { day: 'Sat', open: true, start: 9 * 60, end: 15 * 60 },
-    { day: 'Sun', open: false },
-  ]
-
-  const getNYTime = () => {
-    const now = new Date()
-    const parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/New_York',
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric',
-      weekday: 'short',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false,
-    }).formatToParts(now)
-
-    const getPart = (type) => parts.find((p) => p.type === type)?.value || ''
-    const weekday = getPart('weekday')
-    const hour = parseInt(getPart('hour') || '0', 10)
-    const minute = parseInt(getPart('minute') || '0', 10)
-    return {
-      weekday,
-      minutes: hour * 60 + minute,
-      year: parseInt(getPart('year') || '0', 10),
-      month: parseInt(getPart('month') || '0', 10),
-      day: parseInt(getPart('day') || '0', 10),
-    }
-  }
 
   const [nowNY, setNowNY] = useState(getNYTime())
 
@@ -528,43 +435,6 @@ function App() {
     const ampm = h >= 12 ? 'PM' : 'AM'
     const hr12 = ((h + 11) % 12) + 1
     return `${hr12}:${m.toString().padStart(2, '0')} ${ampm}`
-  }
-
-  // Gift card request form — client-side only, no backend wired up yet.
-  // Wire submitGiftCard to a real email/order endpoint before launch.
-  const [giftTier, setGiftTier] = useState(50)
-  const [customAmount, setCustomAmount] = useState('')
-  const [recipientName, setRecipientName] = useState('')
-  const [recipientEmail, setRecipientEmail] = useState('')
-  const [giftMessage, setGiftMessage] = useState('')
-  const [giftSubmitted, setGiftSubmitted] = useState(false)
-
-  const giftAmount = customAmount ? parseInt(customAmount, 10) || 0 : giftTier || 0
-  const giftAmountDisplay = giftAmount > 0 ? `$${giftAmount}` : '$0'
-  const giftSubmitDisabled = !(giftAmount > 0 && recipientEmail)
-
-  const selectGiftTier = (value) => {
-    setGiftTier(value)
-    setCustomAmount('')
-  }
-
-  const handleCustomAmount = (e) => {
-    setCustomAmount(e.target.value.replace(/[^0-9]/g, ''))
-    setGiftTier(null)
-  }
-
-  const submitGiftCard = (e) => {
-    e.preventDefault()
-    if (giftAmount > 0 && recipientEmail) setGiftSubmitted(true)
-  }
-
-  const resetGiftCard = () => {
-    setGiftTier(50)
-    setCustomAmount('')
-    setRecipientName('')
-    setRecipientEmail('')
-    setGiftMessage('')
-    setGiftSubmitted(false)
   }
 
   return (
@@ -611,7 +481,7 @@ function App() {
         <div className={`nav-links ${mobileMenuOpen ? 'is-open' : ''}`} id="primary-navigation">
           <a href="#services" onClick={closeMobileMenu}>Services</a>
           <a href="#reviews" onClick={closeMobileMenu}>Reviews</a>
-          <a href="#gift-cards" onClick={closeMobileMenu}>Gift Cards</a>
+          {/* <a href="#gift-cards" onClick={closeMobileMenu}>Gift Cards</a> */}
           <a href="#about" onClick={closeMobileMenu}>About Us</a>
           <a href="#contact" onClick={closeMobileMenu}>Contact</a>
         </div>
@@ -636,9 +506,13 @@ function App() {
         <ReviewsSection />
 
       
-        <GiftCardsSection />
+        {/* <GiftCardsSection /> */}
         <AboutSection />
-        <ContactSection />
+        <ContactSection
+          nowNY={nowNY}
+          todaysHoliday={todaysHoliday}
+          formatTime={formatTime}
+        />
       </main>
 
       <footer className="footer">
