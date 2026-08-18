@@ -158,13 +158,6 @@ a {
   flex: 1;
 }
 
-section {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: var(--space-12) var(--space-6);
-}
-
 .image-container, .map-container {
   position: relative;
   max-width: 600px;
@@ -262,7 +255,7 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: clamp(8px, 1.5vw, 12px) clamp(16px, 4vw, 40px);
+  padding: var(--space-2) var(--space-6);
   background: var(--primary);
   border-bottom: 2px solid var(--accent);
 }

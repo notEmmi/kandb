@@ -1,7 +1,36 @@
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-12) var(--space-6);
+}
+
 .hero-section, .about-section, .contact-section {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  flex: 1 1 100%;
+}
+
+.hero-content, .about-content, .contact-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 320px;
+  max-width: 600px;
+  padding-right: var(--space-8);
+}
+
+.image-container, .map-container {
+  position: relative;
+  max-width: 600px;
+  flex: 1;
+}
+
+div {
+  border: 1px red solid;
 }

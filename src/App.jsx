@@ -398,18 +398,17 @@ const ContactSection = ({ nowNY, todaysHoliday }) => {
               </a>
             </div>
           </div>
-
-            <div className="map-container">
-              <iframe
-                className="google-map"
-                title="K & B Dry Cleaning location"
-                src="https://www.google.com/maps?q=3451+Clinton+St,+West+Seneca,+NY+14224&output=embed"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-          </div>
-        </section>
+      </div>
+      <div className="map-container">
+        <iframe
+          className="google-map"
+          title="K & B Dry Cleaning location"
+          src="https://www.google.com/maps?q=3451+Clinton+St,+West+Seneca,+NY+14224&output=embed"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
   )
 }
 
@@ -514,8 +513,8 @@ function App() {
 
       <main className="main">
         <HeroSection />
-        <ServicesSection />
-        <ReviewsSection />
+        {/* <ServicesSection />
+        <ReviewsSection /> */}
 
       
         {/* <GiftCardsSection /> */}
