@@ -130,6 +130,25 @@ a {
   transform: scale(1.02);
 }
 
+.btn-primary {
+  background: var(--primary);
+  color: var(--background);
+  border: 1px solid var(--primary);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+  background: var(--foreground);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+
 /* Small gold eyebrow label used above every section heading */
 .section-label {
   display: block;
@@ -321,17 +340,40 @@ img {
 }
 
 @media (max-width: 780px) {
+  .top-nav {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .logo {
+    justify-self: start;
+  }
+
   .nav-toggle {
     display: flex;
+    justify-self: end;
+    z-index: 2;
   }
   
   .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     display: none;
     flex-direction: column;
     align-items: center;
     gap: var(--space-4);
     width: 100%;
-    padding-top: var(--space-4);
+    padding: var(--space-4) var(--space-4) var(--space-2);
+    background: var(--primary);
+    border-top: 1px solid var(--accent);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    z-index: 1;
+    margin-top: 0;
   }
 
   .nav-links.is-open {
