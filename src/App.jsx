@@ -295,7 +295,6 @@ const ReviewsSection = () => {
   )
 }
 
-
 const AboutSection = () => {
   return (
     <section className="about" id="about">
@@ -303,7 +302,7 @@ const AboutSection = () => {
         <span className="section-label">About Us</span>
         <h2>A Legacy of Care</h2>
         <p>For over 50 years, our doors have been open to this community, built on a foundation of precision, pride, and genuine love for the people we serve. What started as a one man's dedication to the craft of quality dry cleaning has grown into a local landmark of trust.</p>
-        <p>Two years ago, we stepped into this story as the new stewards of his legacy. To us, this isn't just a business—it's a responsibility. We are committed to honoring the history of this shop by providing the same meticulous attention to detail from expert repairs and alterations to careful handling of every garment.</p>
+        <p>We stepped into this story as the new stewards of his legacy. To us, this isn't just a business—it's a responsibility. We are committed to honoring the history of this shop by providing the same meticulous attention to detail from expert repairs and alterations to careful handling of every garment.</p>  
         <p>While we are beginning a new chapter, our heart remains the same. We still believe in knowing your name, remembering your preferences, and treating every piece of clothing as if it were our own.</p>
         <p><b>Same Location. Same Heart. Still Caring.</b></p>
       </div>
@@ -318,96 +317,97 @@ const AboutSection = () => {
 const ContactSection = ({ nowNY, todaysHoliday }) => {
   return (
     <section className="contact" id="contact">
+      <span className="section-label">Contact Us</span>
+      <h2>Call, Visit, or Find Us</h2>
+        
       <div className="contact-content">
-        <span className="section-label">Contact Us</span>
-          <h2>Call, Visit, or Find Us</h2>
-
-          <div className="contact-layout">
-            <div className="contact-details">
-              <div className="contact-info">
-                <div className="info-item">
-                  <div className="info-header">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                    <strong>Phone</strong>
-                  </div>
-                  <p>
-                    <a className="phone-link" href="tel:+17166683088">(716) 668-3088</a>
-                  </p>
+        <div className="contact-layout">
+          <div className="contact-details">
+            <div className="contact-info">
+              <div className="info-item">
+                <div className="info-header">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                  <strong>Phone</strong>
                 </div>
-                <div className="info-item">
-                  <div className="info-header">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                    </svg>
-                    <strong>Email</strong>
-                  </div>
-                  <p>
-                    <a className="phone-link" href="mailto:kandbcleaners3451@gmail.com">kandbcleaners3451@gmail.com</a>
-                  </p>
-                </div>
-                <div className="info-item">
-                  <div className="info-header">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    <strong>Location</strong>
-                  </div>
-                  <p>3451 Clinton St,<br/>West Seneca,<br/> NY 14224</p>
-                </div>
-                <div className="info-item">
-                  <div className="info-header">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                    <strong>Hours</strong>
-                  </div>
-                  <table className="hours-table" aria-label="Business hours">
-                    <tbody>
-                      {hoursSchedule.map((h) => {
-                        const isToday = nowNY.weekday === h.day
-                        const isOpen =
-                          !todaysHoliday && h.open && nowNY.minutes >= h.start && nowNY.minutes < h.end
-                        const timeText = h.open ? `${formatTime(h.start)} – ${formatTime(h.end)}` : 'Closed'
-                        return (
-                          <tr key={h.day} className={isToday ? 'today' : ''}>
-                            <td>{h.day}</td>
-                            <td>
-                              {timeText}
-                              {isToday && isOpen ? (
-                                <span className="open-now">Open now</span>
-                              ) : null}
-                            </td>
-                          </tr>
-                        )
-                      })}
-                    </tbody>
-                  </table>
-                </div>
+                <p>
+                  <a className="phone-link" href="tel:+17166683088">(716) 668-3088</a>
+                </p>
               </div>
-              <p className="contact-note">Reach out for drop-off questions, pickup timing, and custom garment care.</p>
-              <a href="tel:(716) 668-3088" className="btn btn-primary">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-                <span>Call Now</span>
-              </a>
+              <div className="info-item">
+                <div className="info-header">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>
+                  <strong>Email</strong>
+                </div>
+                <p>
+                  <a className="phone-link" href="mailto:kandbcleaners3451@gmail.com">kandbcleaners3451@gmail.com</a>
+                </p>
+              </div>
+              <div className="info-item">
+                <div className="info-header">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <strong>Location</strong>
+                </div>
+                <p>3451 Clinton St,<br/>West Seneca,<br/> NY 14224</p>
+              </div>
+              <div className="info-item">
+                <div className="info-header">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <strong>Hours</strong>
+                </div>
+                <table className="hours-table" aria-label="Business hours">
+                  <tbody>
+                    {hoursSchedule.map((h) => {
+                      const isToday = nowNY.weekday === h.day
+                      const isOpen =
+                        !todaysHoliday && h.open && nowNY.minutes >= h.start && nowNY.minutes < h.end
+                      const timeText = h.open ? `${formatTime(h.start)} – ${formatTime(h.end)}` : 'Closed'
+                      return (
+                        <tr key={h.day} className={isToday ? 'today' : ''}>
+                          <td>{h.day}</td>
+                          <td>
+                            {timeText}
+                            {isToday && isOpen ? (
+                              <span className="open-now">Open now</span>
+                            ) : null}
+                          </td>
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                </table>
+              </div>
             </div>
+            <p className="contact-note">Reach out for drop-off questions, pickup timing, and custom garment care.</p>
+            <a href="tel:(716) 668-3088" className="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>Call Now</span>
+            </a>
           </div>
+        </div>
+        <div className="map-container">
+          <iframe
+            className="google-map"
+            title="K & B Dry Cleaning location"
+            src="https://www.google.com/maps?q=3451+Clinton+St,+West+Seneca,+NY+14224&output=embed"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </div>
-      <div className="map-container">
-        <iframe
-          className="google-map"
-          title="K & B Dry Cleaning location"
-          src="https://www.google.com/maps?q=3451+Clinton+St,+West+Seneca,+NY+14224&output=embed"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
+      
     </section>
   )
 }
