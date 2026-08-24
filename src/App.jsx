@@ -527,8 +527,8 @@ function App() {
 
       <main className="main">
         <HeroSection />
-        {/* <ServicesSection />
-        <ReviewsSection /> */}
+        <ServicesSection />
+        {/* <ReviewsSection /> */}
 
       
         {/* <GiftCardsSection /> */}
