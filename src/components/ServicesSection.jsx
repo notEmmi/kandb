@@ -1,61 +1,126 @@
-import "./ServicesSection.css"
+import { useEffect, useState } from 'react'
+import './ServicesSection.css'
 
-export default function ServicesSection() {
-	return (
-		<section className="services" id="services">
-			<div className="services-header">
-				<p className="section-label">WHAT WE DO</p>
-				<h2>Our Services</h2>
-			</div>
+const dryCleaningItems = [
+  { id: 'everyday', label: 'Everyday & Casual Wear', imageKey: 'hungClothesImage' },
+  { id: 'leather-suede', label: 'Leather & Suede', imageKey: 'leatherImage' },
+  { id: 'wedding-dress', label: 'Wedding Dresses (Boxed & Preserved)', imageKey: 'weddingDressImage' },
+  { id: 'shoes-uggs', label: 'Shoes & Uggs', imageKey: 'uggsImage' },
+  { id: 'beading', label: 'Beading & Embellishments', imageKey: 'beddingImage' },
+  { id: 'costumes', label: 'Costumes', imageKey: 'customImage' },
+  { id: 'wool-cashmere-silk', label: 'Wool, Cashmere & Silk', imageKey: 'woolImage' },
+  { id: 'accessories', label: 'Accessories', imageKey: 'accessoriesImage' },
+  { id: 'sportswear', label: 'Sportswear', imageKey: 'sportswearImage' },
+]
 
-			<div className="drycleaning">
-				<div className="drycleaning-media">
-					<img />
-					<img />
-					<img />
-				</div>
-				<div className="drycleaning-overlay">
-					<div className="drycleaning-caption">
-						<div className="drycleaning-caption" data-caption>
-							Everyday &amp; Casual Wear
-						</div>
-						<div className="dots" data-dots>
-							<button className="dots-dot is-active" data-index="0" aria-label="Everyday &amp; Casual Wear"></button>
-							<button className="dots-dot" data-index="1" aria-label="Leather &amp; Suede"></button>
-							<button className="dots-dot" data-index="2" aria-label="Wedding Dresses"></button>
-							<button className="dots-dot" data-index="3" aria-label="Shoes &amp; Uggs"></button>
-							<button className="dots-dot" data-index="4" aria-label="Beading &amp; Embellishments"></button>
-							<button className="dots-dot" data-index="5" aria-label="Costumes"></button>
-							<button className="dots-dot" data-index="6" aria-label="Wool, Cashmere &amp; Silk"></button>
-							<button className="dots-dot" data-index="7" aria-label="Accessories"></button>
-							<button className="dots-dot" data-index="8" aria-label="Sportswear"></button>
-						</div>
-					</div>
-				</div>
+const otherServices = [
+  {
+    name: 'Alterations',
+    imageKey: 'sewingMachineImage',
+    desc: 'Expert tailoring and repairs, from simple adjustments to full restyles, done by hand.',
+    items: ['Hemming & shortening', 'Taking in / letting out', 'Zipper & button repair', 'Suit & dress resizing', 'Custom fitting'],
+  },
+  {
+    name: 'Pressing',
+    imageKey: 'cashmereImage',
+    desc: 'Crisp, professional pressing so everything you pick up looks ready to wear.',
+    items: ['Pressing with dry cleaning', 'Pressing alone'],
+  },
+]
 
-				<div className="flagship__body">
-					<p className="section-label">OUR MAIN SERVICE</p>
-					<div className="drycleaning-name">Dry Cleaning</div>
-					<p className="drycleaning-description">
-						Expert, careful cleaning for every kind of garment — from delicate silks to bulky
-						sportswear. Tap any item to see our work.
-					</p>
+export default function ServicesSection({ images = {} }) {
+  const [activeIndex, setActiveIndex] = useState(0)
 
-					<div className="garments" data-garments>
-						<button className="garments-item is-active" data-index="0"><span>Everyday &amp; Casual Wear</span></button>
-						<button className="garments-item" data-index="1"><span>Leather &amp; Suede</span></button>
-						<button className="garments-item" data-index="2"><span>Wedding Dresses (Boxed &amp; Preserved)</span></button>
-						<button className="garments-item" data-index="3"><span>Shoes &amp; Uggs</span></button>
-						<button className="garments-item" data-index="4"><span>Beading &amp; Embellishments</span></button>
-						<button className="garments-item" data-index="5"><span>Costumes</span></button>
-						<button className="garments-item" data-index="6"><span>Wool, Cashmere &amp; Silk</span></button>
-						<button className="garments-item" data-index="7"><span>Accessories</span></button>
-						<button className="garments-item" data-index="8"><span>Sportswear</span></button>
-					</div>
-				</div>
-			</div>
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % dryCleaningItems.length)
+    }, 3500)
+    return () => clearInterval(id)
+  }, [])
 
+  const activeItem = dryCleaningItems[activeIndex]
 
-		</section>
-	)
+  return (
+    <section className="services" id="services">
+      <div className="services-header">
+        <p className="section-label">WHAT WE DO</p>
+        <h2>Our Services</h2>
+      </div>
+
+      <div className="drycleaning">
+        <div className="drycleaning-media">
+          {dryCleaningItems.map((item, index) => (
+            <img
+              key={item.id}
+              className="drycleaning-slide"
+              style={{ opacity: index === activeIndex ? 1 : 0 }}
+              src={images[item.imageKey]}
+              alt={item.label}
+            />
+          ))}
+          <div className="drycleaning-overlay">
+            <div className="drycleaning-caption">{activeItem.label}</div>
+            <div className="dots">
+              {dryCleaningItems.map((item, index) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={`dots-dot ${index === activeIndex ? 'is-active' : ''}`}
+                  aria-label={item.label}
+                  onClick={() => setActiveIndex(index)}
+                ></button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="flagship-body">
+          <p className="section-label">OUR MAIN SERVICE</p>
+          <div className="drycleaning-name">Dry Cleaning</div>
+          <p className="drycleaning-description">
+            Expert, careful cleaning for every kind of garment — from delicate silks to bulky
+            sportswear. Tap any item to see our work.
+          </p>
+
+          <div className="garments">
+            {dryCleaningItems.map((item, index) => (
+              <button
+                key={item.id}
+                type="button"
+                className={`garments-item ${index === activeIndex ? 'is-active' : ''}`}
+                onClick={() => setActiveIndex(index)}
+              >
+                <span className="bullet" aria-hidden="true">•</span>
+                <span>{item.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="services-grid">
+        {otherServices.map((service) => (
+          <div className="service-card" key={service.name}>
+            <div className="service-card-media">
+              <img src={images[service.imageKey]} alt={service.name} />
+            </div>
+            <div className="service-card-body">
+              <div className="service-card-name">{service.name}</div>
+              <p className="service-card-description">{service.desc}</p>
+              <div className="service-card-items">
+                {service.items.map((item) => (
+                  <div className="service-card-item" key={item}>
+                    <span className="bullet" aria-hidden="true">•</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p className="services-note">Expedited service available on any of the above — just ask at drop-off.</p>
+    </section>
+  )
 }

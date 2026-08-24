@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import ServicesSection from './components/ServicesSection'
 import HeroSection from './components/HeroSection'
+import ReviewsSection from './components/ReviewsSection'
 import AboutSection from './components/AboutSection'
 import ContactSection from './components/ContactSection'
 
@@ -253,9 +254,8 @@ function App() {
       <main className="main">
         <HeroSection publicUrl={publicUrl} arrowRightSVG={arrowRightSVG} />
         <ServicesSection images={imageAssets} />
-        {/* <ReviewsComponent reviews={reviews} /> */}
+        <ReviewsSection />
 
-      
         {/* <GiftCardsSection /> */}
         <AboutSection publicUrl={publicUrl} />
         <ContactSection

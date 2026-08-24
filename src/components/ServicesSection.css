@@ -1,0 +1,211 @@
+.services {
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-10);
+  width: 100%;
+}
+
+.services-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ----- Dry Cleaning flagship ----- */
+
+.drycleaning {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  background: var(--card);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+}
+
+.drycleaning-media {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+}
+
+.drycleaning-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+.drycleaning-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 44px var(--space-6) var(--space-4);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.drycleaning-caption {
+  color: #fff;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  text-align: center;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dots-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: #fff;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.dots-dot.is-active {
+  opacity: 1;
+}
+
+.flagship-body {
+  padding: clamp(32px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.drycleaning-name {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+
+.drycleaning-description {
+  margin-bottom: var(--space-6);
+  max-width: 520px;
+}
+
+.garments {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px 28px;
+}
+
+.garments-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
+  font-weight: 400;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s ease;
+}
+
+.garments-item.is-active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.garments-item .bullet {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ----- Alterations / Pressing cards ----- */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--space-6);
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.service-card {
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+.service-card-media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.service-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.service-card-body {
+  padding: var(--space-6) var(--space-6) var(--space-8);
+}
+
+.service-card-name {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.service-card-description {
+  margin-bottom: var(--space-4);
+}
+
+.service-card-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.service-card-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
+}
+
+.service-card-item .bullet {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.services-note {
+  text-align: center;
+  width: 100%;
+  font-size: var(--font-size-sm);
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+@media (max-width: 780px) {
+  .drycleaning-media {
+    min-height: 300px;
+  }
+}
