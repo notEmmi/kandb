@@ -61,29 +61,32 @@
   margin-top: 0.5rem;
   font-size: var(--font-size-lg);
 }
+
 .hours-table td {
   padding: 2px 6px;
   vertical-align: top;
 }
+
 .hours-table td:first-child {
   width: 3.2rem;
   font-weight: 600;
   color: var(--primary);
   padding-right: 8px;
 }
+
+.hours-table td:last-child {
+  color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
+}
+
 .open-now {
   color: var(--accent);
-  font-weight: 700;
-  margin-left: 6px;
+  font-weight: 600;
+  margin-left: 10px;
 }
 
-.phone-link {
-  /* color: var(--primary); */
-  font-weight: 600;
-}
 
 .phone-link:hover {
-  color: var(--accent-hover);
+  color: var(--accent);
   text-decoration: underline;
 }
 

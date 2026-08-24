@@ -10,15 +10,9 @@
   /* Colors */
   --background: #fff;
   --primary: #000000;
-  --primary-foreground: #ffffff;
-  --foreground: #f6f5f3;
-  --card: #faf9f7;
-  --border: #e8e6e2;
-  --input-border: #d8d6d1;
   --muted: #e0e0e0;
   --muted-foreground: #888888;
   --accent: #8a6d23;
-  --accent-hover: #a8863a;
   --success: #1f7a4c;
   --closed: #8a1a1a;
 
@@ -151,7 +145,7 @@ a {
 }
 
 .btn-primary:hover, .btn-secondary:hover {
-  background: var(--foreground);
+  background: color-mix(in srgb, var(--background) 70%, var(--muted) 30%);
   color: var(--primary);
   border-color: var(--primary);
 }
@@ -238,7 +232,7 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: 8px clamp(20px, 4vw, 24px);
-  background: var(--foreground);
+  background: color-mix(in srgb, var(--background) 70%, var(--muted) 30%);
   font-size: var(--font-size-xs);
   color: var(--background);
 }
@@ -294,7 +288,7 @@ section {
 
 .quick-contact-link:hover,
 .quick-contact-icon:hover {
-  color: var(--accent-hover);
+  color: var(--accent);
 }
 
 /* ========================================
@@ -433,8 +427,8 @@ section {
   gap: var(--space-8);
   padding: var(--space-8) var(--space-6);
   text-align: center;
-  background: var(--foreground);
-  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--background) 70%, var(--muted) 30%);
+  border-top: 1px solid color-mix(in srgb, var(--muted) 80%, var(--background) 20%);
 }
 
 .footer-social,
@@ -451,7 +445,7 @@ section {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--muted-foreground);
+  color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
 }
 
 .social-links {
@@ -473,7 +467,7 @@ section {
 }
 
 .social-links a:hover {
-  color: var(--accent-hover);
+  color: var(--accent);
 }
 
 .social-links svg {
@@ -496,7 +490,7 @@ section {
 }
 
 .footer-partner a:hover {
-  color: var(--accent-hover);
+  color: var(--accent);
 }
 
 .footer-partner svg {
@@ -512,7 +506,7 @@ section {
 }
 
 .partner-email:hover {
-  color: var(--accent-hover) !important;
+  color: var(--accent) !important;
 }
 
 .bottom-footer {
@@ -525,13 +519,13 @@ section {
   padding: var(--space-8) var(--space-6);
   text-align: center;
   background: var(--primary);
-  color: var(--primary-foreground);
+  color: var(--background);
 }
 
 .bottom-footer > p {
   margin: 0;
   font-size: var(--font-size-xs);
-  color: var(--primary-foreground);
+  color: var(--background);
   opacity: 0.7;
 }
 
@@ -549,12 +543,12 @@ section {
   font-size: var(--font-size-xs);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--primary-foreground);
+  color: var(--background);
   opacity: 0.6;
 }
 
 .footer-contact a {
-  color: var(--primary-foreground);
+  color: var(--background);
   text-decoration: none;
   font-size: var(--font-size-xs);
   transition: opacity 0.2s ease;

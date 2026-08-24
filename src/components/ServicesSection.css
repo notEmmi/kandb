@@ -17,8 +17,8 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  border: 1px solid var(--border);
-  background: var(--card);
+  border: 1px solid color-mix(in srgb, var(--muted) 80%, var(--background) 20%);
+  background: color-mix(in srgb, var(--background) 85%, var(--muted) 15%);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
 }
@@ -50,7 +50,7 @@
 }
 
 .drycleaning-caption {
-  color: #fff;
+  color: var(--background);
   font-size: var(--font-size-lg);
   font-weight: 600;
   text-align: center;
@@ -70,7 +70,7 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  background: #fff;
+  background: var(--background);
   opacity: 0.5;
   transition: opacity 0.3s ease;
 }
@@ -144,8 +144,8 @@
 }
 
 .service-card {
-  border: 1px solid var(--border);
-  background: var(--card);
+  border: 1px solid color-mix(in srgb, var(--muted) 80%, var(--background) 20%);
+  background: color-mix(in srgb, var(--background) 85%, var(--muted) 15%);
 }
 
 .service-card-media {
@@ -203,4 +203,3 @@
   color: var(--muted-foreground);
   margin: 0;
 }
-

@@ -109,12 +109,12 @@ const getHolidaysForYear = (year) => [
 ]
 
 const hoursSchedule = [
-  { day: 'Mon', open: true, start: 8 * 60, end: 18 * 60 }, // 8:00 AM - 6:00 PM
-  { day: 'Tue', open: true, start: 8 * 60, end: 18 * 60 },
+  { day: 'Mon', open: true, start: 9 * 60, end: 17 * 60 }, // 9:00 AM - 5:00 PM
+  { day: 'Tue', open: true, start: 9 * 60, end: 17 * 60 },
   { day: 'Wed', open: false },
-  { day: 'Thu', open: true, start: 8 * 60, end: 18 * 60 },
-  { day: 'Fri', open: true, start: 8 * 60, end: 18 * 60 },
-  { day: 'Sat', open: true, start: 8 * 60, end: 16 * 60 }, // 8:00 AM - 4:00 PM
+  { day: 'Thu', open: true, start: 9 * 60, end: 17 * 60 },
+  { day: 'Fri', open: true, start: 9 * 60, end: 17 * 60 },
+  { day: 'Sat', open: true, start: 9 * 60, end: 15 * 60 }, // 9:00 AM - 3:00 PM
   { day: 'Sun', open: false }, // Closed
 ]
 
