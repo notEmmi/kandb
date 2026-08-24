@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import Services from './components/Services'
-import HeroComponent from './components/HeroSection'
-import AboutComponent from './components/AboutSection'
-import ContactComponent from './components/ContactSection'
+import ServicesSection from './components/ServicesSection'
+import HeroSection from './components/HeroSection'
+import AboutSection from './components/AboutSection'
+import ContactSection from './components/ContactSection'
 
 // PUBLIC URL
 const publicUrl = import.meta.env.BASE_URL || '/kandb/'
@@ -251,14 +251,14 @@ function App() {
       </nav>
 
       <main className="main">
-        <HeroComponent publicUrl={publicUrl} arrowRightSVG={arrowRightSVG} />
-        <Services images={imageAssets} />
+        <HeroSection publicUrl={publicUrl} arrowRightSVG={arrowRightSVG} />
+        <ServicesSection images={imageAssets} />
         {/* <ReviewsComponent reviews={reviews} /> */}
 
       
         {/* <GiftCardsSection /> */}
-        <AboutComponent publicUrl={publicUrl} />
-        <ContactComponent
+        <AboutSection publicUrl={publicUrl} />
+        <ContactSection
           nowNY={nowNY}
           todaysHoliday={todaysHoliday}
           hoursSchedule={hoursSchedule}
