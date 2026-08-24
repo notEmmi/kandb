@@ -5,20 +5,21 @@ import './Sections.css'
 // PUBLIC URL
 const publicUrl = import.meta.env.BASE_URL || '/kandb/'
 
-// IMAGES
+const placeholderImage = `data:image/svg+xml,${encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="#e5e7eb"/><text x="400" y="300" text-anchor="middle" dominant-baseline="middle" fill="#6b7280" font-family="Arial, sans-serif" font-size="32">Image placeholder</text></svg>',
+)}`
+
 const imageAssets = {
-  hungClothesImage: new URL('./assets/clothes.webp', import.meta.url).href,
-  sewingMachineImage: new URL('./assets/sewingmachine.webp', import.meta.url).href,
-  leatherImage: new URL('./assets/leather.webp', import.meta.url).href,
-  uggsImage: new URL('./assets/uggs.webp', import.meta.url).href,
-  weddingDressImage: new URL('./assets/weddingdress.webp', import.meta.url).href,
-  beddingImage: new URL('./assets/bedding.webp', import.meta.url).href,
-  woolImage: new URL('./assets/wool.webp', import.meta.url).href,
-  cashmereImage: new URL('./assets/cashmere.webp', import.meta.url).href,
-  silkImage: new URL('./assets/silk.webp', import.meta.url).href,
-  sportswearImage: new URL('./assets/sportswear.webp', import.meta.url).href,
-  customImage: new URL('./assets/customs.webp', import.meta.url).href,
-  accessoriesImage: new URL('./assets/accessories.webp', import.meta.url).href,
+  leatherImage: placeholderImage,
+  uggsImage: placeholderImage,
+  weddingDressImage: placeholderImage,
+  beddingImage: placeholderImage,
+  woolImage: placeholderImage,
+  cashmereImage: placeholderImage,
+  silkImage: placeholderImage,
+  sportswearImage: placeholderImage,
+  customImage: placeholderImage,
+  accessoriesImage: placeholderImage,
 }
 
 const dryCleaningItems = [
@@ -225,7 +226,7 @@ const ServicesSection = () => {
             {dryCleaningItems.map((item) => (
               <article className="dry-cleaning-card" key={item.id}>
                 <div className="dry-cleaning-card-image">
-                  <img src={item.image} alt={item.alt} />
+                  <img src="" alt="" />
                 </div>
                 <div className="dry-cleaning-card-label">{item.label}</div>
               </article>
