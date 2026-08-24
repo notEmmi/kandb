@@ -14,7 +14,7 @@ const placeholderImage = `data:image/svg+xml,${encodeURIComponent(
 )}`
 
 const imageAssets = {
-  leatherImage: placeholderImage,
+  leatherImage: `${publicUrl}leather.jpg`,
   uggsImage: placeholderImage,
   weddingDressImage: placeholderImage,
   beddingImage: placeholderImage,
@@ -22,7 +22,7 @@ const imageAssets = {
   cashmereImage: placeholderImage,
   silkImage: placeholderImage,
   sportswearImage: placeholderImage,
-  customImage: placeholderImage,
+  customeImage: placeholderImage,
   accessoriesImage: placeholderImage,
   sewingMachineImage: placeholderImage,
   hungClothesImage: placeholderImage,
