@@ -14,6 +14,7 @@ const placeholderImage = `data:image/svg+xml,${encodeURIComponent(
 )}`
 
 const imageAssets = {
+  everydayImage: `${publicUrl}casualwear.jpg`,
   leatherImage: `${publicUrl}leather.jpg`,
   uggsImage: placeholderImage,
   weddingDressImage: placeholderImage,
