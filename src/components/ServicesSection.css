@@ -26,7 +26,7 @@
 .drycleaning-media {
   position: relative;
   overflow: hidden;
-  min-height: 420px;
+  aspect-ratio: 1 / 1;
 }
 
 .drycleaning-slide {
@@ -150,7 +150,7 @@
 
 .service-card-media {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
 }
 
@@ -204,8 +204,3 @@
   margin: 0;
 }
 
-@media (max-width: 780px) {
-  .drycleaning-media {
-    min-height: 300px;
-  }
-}
