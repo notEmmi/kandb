@@ -200,6 +200,6 @@
   text-align: center;
   width: 100%;
   font-size: var(--font-size-sm);
-  color: var(--muted-foreground);
+  color: color-mix(in srgb, var(--primary) 40%, var(--muted) 60%);
   margin: 0;
 }

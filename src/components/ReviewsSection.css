@@ -79,7 +79,7 @@
 
 .review-location {
   font-size: var(--font-size-xs);
-  color: var(--muted-foreground);
+  color: color-mix(in srgb, var(--primary) 40%, var(--muted) 60%);
 }
 
 .review-stars {
