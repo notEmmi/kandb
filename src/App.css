@@ -185,6 +185,12 @@ a {
   flex: 1;
 }
 
+section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--space-12) var(--space-6);
+}
+
 .image-container, .map-container {
   position: relative;
   max-width: 600px;

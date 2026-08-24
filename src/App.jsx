@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import './Sections.css'
+import Services from './components/Services'
+import HeroComponent from './components/HeroSection'
+import AboutComponent from './components/AboutSection'
+import ContactComponent from './components/ContactSection'
 
 // PUBLIC URL
 const publicUrl = import.meta.env.BASE_URL || '/kandb/'
@@ -20,20 +23,9 @@ const imageAssets = {
   sportswearImage: placeholderImage,
   customImage: placeholderImage,
   accessoriesImage: placeholderImage,
+  sewingMachineImage: placeholderImage,
+  hungClothesImage: placeholderImage,
 }
-
-const dryCleaningItems = [
-  { id: 'dc-leather', label: 'Leather & Suede', image: imageAssets.leatherImage, alt: 'Leather garment care' },
-  { id: 'dc-uggs', label: 'UGGs & Footwear', image: imageAssets.uggsImage, alt: 'UGGs and footwear care' },
-  { id: 'dc-wedding', label: 'Wedding Dress Preservation', image: imageAssets.weddingDressImage, alt: 'Wedding dress preservation' },
-  { id: 'dc-bedding', label: 'Comforters & Bedding', image: imageAssets.beddingImage, alt: 'Comforters and bedding care' },
-  { id: 'dc-wool', label: 'Wool', image: imageAssets.woolImage, alt: 'Wool garment care' },
-  { id: 'dc-cashmere', label: 'Cashmere', image: imageAssets.cashmereImage, alt: 'Cashmere garment care' },
-  { id: 'dc-silk', label: 'Silk', image: imageAssets.silkImage, alt: 'Silk garment care' },
-  { id: 'dc-sportswear', label: 'Sports Wear', image: imageAssets.sportswearImage, alt: 'Sports wear care' },
-  { id: 'dc-customs', label: 'Costumes', image: imageAssets.customImage, alt: 'Custom garment care' },
-  { id: 'dc-accessories', label: 'Accessories', image: imageAssets.accessoriesImage, alt: 'Accessory care services' },
-]
 
 const instagramSVG = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -82,14 +74,6 @@ const clockSVG = (
     <polyline points="12 6 12 12 16 14"></polyline>
   </svg>
 )
-
-// PLACEHOLDER CONTENT — these are example testimonials from the design mockup,
-// not real customer reviews. Swap for real Google reviews before this ships.
-const reviews = [
-  { id: 'review-1', initial: 'M', name: 'Marie T.', location: 'West Seneca, NY', quote: "They treat every garment like it's their own. My wedding dress came back better than new." },
-  { id: 'review-2', initial: 'D', name: 'David R.', location: 'Buffalo, NY', quote: 'Fast, friendly, and the alterations are flawless. This is the only cleaners I trust with suits.' },
-  { id: 'review-3', initial: 'L', name: 'Linda S.', location: 'West Seneca, NY', quote: "Same great care since they took over. I've been a customer for over a decade." },
-]
 
 const giftTierValues = [25, 50, 100, 150]
 
@@ -167,265 +151,6 @@ const formatTime = (minutes) => {
   const hr12 = ((h + 11) % 12) + 1
   return `${hr12}:${m.toString().padStart(2, '0')} ${ampm}`
 }
-
-// -----------------------------------------------------------------------------
-// SECTION COMPONENTS
-// These render the page sections and use the static content + props above.
-// -----------------------------------------------------------------------------
-const HeroSection = () => {
-  return (
-    <section className="hero" aria-labelledby="hero-title">
-      <div className="hero-content">
-        <div className="hero-tags">
-          <div className="tag">Dry Cleaning</div>
-          <div className="dot" aria-hidden="true"></div>
-          <div className="tag">Alterations</div>
-          <div className="dot" aria-hidden="true"></div>
-          <div className="tag">Pressing</div>
-        </div>
-        <h1 id="hero-title">Meticulous care for<br/>
-          <span className="accent"><i>your finest garments</i></span>
-        </h1>
-        <p>Where precision meets elegance. Expert cleaning, tailoring, and pressing for everything from everyday wear to cherished heirlooms.</p>
-        <div className="hero-cta">
-          <button
-            className="btn btn-primary"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            <span>Request More Info</span>
-            {arrowRightSVG}
-          </button>
-          <a className="btn btn-secondary" href="#services">
-            <span>View Services</span>
-            {arrowRightSVG}
-          </a>
-        </div>
-      </div>
-      <div className="image-container">
-        <img className="hero-image" src={`${publicUrl}hero.jpg`} alt="Suite " fetchPriority="high" />
-      </div>
-    </section>
-  )
-}
-
-const ServicesSection = () => {
-  return (
-    <section className="services" id="services">
-          <div className="services-header">
-            <p className="section-label">WHAT WE DO</p>
-            <h2>Our Services</h2>
-            <div className="header-line" aria-hidden="true"></div>
-          </div>
-
-          <div className="services-intro">
-            <h3>Dry Cleaning — Our Main Service</h3>
-            <p>We provide expert dry cleaning services for a wide range of garments, from everyday wear to delicate fabrics.</p>
-          </div>
-
-          <div className="dry-cleaning-grid">
-            {dryCleaningItems.map((item) => (
-              <article className="dry-cleaning-card" key={item.id}>
-                <div className="dry-cleaning-card-image">
-                  <img src="" alt="" />
-                </div>
-                <div className="dry-cleaning-card-label">{item.label}</div>
-              </article>
-            ))}
-          </div>
-
-          <div className="service-chips-block">
-            <p className="section-label">Everyday & Casual Wear</p>
-            <div className="service-items">
-              <span className="service-item">Suits</span>
-              <span className="service-item">Shirts</span>
-              <span className="service-item">Pants</span>
-              <span className="service-item">Jackets</span>
-              <span className="service-item">Dresses</span>
-              <span className="service-item">Coats</span>
-              <span className="service-item">Skirts</span>
-              <span className="service-item">Blouses</span>
-              <span className="service-item">And More...</span>
-            </div>
-          </div>
-
-          <p className="services-note">Expedited turnaround available upon request.</p>
-
-          <div className="services-grid">
-            <article className="service-card">
-              <div className="service-card-image">
-                <img src={imageAssets.sewingMachineImage} alt="Sewing machine for alterations" />
-              </div>
-              <div className="service-card-content">
-                <h4>Alterations</h4>
-                <p>Precision tailoring to ensure the perfect fit, from simple hems to complete garment reshaping.</p>
-                <ul className="service-card-list">
-                  <li>Hemming</li>
-                  <li>Shortening</li>
-                  <li>Lengthening</li>
-                  <li>Taking In</li>
-                  <li>Taking Out</li>
-                  <li>Fitting</li>
-                  <li>Reshaping</li>
-                  <li>And More...</li>
-                </ul>
-              </div>
-            </article>
-
-            <article className="service-card">
-              <div className="service-card-image">
-                <img src={imageAssets.hungClothesImage} alt="Freshly pressed clothes on hangers" />
-              </div>
-              <div className="service-card-content">
-                <h4>Pressing</h4>
-                <p>Crisp, professional pressing so everything you pick up looks ready to wear.</p>
-                <ul className="service-card-list">
-                  <li>Pressing with dry cleaning</li>
-                  <li>Pressing alone</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </section>
-  )
-}
-
-const ReviewsSection = () => {
-  return (
-    <section className="reviews" id="reviews">
-          <div className="reviews-header">
-            <p className="section-label">CUSTOMER REVIEWS</p>
-            <h2>Trusted by our neighbors</h2>
-            {/* PLACEHOLDER — rating below is example copy from the design mockup, not a real figure. */}
-            <div className="reviews-rating">
-              <span className="reviews-stars">★★★★★</span>
-              <strong>4.9</strong>
-              <span>· based on Google reviews</span>
-            </div>
-          </div>
-
-          <div className="reviews-grid">
-            {reviews.map((review) => (
-              <article className="review-card" key={review.id}>
-                <div className="review-header">
-                  <div className="review-avatar" aria-hidden="true">{review.initial}</div>
-                  <div>
-                    <div className="review-name">{review.name}</div>
-                    <div className="review-location">{review.location}</div>
-                  </div>
-                </div>
-                <div className="review-stars">★★★★★</div>
-                <p className="review-quote">&ldquo;{review.quote}&rdquo;</p>
-              </article>
-            ))}
-          </div>
-        </section>
-  )
-}
-
-const AboutSection = () => {
-  return (
-    <section className="about" id="about">
-      <div className="about-content">
-        <span className="section-label">About Us</span>
-        <h2>A Legacy of Care</h2>
-        <p>For over 50 years, our doors have been open to this community, built on a foundation of precision, pride, and genuine love for the people we serve. What started as a one man's dedication to the craft of quality dry cleaning has grown into a local landmark of trust.</p>
-        <p>We stepped into this story as the new stewards of his legacy. To us, this isn't just a business—it's a responsibility. We are committed to honoring the history of this shop by providing the same meticulous attention to detail from expert repairs and alterations to careful handling of every garment.</p>  
-        <p>While we are beginning a new chapter, our heart remains the same. We still believe in knowing your name, remembering your preferences, and treating every piece of clothing as if it were our own.</p>
-        <p><b>Same Location. Same Heart. Still Caring.</b></p>
-      </div>
-
-      <div className="image-container">
-        <img className="about-image" src={`${publicUrl}/aboutme.jpg`} alt="Interior of K & B dry cleaning shop" />
-      </div>
-    </section>
-  )
-}
-
-const ContactSection = ({ nowNY, todaysHoliday }) => {
-  return (
-    <section className="contact" id="contact">
-      <span className="section-label">Contact Us</span>
-      <h2>Call, Visit, or Find Us</h2>
-        
-      <div className="contact-content">
-        <div className="contact-layout">
-          <div className="contact-details">
-            <div className="contact-info">
-              <div className="info-item">
-                <div className="info-header">
-                  {phoneSVG}
-                  <strong>Phone</strong>
-                </div>
-                <p>
-                  <a className="phone-link" href="tel:+17166683088">(716) 668-3088</a>
-                </p>
-              </div>
-              <div className="info-item">
-                <div className="info-header">
-                  {emailSVG}
-                  <strong>Email</strong>
-                </div>
-                <p>
-                  <a className="phone-link" href="mailto:kandbcleaners3451@gmail.com">kandbcleaners3451@gmail.com</a>
-                </p>
-              </div>
-              <div className="info-item">
-                <div className="info-header">
-                  {locationSVG}
-                  <strong>Location</strong>
-                </div>
-                <p>3451 Clinton St,<br/>West Seneca,<br/> NY 14224</p>
-              </div>
-              <div className="info-item">
-                <div className="info-header">
-                  {clockSVG}
-                  <strong>Hours</strong>
-                </div>
-                <table className="hours-table" aria-label="Business hours">
-                  <tbody>
-                    {hoursSchedule.map((h) => {
-                      const isToday = nowNY.weekday === h.day
-                      const isOpen =
-                        !todaysHoliday && h.open && nowNY.minutes >= h.start && nowNY.minutes < h.end
-                      const timeText = h.open ? `${formatTime(h.start)} – ${formatTime(h.end)}` : 'Closed'
-                      return (
-                        <tr key={h.day} className={isToday ? 'today' : ''}>
-                          <td>{h.day}</td>
-                          <td>
-                            {timeText}
-                            {isToday && isOpen ? (
-                              <span className="open-now">Open now</span>
-                            ) : null}
-                          </td>
-                        </tr>
-                      )
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <p className="contact-note">Reach out for drop-off questions, pickup timing, and custom garment care.</p>
-            <a href="tel:(716) 668-3088" className="btn btn-primary">
-              {phoneSVG}
-              <span>Call Now</span>
-            </a>
-          </div>
-        </div>
-        <div className="map-container">
-          <iframe
-            className="google-map"
-            title="K & B Dry Cleaning location"
-            src="https://www.google.com/maps?q=3451+Clinton+St,+West+Seneca,+NY+14224&output=embed"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-      </div>
-      
-    </section>
-  )
-}
-
 
 // -----------------------------------------------------------------------------
 // APP STATE / LIVE STATUS
@@ -526,16 +251,22 @@ function App() {
       </nav>
 
       <main className="main">
-        <HeroSection />
-        <ServicesSection />
-        {/* <ReviewsSection /> */}
+        <HeroComponent publicUrl={publicUrl} arrowRightSVG={arrowRightSVG} />
+        <Services images={imageAssets} />
+        {/* <ReviewsComponent reviews={reviews} /> */}
 
       
         {/* <GiftCardsSection /> */}
-        <AboutSection />
-        <ContactSection
+        <AboutComponent publicUrl={publicUrl} />
+        <ContactComponent
           nowNY={nowNY}
           todaysHoliday={todaysHoliday}
+          hoursSchedule={hoursSchedule}
+          formatTime={formatTime}
+          phoneSVG={phoneSVG}
+          emailSVG={emailSVG}
+          locationSVG={locationSVG}
+          clockSVG={clockSVG}
         />
       </main>
 
