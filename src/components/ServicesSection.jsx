@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './ServicesSection.css'
 
 const dryCleaningItems = [
-  { id: 'everyday', label: 'Everyday & Casual Wear', imageKey: 'hungClothesImage' },
+  { id: 'everyday', label: 'Everyday & Casual Wear', imageKey: 'everydayImage' },
   { id: 'leather-suede', label: 'Leather & Suede', imageKey: 'leatherImage' },
   { id: 'wedding-dress', label: 'Wedding Dresses (Boxed & Preserved)', imageKey: 'weddingDressImage' },
   { id: 'shoes-uggs', label: 'Shoes & Uggs', imageKey: 'uggsImage' },
@@ -49,15 +49,30 @@ export default function ServicesSection({ images = {} }) {
 
       <div className="drycleaning">
         <div className="drycleaning-media">
-          {dryCleaningItems.map((item, index) => (
-            <img
-              key={item.id}
-              className="drycleaning-slide"
-              style={{ opacity: index === activeIndex ? 1 : 0 }}
-              src={images[item.imageKey]}
-              alt={item.label}
-            />
-          ))}
+          {dryCleaningItems.map((item, index) => {
+            const total = dryCleaningItems.length
+            let offset = index - activeIndex
+            if (offset > total / 2) offset -= total
+            if (offset < -total / 2) offset += total
+
+            const isActive = offset === 0
+            const isVisible = Math.abs(offset) <= 1
+
+            return (
+              <img
+                key={item.id}
+                className={`drycleaning-slide ${isActive ? 'is-active' : ''}`}
+                style={{
+                  transform: `translateX(${offset * 62}%) scale(${isActive ? 1 : 0.82})`,
+                  opacity: isVisible ? (isActive ? 1 : 0.35) : 0,
+                  zIndex: isActive ? 2 : 1,
+                  pointerEvents: isActive ? 'auto' : 'none',
+                }}
+                src={images[item.imageKey]}
+                alt={item.label}
+              />
+            )
+          })}
           <div className="drycleaning-overlay">
             <div className="drycleaning-caption">{activeItem.label}</div>
             <div className="dots">
