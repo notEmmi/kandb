@@ -1,9 +1,9 @@
-import styles from './AboutSection.module.css'
+import './AboutSection.css'
 
 export default function AboutSection({ publicUrl }) {
   return (
-    <section className={styles.about} id="about">
-      <div className={styles.content}>
+    <section className="about" id="about">
+      <div className="about-content">
         <span className="section-label">About Us</span>
         <h2>A Legacy of Care</h2>
         <p>For over 50 years, our doors have been open to this community, built on a foundation of precision, pride, and genuine love for the people we serve. What started as a one man's dedication to the craft of quality dry cleaning has grown into a local landmark of trust.</p>
@@ -13,7 +13,7 @@ export default function AboutSection({ publicUrl }) {
       </div>
 
       <div className="image-container">
-        <img className={styles.image} src={`${publicUrl}/aboutme.jpg`} alt="Interior of K & B dry cleaning shop" />
+        <img className="about-image" src={`${publicUrl}/aboutme.jpg`} alt="Interior of K & B dry cleaning shop" />
       </div>
     </section>
   )
