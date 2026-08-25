@@ -23,7 +23,7 @@ const imageAssets = {
   cashmereImage: placeholderImage,
   silkImage: placeholderImage,
   sportswearImage: placeholderImage,
-  customeImage: placeholderImage,
+  costumesImage: `${publicUrl}costumes.jpg`,
   accessoriesImage: placeholderImage,
   sewingMachineImage: placeholderImage,
   hungClothesImage: placeholderImage,

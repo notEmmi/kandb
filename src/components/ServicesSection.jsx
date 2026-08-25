@@ -6,7 +6,7 @@ const dryCleaningItems = [
   { id: 'leather-suede', label: 'Leather & Suede', imageKey: 'leatherImage' },
   { id: 'wedding-dress', label: 'Wedding Dresses (Boxed & Preserved)', imageKey: 'weddingDressImage' },
   { id: 'shoes-uggs', label: 'Shoes & Uggs', imageKey: 'uggsImage' },
-  { id: 'beading', label: 'Beading & Embellishments', imageKey: 'beddingImage' },
+  { id: 'bedding', label: 'Comforters & Bedding', imageKey: 'beddingImage' },
   { id: 'costumes', label: 'Costumes', imageKey: 'customeImage' },
   { id: 'wool-cashmere-silk', label: 'Wool, Cashmere & Silk', imageKey: 'woolImage' },
   { id: 'accessories', label: 'Accessories', imageKey: 'accessoriesImage' },
