@@ -95,3 +95,20 @@
   line-height: 1.7;
   color: color-mix(in srgb, var(--primary) 75%, var(--muted) 25%);
 }
+
+.review-toggle {
+  display: inline-block;
+  margin-top: var(--space-3);
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.review-toggle:hover {
+  text-decoration: underline;
+}
