@@ -8,7 +8,7 @@ const dryCleaningItems = [
   { id: 'shoes-uggs', label: 'Shoes & Uggs', imageKey: 'uggsImage' },
   { id: 'bedding', label: 'Comforters & Bedding', imageKey: 'beddingImage' },
   { id: 'costumes', label: 'Costumes', imageKey: 'costumesImage' },
-  { id: 'wool-cashmere-silk', label: 'Wool, Cashmere & Silk', imageKey: 'woolImage' },
+  { id: 'wool-cashmere-silk', label: 'Wool, Cashmere & Silk', imageKey: 'materialImage' },
   { id: 'accessories', label: 'Accessories', imageKey: 'accessoriesImage' },
   { id: 'sportswear', label: 'Sportswear', imageKey: 'sportswearImage' },
 ]
