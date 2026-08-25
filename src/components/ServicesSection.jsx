@@ -34,7 +34,7 @@ export default function ServicesSection({ images = {} }) {
   useEffect(() => {
     const id = setInterval(() => {
       setActiveIndex((current) => (current + 1) % dryCleaningItems.length)
-    }, 3500)
+    }, 4000)
     return () => clearInterval(id)
   }, [])
 

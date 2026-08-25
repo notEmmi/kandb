@@ -146,10 +146,10 @@
 /* ----- Alterations / Pressing cards ----- */
 
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-6);
-  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
 }
@@ -157,12 +157,14 @@
 .service-card {
   border: 1px solid color-mix(in srgb, var(--muted) 80%, var(--background) 20%);
   background: color-mix(in srgb, var(--background) 85%, var(--muted) 15%);
+  max-width: 400px;
 }
 
 .service-card-media {
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
+  border: 1px dashed color-mix(in srgb, var(--muted) 80%, var(--primary) 40%);
 }
 
 .service-card-media img {

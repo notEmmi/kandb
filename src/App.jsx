@@ -17,7 +17,7 @@ const imageAssets = {
   everydayImage: `${publicUrl}casualwear.jpg`,
   leatherImage: `${publicUrl}leather.jpg`,
   uggsImage: placeholderImage,
-  weddingDressImage: placeholderImage,
+  weddingDressImage: `${publicUrl}weddingdress.jpg`,
   beddingImage: placeholderImage,
   woolImage: placeholderImage,
   cashmereImage: placeholderImage,
