@@ -16,7 +16,7 @@ const dryCleaningItems = [
 const otherServices = [
   {
     name: 'Alterations',
-    imageKey: 'sewingMachineImage',
+    imageKey: 'alterationsImage1',
     desc: 'Expert tailoring and repairs, from simple adjustments to full restyles, done by hand.',
     items: ['Hemming & shortening', 'Taking in / letting out', 'Zipper & button repair', 'Suit & dress resizing', 'Custom fitting'],
   },

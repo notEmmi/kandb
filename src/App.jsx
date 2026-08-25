@@ -23,7 +23,7 @@ const imageAssets = {
   sportswearImage: `${publicUrl}sportswear.jpg`,
   costumesImage: `${publicUrl}costumes.jpg`,
   accessoriesImage: `${publicUrl}accessories.jpg`,
-  sewingMachineImage: placeholderImage,
+  alterationsImage1: `${publicUrl}alterations1.jpg`,
   hungClothesImage: placeholderImage,
 }
 
