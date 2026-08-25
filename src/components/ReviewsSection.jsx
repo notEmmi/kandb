@@ -7,6 +7,7 @@ const reviews = [
   { id: 'review-3', initial: 'H', name: 'Halie R.', location: 'Google reviewer', quote: "This place is newly redone and it's amazing. Nicest dry cleaner I've ever been too. My clothes were perfect and smelled amazing. Would recommend to anyone!" },
 ]
 
+const GOOGLE_REVIEW_URL = 'https://g.page/r/CRfEEmBpdkWvEAE/review'
 const QUOTE_LIMIT = 220
 
 function truncateQuote(quote) {
@@ -37,9 +38,17 @@ export default function ReviewsSection() {
         <h2>Trusted by our neighbors</h2>
         <div className="reviews-rating">
           <span className="reviews-stars">★★★★★</span>
-          <strong>4.9</strong>
-          <span>· based on Google reviews</span>
+          <strong>4.5</strong>
+          <span>· based on Google reviews ({new Date().getFullYear()})</span>
         </div>
+        <a
+          className="reviews-cta"
+          href={GOOGLE_REVIEW_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Leave us a review on Google
+        </a>
       </div>
 
       <div className="reviews-grid">
@@ -72,6 +81,15 @@ export default function ReviewsSection() {
           )
         })}
       </div>
+
+      <a
+        className="reviews-see-more"
+        href={GOOGLE_REVIEW_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        See all our reviews on Google →
+      </a>
     </section>
   )
 }
