@@ -308,6 +308,14 @@ section {
   border-bottom: 2px solid var(--accent);
 }
 
+#services,
+#reviews,
+#about,
+#contact,
+#gift-cards {
+  scroll-margin-top: var(--nav-height, 90px);
+}
+
 .logo-img {
   width: 120px;
 }

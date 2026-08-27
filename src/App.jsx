@@ -9,10 +9,6 @@ import ContactSection from './components/ContactSection'
 // PUBLIC URL
 const publicUrl = import.meta.env.BASE_URL || '/kandb/'
 
-const placeholderImage = `data:image/svg+xml,${encodeURIComponent(
-  '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="#e5e7eb"/><text x="400" y="300" text-anchor="middle" dominant-baseline="middle" fill="#6b7280" font-family="Arial, sans-serif" font-size="32">Image placeholder</text></svg>',
-)}`
-
 const imageAssets = {
   everydayImage: `${publicUrl}casualwear.jpg`,
   leatherImage: `${publicUrl}leather.jpg`,
@@ -23,8 +19,8 @@ const imageAssets = {
   sportswearImage: `${publicUrl}sportswear.jpg`,
   costumesImage: `${publicUrl}costumes.jpg`,
   accessoriesImage: `${publicUrl}accessories.jpg`,
-  alterationsImage1: `${publicUrl}alterations1.jpg`,
-  hungClothesImage: placeholderImage,
+  alterationsImage: `${publicUrl}alterations.jpg`,
+  pressImage: `${publicUrl}pressing.jpg`,
 }
 
 const instagramSVG = (

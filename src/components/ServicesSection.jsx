@@ -16,13 +16,13 @@ const dryCleaningItems = [
 const otherServices = [
   {
     name: 'Alterations',
-    imageKey: 'alterationsImage1',
+    imageKey: 'alterationsImage',
     desc: 'Expert tailoring and repairs, from simple adjustments to full restyles, done by hand.',
     items: ['Hemming & shortening', 'Taking in / letting out', 'Zipper & button repair', 'Suit & dress resizing', 'Custom fitting'],
   },
   {
     name: 'Pressing',
-    imageKey: 'cashmereImage',
+    imageKey: 'pressImage',
     desc: 'Crisp, professional pressing so everything you pick up looks ready to wear.',
     items: ['Pressing with dry cleaning', 'Pressing alone'],
   },
