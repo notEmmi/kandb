@@ -174,9 +174,6 @@ a {
   color: var(--primary);
 }
 
-.main {
-  flex: 1;
-}
 
 section {
   display: flex;
