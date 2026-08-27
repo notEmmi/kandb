@@ -40,19 +40,35 @@ function ServiceCard({ service, images, reversed }) {
 
   return (
     <div className={`service-card ${reversed ? 'is-reversed' : ''}`}>
-      <div className="service-card-media">
-        {service.imageKeys.map((key, index) => (
-          <img
-            key={key}
-            className={`service-card-slide ${index === activeIndex ? 'is-active' : ''}`}
-            src={images[key]}
-            alt={service.name}
-          />
-        ))}
+      <div className="drycleaning-media">
+        {service.imageKeys.map((key, index) => {
+          const total = service.imageKeys.length
+          let offset = index - activeIndex
+          if (offset > total / 2) offset -= total
+          if (offset < -total / 2) offset += total
+
+          const isActive = offset === 0
+          const isVisible = Math.abs(offset) <= 1
+
+          return (
+            <img
+              key={key}
+              className={`drycleaning-slide ${isActive ? 'is-active' : ''}`}
+              style={{
+                transform: `translateX(${offset * 62}%) scale(${isActive ? 1 : 0.82})`,
+                opacity: isVisible ? (isActive ? 1 : 0.35) : 0,
+                zIndex: isActive ? 2 : 1,
+                pointerEvents: isActive ? 'auto' : 'none',
+              }}
+              src={images[key]}
+              alt={service.name}
+            />
+          )
+        })}
       </div>
-      <div className="service-card-body">
-        <div className="service-card-name">{service.name}</div>
-        <p className="service-card-description">{service.desc}</p>
+      <div className="flagship-body">
+        <div className="drycleaning-name">{service.name}</div>
+        <p className="drycleaning-description">{service.desc}</p>
         <div className="service-card-items">
           {service.items.map((item) => (
             <div className="service-card-item" key={item}>

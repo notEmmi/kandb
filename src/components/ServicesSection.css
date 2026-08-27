@@ -19,10 +19,17 @@
 .drycleaning {
   width: 100%;
   margin: 0 auto;
-  background: color-mix(in srgb, var(--background) 95%, var(--accent) 5%);
+  background: color-mix(in srgb, var(--muted) 50%, var(--background) 50%);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
   display: grid;
+  gap: 1px;
   grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
   height: clamp(420px, 60vh, 760px);
+}
+
+.drycleaning-media,
+.drycleaning .flagship-body {
+  background: color-mix(in srgb, var(--background) 95%, var(--accent) 5%);
 }
 
 @media (min-width: 840px) {
@@ -43,6 +50,7 @@
   inset: 0;
   margin: auto;
   height: 80%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
@@ -160,11 +168,17 @@
 .service-card {
   width: 100%;
   margin: 0 auto;
-  border: 1px solid color-mix(in srgb, var(--muted) 80%, var(--background) 20%);
-  background: color-mix(in srgb, var(--background) 85%, var(--muted) 15%);
+  background: color-mix(in srgb, var(--muted) 50%, var(--background) 50%);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
   display: grid;
+  gap: 1px;
   grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
   height: clamp(420px, 60vh, 760px);
+}
+
+.service-card .drycleaning-media,
+.service-card .flagship-body {
+  background: color-mix(in srgb, var(--background) 95%, var(--accent) 5%);
 }
 
 @media (min-width: 840px) {
@@ -172,53 +186,13 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .service-card.is-reversed .service-card-media {
+  .service-card.is-reversed .drycleaning-media {
     order: 2;
   }
 
-  .service-card.is-reversed .service-card-body {
+  .service-card.is-reversed .flagship-body {
     order: 1;
   }
-}
-
-.service-card-media {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  border: 1px dashed color-mix(in srgb, var(--muted) 80%, var(--primary) 40%);
-}
-
-.service-card-slide {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-.service-card-slide.is-active {
-  opacity: 1;
-}
-
-.service-card-body {
-  padding: clamp(32px, 4vw, 56px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.service-card-name {
-  font-family: var(--font-serif);
-  font-size: 26px;
-  color: var(--primary);
-  margin-bottom: 14px;
-}
-
-.service-card-description {
-  margin-bottom: var(--space-6);
-  max-width: 520px;
 }
 
 .service-card-items {
@@ -277,10 +251,6 @@
     grid-template-columns: 1fr;
     height: auto;
   }
-
-  .service-card-media {
-    height: clamp(280px, 70vw, 420px);
-  }
 }
 
 @media (max-width: 480px) {
@@ -291,9 +261,5 @@
 
   .drycleaning-caption {
     font-size: var(--font-size-base);
-  }
-
-  .service-card-body {
-    padding: var(--space-4) var(--space-4) var(--space-6);
   }
 }
