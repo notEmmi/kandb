@@ -114,8 +114,8 @@ export default function ServicesSection({ images = {} }) {
       </div>
 
       <div className="services-grid">
-        {otherServices.map((service) => (
-          <div className="service-card" key={service.name}>
+        {otherServices.map((service, index) => (
+          <div className={`service-card ${index % 2 === 0 ? 'is-reversed' : ''}`} key={service.name}>
             <div className="service-card-media">
               <img src={images[service.imageKey]} alt={service.name} />
             </div>
