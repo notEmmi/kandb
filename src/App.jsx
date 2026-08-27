@@ -20,7 +20,11 @@ const imageAssets = {
   costumesImage: `${publicUrl}costumes.jpg`,
   accessoriesImage: `${publicUrl}accessories.jpg`,
   alterationsImage: `${publicUrl}alterations.jpg`,
+  alterationsImage2: `${publicUrl}alterations.jpg`,
+  alterationsImage3: `${publicUrl}alterations.jpg`,
   pressImage: `${publicUrl}pressing.jpg`,
+  pressImage2: `${publicUrl}pressing.jpg`,
+  pressImage3: `${publicUrl}pressing.jpg`,
 }
 
 const instagramSVG = (

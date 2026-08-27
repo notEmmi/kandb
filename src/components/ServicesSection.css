@@ -164,7 +164,7 @@
   background: color-mix(in srgb, var(--background) 85%, var(--muted) 15%);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
-  min-height: clamp(360px, 50vh, 560px);
+  height: clamp(420px, 60vh, 760px);
 }
 
 @media (min-width: 840px) {
@@ -188,11 +188,18 @@
   border: 1px dashed color-mix(in srgb, var(--muted) 80%, var(--primary) 40%);
 }
 
-.service-card-media img {
+.service-card-slide {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.service-card-slide.is-active {
+  opacity: 1;
 }
 
 .service-card-body {
@@ -268,11 +275,11 @@
 
   .service-card {
     grid-template-columns: 1fr;
-    min-height: auto;
+    height: auto;
   }
 
   .service-card-media {
-    height: clamp(240px, 60vw, 380px);
+    height: clamp(280px, 70vw, 420px);
   }
 }
 

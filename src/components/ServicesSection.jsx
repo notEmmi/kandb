@@ -16,17 +16,55 @@ const dryCleaningItems = [
 const otherServices = [
   {
     name: 'Alterations',
-    imageKey: 'alterationsImage',
+    imageKeys: ['alterationsImage', 'alterationsImage2', 'alterationsImage3'],
     desc: 'Expert tailoring and repairs, from simple adjustments to full restyles, done by hand.',
     items: ['Hemming & shortening', 'Taking in / letting out', 'Zipper & button repair', 'Suit & dress resizing', 'Custom fitting'],
   },
   {
     name: 'Pressing',
-    imageKey: 'pressImage',
+    imageKeys: ['pressImage', 'pressImage2', 'pressImage3'],
     desc: 'Crisp, professional pressing so everything you pick up looks ready to wear.',
     items: ['Pressing with dry cleaning', 'Pressing alone'],
   },
 ]
+
+function ServiceCard({ service, images, reversed }) {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % service.imageKeys.length)
+    }, 4000)
+    return () => clearInterval(id)
+  }, [service.imageKeys.length])
+
+  return (
+    <div className={`service-card ${reversed ? 'is-reversed' : ''}`}>
+      <div className="service-card-media">
+        {service.imageKeys.map((key, index) => (
+          <img
+            key={key}
+            className={`service-card-slide ${index === activeIndex ? 'is-active' : ''}`}
+            src={images[key]}
+            alt={service.name}
+          />
+        ))}
+      </div>
+      <div className="service-card-body">
+        <div className="service-card-name">{service.name}</div>
+        <p className="service-card-description">{service.desc}</p>
+        <div className="service-card-items">
+          {service.items.map((item) => (
+            <div className="service-card-item" key={item}>
+              <span className="bullet" aria-hidden="true">•</span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function ServicesSection({ images = {} }) {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -115,23 +153,7 @@ export default function ServicesSection({ images = {} }) {
 
       <div className="services-grid">
         {otherServices.map((service, index) => (
-          <div className={`service-card ${index % 2 === 0 ? 'is-reversed' : ''}`} key={service.name}>
-            <div className="service-card-media">
-              <img src={images[service.imageKey]} alt={service.name} />
-            </div>
-            <div className="service-card-body">
-              <div className="service-card-name">{service.name}</div>
-              <p className="service-card-description">{service.desc}</p>
-              <div className="service-card-items">
-                {service.items.map((item) => (
-                  <div className="service-card-item" key={item}>
-                    <span className="bullet" aria-hidden="true">•</span>
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <ServiceCard key={service.name} service={service} images={images} reversed={index % 2 === 0} />
         ))}
       </div>
 
