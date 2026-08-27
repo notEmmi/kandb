@@ -216,3 +216,47 @@
   color: color-mix(in srgb, var(--primary) 40%, var(--muted) 60%);
   margin: 0;
 }
+
+/* ----- Responsive ----- */
+
+@media (max-width: 780px) {
+  .drycleaning {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .drycleaning-media {
+    height: clamp(280px, 70vw, 420px);
+  }
+
+  .drycleaning-overlay {
+    padding: 28px var(--space-4) var(--space-3);
+  }
+
+  .flagship-body {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .garments {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    width: 100%;
+    max-width: 460px;
+  }
+}
+
+@media (max-width: 480px) {
+  .drycleaning-slide {
+    height: 90%;
+  }
+
+  .drycleaning-caption {
+    font-size: var(--font-size-base);
+  }
+
+  .service-card-body {
+    padding: var(--space-4) var(--space-4) var(--space-6);
+  }
+}
