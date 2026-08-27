@@ -22,9 +22,9 @@ const imageAssets = {
   alterationsImage: `${publicUrl}alterations.jpg`,
   alterationsImage2: `${publicUrl}alterations2.jpg`,
   alterationsImage3: `${publicUrl}alterations.jpg`,
-  pressImage: `${publicUrl}pressing.jpg`,
+  pressImage: 'https://images.unsplash.com/photo-1718184021018-d2158af6b321?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   pressImage2: 'https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  pressImage3: `${publicUrl}pressing.jpg`,
+  pressImage3: 'https://images.unsplash.com/photo-1511500587571-7b710abffba7?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 }
 
 const instagramSVG = (
