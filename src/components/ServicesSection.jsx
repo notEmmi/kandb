@@ -28,60 +28,6 @@ const otherServices = [
   },
 ]
 
-function ServiceCard({ service, images, reversed }) {
-  const [activeIndex, setActiveIndex] = useState(0)
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % service.imageKeys.length)
-    }, 4000)
-    return () => clearInterval(id)
-  }, [service.imageKeys.length])
-
-  return (
-    <div className={`service-card ${reversed ? 'is-reversed' : ''}`}>
-      <div className="drycleaning-media">
-        {service.imageKeys.map((key, index) => {
-          const total = service.imageKeys.length
-          let offset = index - activeIndex
-          if (offset > total / 2) offset -= total
-          if (offset < -total / 2) offset += total
-
-          const isActive = offset === 0
-          const isVisible = Math.abs(offset) <= 1
-
-          return (
-            <img
-              key={key}
-              className={`drycleaning-slide ${isActive ? 'is-active' : ''}`}
-              style={{
-                transform: `translateX(${offset * 62}%) scale(${isActive ? 1 : 0.82})`,
-                opacity: isVisible ? (isActive ? 1 : 0.35) : 0,
-                zIndex: isActive ? 2 : 1,
-                pointerEvents: isActive ? 'auto' : 'none',
-              }}
-              src={images[key]}
-              alt={service.name}
-            />
-          )
-        })}
-      </div>
-      <div className="flagship-body">
-        <div className="drycleaning-name">{service.name}</div>
-        <p className="drycleaning-description">{service.desc}</p>
-        <div className="service-card-items">
-          {service.items.map((item) => (
-            <div className="service-card-item" key={item}>
-              <span className="bullet" aria-hidden="true">•</span>
-              <span>{item}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export default function ServicesSection({ images = {} }) {
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -145,7 +91,7 @@ export default function ServicesSection({ images = {} }) {
 
         <div className="flagship-body">
           <p className="section-label">OUR MAIN SERVICE</p>
-          <div className="drycleaning-name">Dry Cleaning</div>
+          <h3 className="drycleaning-name">Dry Cleaning</h3>
           <p className="drycleaning-description">
             Expert, careful cleaning for every kind of garment — from delicate silks to bulky
             sportswear. Tap any item to see our work.
@@ -167,10 +113,18 @@ export default function ServicesSection({ images = {} }) {
         </div>
       </div>
 
-      <div className="services-grid">
-        {otherServices.map((service, index) => (
-          <ServiceCard key={service.name} service={service} images={images} reversed={index % 2 === 0} />
-        ))}
+      <div className="pressing">
+        <div className="header">
+          <p className="section-label">PART OF OUR SERVICE</p>
+          <h3>Steaming & Pressing</h3>
+        </div>
+        <p className="pressing-description">
+          Your clothes come back pressed and ready to wear. Bring anything in for press-only, or let us steam it to drop the wrinkles and freshen it up.
+        </p>
+        <div className="pressing-media">
+          
+        </div>
+
       </div>
 
       <p className="services-note">Expedited service available on any of the above — just ask at drop-off.</p>
