@@ -14,7 +14,7 @@ export default function HeroSection({ publicUrl, arrowRightSVG }) {
         <h1 id="hero-title">Meticulous care for<br />
           <span className="accent"><i>your finest garments</i></span>
         </h1>
-        <p>Where precision meets elegance. Expert cleaning, tailoring, and pressing for everything from everyday wear to cherished heirlooms.</p>
+        <p>Expert cleaning, tailoring, and pressing for everything from everyday wear to cherished heirlooms.</p>
         <div className="hero-cta">
           <button
             className="btn btn-primary"
