@@ -186,40 +186,9 @@ function App() {
 
   return (
     <div className="app">
-      <div className="quick-contact">
-        <div className={`quick-contact-status ${statusClass}`}>
-          <span className="dot" aria-hidden="true"></span>
-          <span>{statusLabel}</span>
-        </div>
-
-        <div className="quick-contact-right">
-          <a href="tel:+17166683088" className="quick-contact-link small" aria-label="Call K and B Dry Cleaners">
-            (716) 668-3088
-          </a>
-          <a href="mailto:kandbcleaners3451@gmail.com" className="quick-contact-link small" aria-label="Email K and B Dry Cleaners">
-            kandbcleaner@gmail.com
-          </a>
-          <a
-            href="https://www.instagram.com/kandbcleaners/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="quick-contact-icon"
-            aria-label="Follow us on Instagram"
-          >
-            {instagramSVG}
-          </a>
-          <a
-            href="https://www.facebook.com/people/KB-dry-cleaners/61589575148506/?mibextid=wwXIfr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="quick-contact-icon"
-            aria-label="Follow us on Facebook"
-          >
-            {facebookSVG}
-          </a>
-        </div>
-      </div>
-      <nav className="top-nav">
+      <nav
+        className="top-nav"
+      >
         <div className="logo">
           <img className="logo-img" src={`${publicUrl}logo.svg`} alt="K & B logo" />
           <p className="logo-tagline">Dry Cleaners &<br/>Alterations</p>
@@ -248,7 +217,12 @@ function App() {
       </nav>
 
       <main className="main">
-        <HeroSection publicUrl={publicUrl} arrowRightSVG={arrowRightSVG} />
+        <HeroSection
+          publicUrl={publicUrl}
+          arrowRightSVG={arrowRightSVG}
+          statusLabel={statusLabel}
+          statusClass={statusClass}
+        />
         <ServicesSection images={imageAssets} />
         <AboutSection />
         <ReviewsSection />
