@@ -1,8 +1,28 @@
+.hero {
+  position: relative;
+  justify-content: flex-start;
+  min-height: min(760px,100vh);
+  background: linear-gradient(to right, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.48) 46%, rgba(0,0,0,0.16) 100%), url('/hero.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--dark-primary);
+}
+
+.hero h1,
+.hero .tag {
+  color: var(--dark-primary);
+}
+
 .hero p {
   margin-top: var(--space-4);
   margin-bottom: var(--space-6);
   font-size: var(--font-size-lg);
   line-height: 1.5;
+  color: var(--dark-primary);
+  max-width: clamp(320px, 40vw, 480px);
+  text-wrap: wrap;
 }
 
 .hero-tags {
@@ -25,7 +45,7 @@
 .tag .dot {
   width: 6px;
   height: 6px;
-  background: var(--accent);
+  background: var(--dark-accent);
   border-radius: 50%;
 }
 
@@ -35,13 +55,8 @@
 }
 
 .hero .accent {
-  color: var(--accent);
+  color: var(--dark-accent);
   font-weight: 500;
-}
-
-.hero p {
-  max-width: clamp(320px, 40vw, 480px);
-  text-wrap: wrap;
 }
 
 .hero-cta {
@@ -50,4 +65,54 @@
   flex-wrap: wrap;
   align-items: stretch;
   gap: var(--space-4);
+}
+
+.hero .btn-primary {
+  color: var(--dark-background);
+  background: var(--dark-primary);
+  border-color: var(--dark-primary);
+}
+
+.hero .btn-primary:hover {
+  background: var(--dark-muted);
+  color: var(--dark-primary);
+  border-color: var(--dark-primary);
+}
+
+.hero .btn-secondary {
+  color: var(--dark-primary);
+  border-color: var(--dark-primary);
+}
+
+.hero .btn-secondary:hover {
+  background: var(--dark-muted);
+  color: var(--dark-primary);
+  border-color: var(--dark-primary);
+}
+
+.hero-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  font-size: var(--font-size-sm);
+  color: color-mix(in srgb, var(--dark-primary) 60%, var(--dark-muted) 40%);
+}
+
+.hero-status .quick-contact-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.hero-status .quick-contact-status.is-open { color: var(--dark-success); }
+.hero-status .quick-contact-status.is-closed { color: var(--dark-closed); }
+.hero-status .quick-contact-status.is-holiday { color: var(--dark-accent); }
+.hero-status .quick-contact-status .dot { background: currentColor; }
+
+.hero-status-divider {
+  margin: 0 var(--space-2);
+  color: color-mix(in srgb, var(--dark-primary) 60%, var(--dark-muted) 40%);
 }

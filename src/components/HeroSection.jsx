@@ -1,8 +1,11 @@
 import './HeroSection.css'
 
-export default function HeroSection({ publicUrl, arrowRightSVG }) {
+export default function HeroSection({ publicUrl, arrowRightSVG, statusLabel, statusClass }) {
   return (
-    <section className="hero" aria-labelledby="hero-title">
+    <section
+      className="hero"
+      aria-labelledby="hero-title"
+    >
       <div className="hero-content">
         <div className="hero-tags">
           <div className="tag">Dry Cleaning</div>
@@ -28,9 +31,14 @@ export default function HeroSection({ publicUrl, arrowRightSVG }) {
             {arrowRightSVG}
           </a>
         </div>
-      </div>
-      <div className="image-container">
-        <img className="hero-image" src={`${publicUrl}hero.jpg`} alt="Suite " fetchPriority="high" />
+        <div className="hero-status">
+          <span className={`quick-contact-status ${statusClass}`}>
+            <span className="dot" aria-hidden="true"></span>
+            <span>{statusLabel}</span>
+          </span>
+          <span className="hero-status-divider" aria-hidden="true">|</span>
+          <span>Holiday hours may vary</span>
+        </div>
       </div>
     </section>
   )
