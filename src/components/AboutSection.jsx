@@ -13,7 +13,7 @@ export default function AboutSection({ publicUrl }) {
       </div>
 
       <div className="image-container">
-        <img className="about-image" src={`${publicUrl}/aboutme.jpg`} alt="Interior of K & B dry cleaning shop" />
+        <img className="about-image" src={`${publicUrl}aboutme.jpg`} alt="Interior of K & B dry cleaning shop" />
       </div>
     </section>
   )

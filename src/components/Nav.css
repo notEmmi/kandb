@@ -1,0 +1,129 @@
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) var(--space-6);
+  background-color: var(--primary);
+  background-image: linear-gradient(to right, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.48) 46%, rgba(0,0,0,0.16) 100%), url('/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  border-bottom: 2px solid var(--dark-accent);
+
+}
+
+#services,
+#reviews,
+#about,
+#contact,
+#gift-cards {
+  scroll-margin-top: var(--nav-height, 90px);
+}
+
+.logo-img {
+  width: 120px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-tagline {
+  font-size: var(--font-size-sm);
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-bottom: 0;
+  margin: 0;
+  color: color-mix(in srgb, var(--background) 60%, var(--muted) 40%);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.nav-links a {
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  color: var(--background);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--background);
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin: 0 auto;
+  background: var(--background);
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 780px) {
+  .top-nav {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .logo {
+    justify-self: start;
+  }
+
+  .nav-toggle {
+    display: flex;
+    justify-self: end;
+    z-index: 2;
+  }
+  
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    width: 100%;
+    padding: var(--space-4) var(--space-4) var(--space-2);
+    background: var(--primary);
+    border-top: 1px solid var(--accent);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    z-index: 1;
+    margin-top: 0;
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+}
