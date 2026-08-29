@@ -188,7 +188,7 @@ function App() {
   return (
     <div className="app">
       <Nav
-        
+        publicUrl={publicUrl}
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
         closeMobileMenu={closeMobileMenu}
@@ -202,7 +202,7 @@ function App() {
           statusClass={statusClass}
         />
         <ServicesSection images={imageAssets} />
-        <AboutSection />
+        <AboutSection publicUrl={publicUrl} />
         <ReviewsSection />
 
         {/* <GiftCardsSection /> */}
