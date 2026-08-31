@@ -193,7 +193,6 @@ section {
   justify-content: center;
   flex-wrap: wrap;
   gap: clamp(2rem, 5vw, 6rem);
-  width: 100%;
   margin: 0 auto;
   padding: var(--space-12) var(--space-32);
 }
@@ -204,7 +203,6 @@ section {
   align-items: flex-start;
   justify-content: center;
   flex: 1 1 320px;
-  min-width: 320px;
   max-width: 600px;
 }
 
@@ -226,6 +224,12 @@ section {
   flex: 1 1 420px;
   max-width: 600px;
   min-width: 280px;
+}
+
+@media (max-width: 280px) {
+  .image-container, .map-container {
+    min-width: 0;
+  }
 }
 
 .hero-image, .about-image, .google-map {
