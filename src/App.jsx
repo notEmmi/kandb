@@ -91,6 +91,8 @@ const getNthWeekdayOfMonth = (year, month, weekday, n) => {
   }
 }
 
+console.log(getNthWeekdayOfMonth(new Date().getFullYear(), 9, 1, 1))
+
 const getLastWeekdayOfMonth = (year, month, weekday) => {
   const d = new Date(Date.UTC(year, month, 0))
   while (d.getUTCDay() !== weekday) d.setUTCDate(d.getUTCDate() - 1)
@@ -155,9 +157,8 @@ const formatTime = (minutes) => {
 // These values depend on current time and UI state, so they belong in App.
 // -----------------------------------------------------------------------------
 function App() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const closeMobileMenu = () => setMobileMenuOpen(false)
 
+  
   const [nowNY, setNowNY] = useState(getNYTime())
 
   useEffect(() => {
@@ -189,14 +190,11 @@ function App() {
     <div className="app">
       <Nav
         publicUrl={publicUrl}
-        mobileMenuOpen={mobileMenuOpen}
-        setMobileMenuOpen={setMobileMenuOpen}
-        closeMobileMenu={closeMobileMenu}
+        phoneSVG={phoneSVG}
       />
 
       <main className="main">
         <HeroSection
-          publicUrl={publicUrl}
           arrowRightSVG={arrowRightSVG}
           statusLabel={statusLabel}
           statusClass={statusClass}
