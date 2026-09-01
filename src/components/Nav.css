@@ -8,7 +8,6 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--space-2) var(--space-6);
-  background-color: var(--primary);
   background-image: linear-gradient(to right, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.48) 46%, rgba(0,0,0,0.16) 100%), url('/hero.jpg');
   background-size: cover;
   background-position: center;
@@ -39,34 +38,36 @@
 
 .logo-tagline {
   font-size: var(--font-size-xs);
-  line-height: 1.2;
+  line-height: 1;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding-bottom: 0;
   margin: 0;
-  color: color-mix(in srgb, var(--background) 60%, var(--muted) 40%);
+  padding: 0;
+  color: var(--dark-primary);
 }
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: var(--space-6);
 }
 
 .nav-links a {
   font-size: var(--font-size-md);
   font-weight: 500;
-  color: var(--background);
+  color: var(--dark-primary);
   transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-  color: var(--accent);
+  color: var(--dark-accent);
 }
 
 .nav-toggle {
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
   width: 44px;
   height: 44px;
@@ -84,6 +85,20 @@
   background: var(--background);
   border-radius: 2px;
   transition: all 0.2s ease;
+}
+
+.nav-call-btn {
+  font-size: var(--font-size-md);
+  color: black;
+  transition: color 0.2s ease;
+  padding: var(--space-2) var(--space-4);
+  background: var(--dark-accent);
+  align-items: center;
+  display: flex;
+}
+
+.nav-call-btn:hover {
+  background: color-mix(in srgb, var(--dark-accent) 80%, var(--dark-muted) 20%);
 }
 
 @media (max-width: 780px) {
