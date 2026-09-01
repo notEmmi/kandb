@@ -87,21 +87,17 @@
   transition: all 0.2s ease;
 }
 
-.nav-links a.nav-call-btn {
-  color: var(--primary);
-}
-
 .nav-call-btn {
+  background: transparent;
+  border: 1px solid var(--dark-primary);
+  padding: 6px 12px;
+  gap: 6px;
   font-size: var(--font-size-md);
-  transition: color 0.2s ease;
-  padding: var(--space-2) var(--space-4);
-  background: var(--dark-accent);
-  align-items: center;
-  display: flex;
 }
 
 .nav-call-btn:hover {
-  background: color-mix(in srgb, var(--dark-accent) 80%, var(--dark-muted) 20%);
+  border: 1px solid var(--dark-accent);
+  background: var(--dark-muted);
 }
 
 .nav-call-btn-mobile {
@@ -133,9 +129,17 @@
     align-items: center;
     width: 44px;
     height: 44px;
-    background: var(--dark-accent);
     cursor: pointer;
     justify-self: end;
+    border: 1px solid var(--dark-primary);
+    color: var(--dark-primary);
+    background: transparent;
+  }
+
+  .nav-call-btn-mobile:hover {
+    border-color: var(--dark-accent);
+    color: var(--dark-accent);
+    background: var(--dark-muted);
   }
   
   .nav-links {
