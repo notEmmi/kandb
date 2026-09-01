@@ -19,13 +19,13 @@ export default function HeroSection({arrowRightSVG, statusLabel, statusClass }) 
         </h1>
         <p>Expert cleaning, tailoring, and pressing for everything from everyday wear to cherished heirlooms.</p>
         <div className="hero-cta">
-          <button
+          <a
             className="btn btn-primary"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            href="#contact"
           >
             <span>Request More Info</span>
             {arrowRightSVG}
-          </button>
+          </a>
           <a className="btn btn-secondary" href="#services">
             <span>View Services</span>
             {arrowRightSVG}
