@@ -1,6 +1,6 @@
 import './HeroSection.css'
 
-export default function HeroSection({ publicUrl, arrowRightSVG, statusLabel, statusClass }) {
+export default function HeroSection({arrowRightSVG, statusLabel, statusClass }) {
   return (
     <section
       className="hero"
