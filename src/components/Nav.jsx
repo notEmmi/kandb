@@ -20,10 +20,14 @@ export default function Nav({publicUrl, phoneSVG}) {
           {/* <a href="#gift-cards" onClick={closeMobileMenu}>Gift Cards</a> */}
           <a href="#about" onClick={closeMobileMenu}>About Us</a>
           <a href="#contact" onClick={closeMobileMenu}>Contact</a>
-          <a href="tel:+17166683088" className="nav-call-btn" onClick={closeMobileMenu}>
+          <a href="tel:+17166683088" className="nav-call-btn">
             {phoneSVG} <span>(716) 668-3088</span>
           </a>
         </div>
+
+        <a href="tel:+17166683088" className="nav-call-btn-mobile">
+          {phoneSVG}
+        </a>
 
         <button
           className="nav-toggle"

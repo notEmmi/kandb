@@ -87,9 +87,12 @@
   transition: all 0.2s ease;
 }
 
+.nav-links a.nav-call-btn {
+  color: var(--primary);
+}
+
 .nav-call-btn {
   font-size: var(--font-size-md);
-  color: black;
   transition: color 0.2s ease;
   padding: var(--space-2) var(--space-4);
   background: var(--dark-accent);
@@ -99,6 +102,10 @@
 
 .nav-call-btn:hover {
   background: color-mix(in srgb, var(--dark-accent) 80%, var(--dark-muted) 20%);
+}
+
+.nav-call-btn-mobile {
+  display: none;
 }
 
 @media (max-width: 780px) {
@@ -141,4 +148,19 @@
   .nav-links.is-open {
     display: flex;
   }
+
+  .nav-call-btn {
+    display: none;
+  }
+
+  .nav-call-btn-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: var(--dark-accent);
+    cursor: pointer;
+  }
+
 }
