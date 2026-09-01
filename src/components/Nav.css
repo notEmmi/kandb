@@ -112,7 +112,7 @@
   .top-nav {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
     align-items: center;
     gap: var(--space-2);
   }
@@ -125,6 +125,17 @@
     display: flex;
     justify-self: end;
     z-index: 2;
+  }
+
+  .nav-call-btn-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: var(--dark-accent);
+    cursor: pointer;
+    justify-self: end;
   }
   
   .nav-links {
@@ -151,16 +162,6 @@
 
   .nav-call-btn {
     display: none;
-  }
-
-  .nav-call-btn-mobile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 44px;
-    height: 44px;
-    background: var(--dark-accent);
-    cursor: pointer;
   }
 
 }
