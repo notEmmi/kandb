@@ -1,9 +1,10 @@
 import './Nav.css'
+import { useState } from 'react'
 
+export default function Nav({publicUrl, phoneSVG}) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const closeMobileMenu = () => setMobileMenuOpen(false)
 
-
-
-export default function Nav({publicUrl, mobileMenuOpen, setMobileMenuOpen, closeMobileMenu }) {
 	return (
 		 <nav
         className="top-nav"
@@ -19,6 +20,9 @@ export default function Nav({publicUrl, mobileMenuOpen, setMobileMenuOpen, close
           {/* <a href="#gift-cards" onClick={closeMobileMenu}>Gift Cards</a> */}
           <a href="#about" onClick={closeMobileMenu}>About Us</a>
           <a href="#contact" onClick={closeMobileMenu}>Contact</a>
+          <a href="tel:+17166683088" className="nav-call-btn" onClick={closeMobileMenu}>
+            {phoneSVG} <span>(716) 668-3088</span>
+          </a>
         </div>
 
         <button
