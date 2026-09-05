@@ -27,7 +27,6 @@ export default function Nav({publicUrl, phoneSVG}) {
 
         <a href="tel:+17166683088" className="btn nav-call-btn-mobile">
           {phoneSVG}
-          hihi
         </a>
 
         <button
