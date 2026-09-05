@@ -177,6 +177,7 @@ a {
   background: var(--background);
   font-family: var(--font-sans);
   color: var(--primary);
+  border: 2px solid red;
 }
 
 
@@ -217,7 +218,7 @@ section {
   .hero, .about, .contact-content, .reviews {
     padding: var(--space-12) var(--space-6);
   }
-}
+} 
 
 .image-container, .map-container {
   position: relative;
@@ -226,11 +227,6 @@ section {
   min-width: 280px;
 }
 
-@media (max-width: 280px) {
-  .image-container, .map-container {
-    min-width: 0;
-  }
-}
 
 .hero-image, .about-image, .google-map {
   width: 100%;

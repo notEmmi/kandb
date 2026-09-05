@@ -199,11 +199,10 @@ function App() {
           statusLabel={statusLabel}
           statusClass={statusClass}
         />
-        <ServicesSection images={imageAssets} />
+        {/* <ServicesSection images={imageAssets} />
         <AboutSection publicUrl={publicUrl} />
         <ReviewsSection />
 
-        {/* <GiftCardsSection /> */}
         <ContactSection
           nowNY={nowNY}
           todaysHoliday={todaysHoliday}
@@ -213,7 +212,7 @@ function App() {
           emailSVG={emailSVG}
           locationSVG={locationSVG}
           clockSVG={clockSVG}
-        />
+        /> */}
       </main>
 
       <footer className="footer">
