@@ -101,7 +101,8 @@
 
 .nav-call-btn:hover {
   border: 1px solid var(--dark-accent);
-  background: color-mix(in srgb, var(--dark-accent) 10%, var(--dark-primary) 90%);
+  color: var(--dark-accent);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .nav-call-btn-mobile {
@@ -117,7 +118,7 @@
   .nav-call-btn-mobile:hover {
     border-color: var(--dark-accent);
     color: var(--dark-accent);
-    background: var(--dark-muted);
+    background: rgba(255, 255, 255, 0.12);
   }
 
 @media (max-width: 780px) {
