@@ -177,7 +177,6 @@ a {
   background: var(--background);
   font-family: var(--font-sans);
   color: var(--primary);
-  border: 2px solid red;
 }
 
 
