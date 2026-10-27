@@ -75,20 +75,6 @@ export default function ServicesSection({ images = {} }) {
             )
           })}
           </div>
-          <div className="drycleaning-overlay">
-            <div className="drycleaning-caption">{activeItem.label}</div>
-            <div className="dots">
-              {dryCleaningItems.map((item, index) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  className={`dots-dot ${index === activeIndex ? 'is-active' : ''}`}
-                  aria-label={item.label}
-                  onClick={() => setActiveIndex(index)}
-                ></button>
-              ))}
-            </div>
-          </div>
         </div>
         <div className="drycleaning-body">
           <p className="section-label">OUR MAIN SERVICE</p>
