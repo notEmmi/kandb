@@ -13,20 +13,6 @@ const dryCleaningItems = [
   { id: 'sportswear', label: 'Sportswear', imageKey: 'sportswearImage' },
 ]
 
-const otherServices = [
-  {
-    name: 'Alterations',
-    imageKeys: ['alterationsImage', 'alterationsImage2', 'alterationsImage3'],
-    desc: 'Expert tailoring and repairs, from simple adjustments to full restyles, done by hand.',
-    items: ['Hemming & shortening', 'Taking in / letting out', 'Zipper & button repair', 'Suit & dress resizing', 'Custom fitting'],
-  },
-  {
-    name: 'Pressing',
-    imageKeys: ['pressImage', 'pressImage2', 'pressImage3'],
-    desc: 'Crisp, professional pressing so everything you pick up looks ready to wear.',
-    items: ['Pressing with dry cleaning', 'Pressing alone'],
-  },
-]
 
 export default function ServicesSection({ images = {} }) {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -37,8 +23,6 @@ export default function ServicesSection({ images = {} }) {
     }, 4000)
     return () => clearInterval(id)
   }, [])
-
-  const activeItem = dryCleaningItems[activeIndex]
 
   return (
     <section className="services" id="services">
@@ -105,18 +89,22 @@ export default function ServicesSection({ images = {} }) {
 
       </div>
 
-      <div className="pressing">
-        <div className="header">
-          <p className="section-label">PART OF OUR SERVICE</p>
-          <h3>Steaming & Pressing</h3>
+      <div className="pressing" aria-labelledby="pressing-title">
+        <div className="pressing-body">
+          <div className="pressing-head">
+            <p className="section-label">PART OF OUR SERVICE</p>
+            <h3 id="pressing-title" className="pressing-title">Steaming & Pressing</h3>
+          </div>
+          <p className="pressing-description">
+              Every dry-cleaned garment comes back pressed. Need just a press? Bring in clean pants, shirts, dresses or coats and we'll press them ready to wear. Military and custom creases on request.
+          </p>
         </div>
-        <p className="pressing-description">
-          Your clothes come back pressed and ready to wear. Bring anything in for press-only, or let us steam it to drop the wrinkles and freshen it up.
-        </p>
-        <div className="pressing-media">
-          
-        </div>
-
+        <div
+          className="pressing-media"
+          role="img"
+          aria-label="iron pressing clothes"
+          style={{ backgroundImage: `url(${images.pressImage})` }}
+        ></div>
       </div>
 
       <p className="services-note">Expedited service available on any of the above — just ask at drop-off.</p>

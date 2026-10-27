@@ -113,6 +113,92 @@
   flex-shrink: 0;
 }
 
+/* ----- Pressing ----- */
+
+.pressing {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(140px, 18vw, 220px);
+  align-items: stretch;
+  background: var(--primary);
+  border-top: 2px solid var(--accent);
+  width: 100%;
+}
+
+.pressing-body {
+  border: 1px solid red;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pressing-head {
+  min-width: min(190px, 100%);
+}
+
+/* Lighter gold so the label reads on black */
+.pressing .section-label {
+  color: var(--dark-accent);
+  margin-bottom: 8px;
+}
+
+.pressing-title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 2.2vw, 24px);
+  font-weight: 600;
+  color: var(--background);
+}
+
+.pressing-description {
+  flex: 1 1 260px;
+  margin: 0;
+  max-width: 440px;
+  font-size: var(--font-size-md);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* List drops onto its own row under the heading + description */
+.pressing-details {
+  flex-basis: 100%;
+}
+
+/* Pressing reuses the garment list look, but items aren't clickable */
+.pressing-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pressing-list .garments-item {
+  cursor: default;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pressing-list .bullet {
+  color: var(--dark-accent);
+}
+
+.pressing .drycleaning-note {
+  margin-top: var(--space-2);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.pressing-media {
+  min-height: 150px;
+  background: center / cover no-repeat;
+}
+
+@media (max-width: 600px) {
+  .pressing {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pressing-media {
+    order: -1;
+    min-height: 180px;
+  }
+}
+
 .drycleaning-note {
   margin: var(--space-4) 0 0;
   font-size: var(--font-size-sm);
