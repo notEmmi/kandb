@@ -49,6 +49,7 @@ export default function ServicesSection({ images = {} }) {
 
       <div className="drycleaning">
         <div className="drycleaning-media">
+          <div className="drycleaning-stage">
           {dryCleaningItems.map((item, index) => {
             const total = dryCleaningItems.length
             let offset = index - activeIndex
@@ -73,6 +74,7 @@ export default function ServicesSection({ images = {} }) {
               />
             )
           })}
+          </div>
           <div className="drycleaning-overlay">
             <div className="drycleaning-caption">{activeItem.label}</div>
             <div className="dots">
@@ -88,8 +90,7 @@ export default function ServicesSection({ images = {} }) {
             </div>
           </div>
         </div>
-
-        <div className="flagship-body">
+        <div className="drycleaning-body">
           <p className="section-label">OUR MAIN SERVICE</p>
           <h3 className="drycleaning-name">Dry Cleaning</h3>
           <p className="drycleaning-description">

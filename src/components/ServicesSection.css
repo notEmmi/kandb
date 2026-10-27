@@ -16,29 +16,37 @@
   width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
-  height: clamp(420px, 60vh, 760px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .drycleaning-media,
-.drycleaning .flagship-body {
+.drycleaning .drycleaning-body {
   background: color-mix(in srgb, var(--background) 95%, var(--accent) 5%);
 }
 
-
 .drycleaning-media {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+  padding-block: var(--space-6);
   overflow: hidden;
-  width: 100%;
-  
+}
+
+/* Slides live in their own box so neighbours are clipped and the caption never overlaps them */
+.drycleaning-stage {
+  position: relative;
+  flex: 1;
+  min-height: clamp(260px, 30vw, 440px);
+  overflow: hidden;
 }
 
 .drycleaning-slide {
-  overflow: hidden;
   position: absolute;
   inset: 0;
   margin: auto;
-  height: 80%;
+  height: 85%;
+  max-width: 70%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
@@ -48,25 +56,22 @@
 .drycleaning-slide.is-active {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
   border: 1px dashed color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
-  overflow: hidden;
 }
 
 .drycleaning-overlay {
-  position: absolute;
-  inset: auto 0 0 0;
-  padding: 44px var(--space-6) var(--space-4);
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  padding-inline: var(--space-4);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: var(--space-2);
 }
 
 .drycleaning-caption {
-  color: var(--background);
+  color: var(--primary);
   font-size: var(--font-size-lg);
   font-weight: 600;
   text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .dots {
@@ -83,8 +88,8 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  background: var(--background);
-  opacity: 0.5;
+  background: var(--primary);
+  opacity: 0.3;
   transition: opacity 0.3s ease;
 }
 
@@ -92,11 +97,12 @@
   opacity: 1;
 }
 
-.flagship-body {
-  padding: clamp(32px, 4vw, 56px);
+.drycleaning-body {
+  padding: clamp(20px, 4vw, 56px);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;
 }
 
 .drycleaning-name {
@@ -113,7 +119,7 @@
 
 .garments {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
   gap: 10px 28px;
 }
 
@@ -132,6 +138,7 @@
   margin: 0;
   cursor: pointer;
   text-align: left;
+  overflow-wrap: anywhere;
   transition: color 0.2s ease;
 }
 
@@ -143,4 +150,28 @@
 .garments-item .bullet {
   color: var(--accent);
   flex-shrink: 0;
+}
+
+/* Stack image above text once two columns get too narrow */
+@media (max-width: 1024px) {
+  .drycleaning {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .drycleaning-stage {
+    flex: none;
+    min-height: 0;
+    height: clamp(200px, 45vw, 320px);
+  }
+
+  /* The garment list already highlights the active item */
+  .drycleaning-overlay {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .drycleaning-slide {
+    max-width: 75%;
+  }
 }
