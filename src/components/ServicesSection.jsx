@@ -80,8 +80,8 @@ export default function ServicesSection({ images = {} }) {
           <p className="section-label">OUR MAIN SERVICE</p>
           <h3 className="drycleaning-name">Dry Cleaning</h3>
           <p className="drycleaning-description">
-            Expert, careful cleaning for every kind of garment — from delicate silks to bulky
-            sportswear. Tap any item to see our work.
+            Expert, careful cleaning for <b>every</b> kind of garment — from delicate silks to bulky
+            sportswear.
           </p>
 
           <div className="garments">
@@ -97,7 +97,12 @@ export default function ServicesSection({ images = {} }) {
               </button>
             ))}
           </div>
+
+          <p className="drycleaning-note small">
+            And more services available upon request.
+          </p>
         </div>
+
       </div>
 
       <div className="pressing">

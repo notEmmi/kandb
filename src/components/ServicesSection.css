@@ -113,6 +113,14 @@
   flex-shrink: 0;
 }
 
+.drycleaning-note {
+  margin: var(--space-4) 0 0;
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
+}
+
 /* Stack image above text once two columns get too narrow */
 @media (max-width: 1024px) {
   .drycleaning {
