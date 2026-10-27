@@ -99,7 +99,7 @@ export default function ServicesSection({ images = {} }) {
           </div>
 
           <p className="drycleaning-note small">
-            And more services available upon request.
+            ...and much more.
           </p>
         </div>
 
