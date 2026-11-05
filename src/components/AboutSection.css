@@ -1,3 +1,8 @@
+.about {
+  display: flex;
+  flex-direction: column;
+}
+
 .about-content p {
   line-height: 1.5;
   margin-bottom: 0.75rem;
@@ -5,4 +10,24 @@
 
 .about-content p:last-child {
   margin-bottom: 0;
+}
+
+.about-content {
+  margin: 0 auto;
+  padding: clamp(44px, 5vw, 80px) clamp(24px, 4vw, 64px) clamp(36px, 4vw, 56px);
+  text-align: center;
+}
+
+.about-description {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: clamp(24px, 3vw, 48px);
+  text-align: left;
+}
+
+.about-image {
+    height: 320px;
+  background-position: center;
+  background-size: cover;
+  border-top: 1px solid #e8e6e2;
 }
