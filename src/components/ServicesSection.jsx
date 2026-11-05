@@ -13,6 +13,14 @@ const dryCleaningItems = [
   { id: 'sportswear', label: 'Sportswear', imageKey: 'sportswearImage' },
 ]
 
+const alterationsItems = [
+  { id: 'hemming', label: 'Hemming & Shortening' },
+  { id: 'taking-in-letting-out', label: 'Taking in / letting out' },
+  { id: 'zipper-button-repair', label: 'Zipper & button repair' },
+  { id: 'suit-dress-resizing', label: 'Suit & dress resizing' },
+  { id: 'custom-fitting', label: 'Custom fitting' },
+]
+
 
 export default function ServicesSection({ images = {} }) {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -89,7 +97,7 @@ export default function ServicesSection({ images = {} }) {
 
       </div>
 
-      <div className="pressing" aria-labelledby="pressing-title">
+      <div className="pressing">
         <div className="pressing-body">
           <div className="pressing-head">
             <p className="section-label">PART OF OUR SERVICE</p>
@@ -104,6 +112,32 @@ export default function ServicesSection({ images = {} }) {
           role="img"
           aria-label="iron pressing clothes"
           style={{ backgroundImage: `url(${images.pressImage})` }}
+        ></div>
+      </div>
+
+      <div className="alterations">
+        <div className="alterations-body">
+          <p className="section-label">TAILORING</p>
+          <h3 id="alterations-title" className="alterations-title">Alterations</h3>
+          <p className="alterations-description">
+            Expert tailoring and repairs, from simple adjustments to full restyles, done by hand.
+          </p>
+          <div className='alterations-list'>
+            {alterationsItems.map((item, index) => (
+              <div className="alterations-item" key={item.id ?? index}>
+                <span className="bullet" aria-hidden="true">•</span>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
+          <div className="drycleaning-note small">
+            ...and much more.
+          </div>
+        </div>
+        <div className="alterations-media"
+          role="img"
+          aria-label="tailor making alterations"
+          style={{ backgroundImage: `url(${images.alterationsImage})` }}
         ></div>
       </div>
 

@@ -84,7 +84,7 @@
   gap: 10px 28px;
 }
 
-.garments-item {
+.garments-item, .alterations-item {
   display: flex;
   align-items: flex-start;
   gap: 8px;
@@ -108,7 +108,7 @@
   font-weight: 700;
 }
 
-.garments-item .bullet {
+.bullet {
   color: var(--accent);
   flex-shrink: 0;
 }
@@ -125,9 +125,9 @@
 }
 
 .pressing-body {
-  border: 1px solid red;
   display: flex;
   flex-wrap: wrap;
+  padding: clamp(20px, 4vw, 56px);
 }
 
 .pressing-head {
@@ -151,37 +151,13 @@
 .pressing-description {
   flex: 1 1 260px;
   margin: 0;
-  max-width: 440px;
   font-size: var(--font-size-md);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.7);
+  padding-right: clamp(0px, 4vw, 56px);
+  padding-left: clamp(0px, 4vw, 56px);
 }
 
-/* List drops onto its own row under the heading + description */
-.pressing-details {
-  flex-basis: 100%;
-}
-
-/* Pressing reuses the garment list look, but items aren't clickable */
-.pressing-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.pressing-list .garments-item {
-  cursor: default;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.pressing-list .bullet {
-  color: var(--dark-accent);
-}
-
-.pressing .drycleaning-note {
-  margin-top: var(--space-2);
-  color: rgba(255, 255, 255, 0.5);
-}
 
 .pressing-media {
   min-height: 150px;
@@ -228,5 +204,74 @@
 @media (max-width: 480px) {
   .drycleaning-slide {
     max-width: 75%;
+  }
+}
+
+
+/* ----- Alterations ----- */
+.alterations {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  width: 100%;
+  background: color-mix(in srgb, var(--background) 95%, var(--accent) 5%);
+}
+
+.alterations-media {
+  min-height: 260px;
+  background: center / cover no-repeat;
+}
+
+.alterations-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: clamp(24px, 4vw, 56px);
+}
+
+.alterations-title {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.alterations-description {
+  margin: 0 0 var(--space-3);
+  max-width: 520px;
+  font-size: var(--font-size-md);
+  line-height: 1.7;
+}
+
+.alterations-note {
+  margin: 0 0 var(--space-6);
+  max-width: 520px;
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
+}
+
+.alterations-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  gap: 10px 28px;
+}
+
+.alterations-item {
+  cursor: default;
+}
+
+/* Stack photo above text on tablets and phones */
+@media (max-width: 780px) {
+  .alterations {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .alterations-media {
+    min-height: 0;
+    height: clamp(180px, 45vw, 280px);
   }
 }
