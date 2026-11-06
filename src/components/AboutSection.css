@@ -26,8 +26,14 @@
 }
 
 .about-image {
-    height: 320px;
+  height: 320px;
   background-position: center;
   background-size: cover;
-  border-top: 1px solid #e8e6e2;
+}
+
+.about-image-container {
+  height: 320px;
+  background-position: center;
+  background-size: cover;
+
 }

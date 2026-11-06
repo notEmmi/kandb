@@ -20,7 +20,7 @@ const imageAssets = {
   sportswearImage: `${publicUrl}sportswear.jpg`,
   costumesImage: `${publicUrl}costumes.jpg`,
   accessoriesImage: `${publicUrl}accessories.jpg`,
-  alterationsImage: `${publicUrl}alterations.jpg`,
+  alterationsImage: `${publicUrl}alterations2.jpg`,
 
   pressImage: `${publicUrl}pressing.jpg`,
 }

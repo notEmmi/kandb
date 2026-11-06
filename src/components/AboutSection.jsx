@@ -24,7 +24,7 @@ export default function AboutSection({ publicUrl }) {
         </div>
       </div>
 
-      <div className="image-container">
+      <div className="about-image-container">
         <img className="about-image" src={`${publicUrl}aboutme.jpg`} alt="Interior of K & B dry cleaning shop" />
       </div>
     </section>

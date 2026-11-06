@@ -186,7 +186,7 @@ section {
   padding: var(--space-12) 0;
 }
 
-.hero, .about, .contact-content, .reviews {
+.hero, .contact-content, .reviews {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -197,7 +197,7 @@ section {
   padding: var(--space-12) var(--space-32);
 }
 
-.hero-content, .about-content, .contact-layout {
+.hero-content, .contact-layout {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
