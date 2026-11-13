@@ -7,6 +7,7 @@ export default function HeroSection({arrowRightSVG, statusLabel, statusClass }) 
       aria-labelledby="hero-title"
     >
       <div className="hero-content">
+        <div></div>
         <div className="hero-tags">
           <div className="tag">Dry Cleaning</div>
           <div className="dot" aria-hidden="true"></div>
