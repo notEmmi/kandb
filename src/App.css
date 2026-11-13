@@ -183,7 +183,7 @@ a {
 section {
   display: flex;
   flex-wrap: wrap;
-  padding: var(--space-12) 0;
+  /* padding: var(--space-12) 0; */
 }
 
 .hero, .contact-content, .reviews {
