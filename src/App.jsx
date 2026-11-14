@@ -6,6 +6,8 @@ import ReviewsSection from './components/ReviewsSection'
 import AboutSection from './components/AboutSection'
 import ContactSection from './components/ContactSection'
 import Nav from './components/Nav'
+import AnnouncementBar from './components/AnnouncementBar'
+
 
 // PUBLIC URL
 const publicUrl = import.meta.env.BASE_URL || '/kandb/'
@@ -188,9 +190,7 @@ function App() {
 
   return (
     <div className="app">
-      <div>
-        
-      </div>
+      <AnnouncementBar />
       <Nav
         publicUrl={publicUrl}
         phoneSVG={phoneSVG}

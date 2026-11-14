@@ -1,0 +1,34 @@
+/* 2B — gold announcement strip above the nav */
+.announce {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  padding: var(--space-2) var(--space-4);
+  background: var(--accent);
+  color: var(--dark-primary);
+  font-size: var(--font-size-md);
+}
+
+.announce:hover,
+.announce:focus-visible {
+  background: var(--dark-accent);
+  color: var(--primary);
+}
+
+.announce:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -4px;
+}
+
+.announce__link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+/* So the "Learn more" jump doesn't land under anything sticky */
+#perks {
+  scroll-margin-top: 20px;
+}
