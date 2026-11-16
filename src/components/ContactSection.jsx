@@ -3,7 +3,7 @@ import './ContactSection.css'
 
 // Get a free key at https://web3forms.com (enter the shop Gmail, they email you the key).
 // Safe in front-end code — it can only SEND to the inbox, not read it.
-const ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'
+const ACCESS_KEY = 'b953ca24-d839-4f9f-a72d-b480cd4a6831'
 
 const ADDRESS = '3451 Clinton St, West Seneca, NY 14224'
 const MAP_EMBED = 'https://www.google.com/maps?q=3451+Clinton+St,+West+Seneca,+NY+14224&output=embed'

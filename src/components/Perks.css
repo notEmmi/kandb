@@ -1,174 +1,163 @@
-/* In-store perks band (sits between Services and Reviews) */
+/* Gift card band (sits between Services and About): drawn card left, copy + steps right */
 .perks {
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
   width: 100%;
   box-sizing: border-box;
-  padding: var(--section-pad-y) var(--section-pad-x);
-  background: color-mix(in srgb, var(--background) 95%, var(--dark-accent) 5%);
+  background: color-mix(in srgb, var(--background) 95%, var(--accent) 5%);
   border-top: 1px solid var(--dark-accent);
   border-bottom: 1px solid var(--dark-accent);
 }
 
-.perks-header {
-  text-align: center;
-}
+/* ----- Card visual ----- */
 
-.perks-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
-  gap: var(--space-4);
-  width: 100%;
-  max-width: 1040px;
-}
-
-/* ----- Shared card ----- */
-
-.perk {
-  position: relative;
-  padding: var(--space-8);
-}
-
-.perk .section-label {
-  font-size: var(--font-size-xs);
-}
-
-.perk-title {
-  font-size: clamp(18px, 1.6vw, 22px);
-  font-weight: 600;
-}
-
-.perk-description {
-  margin: 0;
-  font-size: var(--font-size-sm);
-}
-
-/* ----- Gift card (light) ----- */
-
-.perk-light {
-  display: flex;
-  align-items: center;
-  gap: var(--space-6);
-  background: var(--background);
-  border: 1px solid color-mix(in srgb, var(--muted) 70%, var(--dark-accent) 30%);
-}
-
-.perk-card {
-  flex-shrink: 0;
-  width: 92px;
-  aspect-ratio: 1.586; /* real card proportions */
+.perks-visual {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--dark-muted), var(--dark-background));
-  border: 1px solid var(--dark-accent);
-  border-radius: 8px;
-  box-shadow: 0 10px 22px color-mix(in srgb, var(--primary) 18%, transparent);
-  transform: rotate(-4deg);
+  min-width: 0;
+  background: color-mix(in srgb, var(--background) 88%, var(--accent) 12%);
+  padding: clamp(40px, 5vw, 72px) clamp(24px, 4vw, 56px);
 }
 
-.perk-card img {
-  width: 42px;
+.gift-card {
+  width: min(360px, 100%);
+  aspect-ratio: 1.586; /* real card proportions */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(18px, 2.4vw, 26px);
+  background: linear-gradient(135deg, #111 0%, var(--dark-background) 60%, #1a1508 100%);
+  border: 1px solid var(--dark-accent);
+  border-radius: 14px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+  transform: rotate(-4deg);
+  transition: transform 0.4s ease;
+}
+
+.perks-visual:hover .gift-card {
+  transform: rotate(-1deg) translateY(-4px);
+}
+
+.gift-card p {
+  margin: 0;
+}
+
+.gift-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.gift-card-logo {
+  width: 64px;
   display: block;
 }
 
-/* ----- Follow offer (dark) ----- */
-
-.perk-dark {
-  background: var(--dark-background);
-  border: 1px solid var(--dark-background);
-}
-
-.perk-dark .section-label {
+.gift-card-tag {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--dark-accent);
 }
 
-.perk-dark .perk-title {
+.gift-card .gift-card-line {
+  margin-bottom: 6px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(18px, 2.2vw, 26px);
   color: var(--dark-primary);
 }
 
-.perk-badge {
-  position: absolute;
-  top: -1px;
-  right: var(--space-6);
-  padding: var(--space-1) var(--space-2);
-  background: var(--dark-accent);
-  color: var(--primary);
+.gift-card-name {
   font-size: var(--font-size-xs);
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.perk-steps {
+/* ----- Copy ----- */
+
+.perks-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: clamp(36px, 4vw, 64px) clamp(20px, 4vw, 56px);
+}
+
+.perks-title {
+  margin: 0 0 14px;
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 600;
+}
+
+.perks-description {
+  max-width: 460px;
+  margin: 0 0 var(--space-6);
+  font-size: var(--font-size-md);
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
+}
+
+/* Numbered steps */
+.perks-steps {
   list-style: none;
   counter-reset: step;
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--space-6);
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 14px;
 }
 
-.perk-steps li {
+.perks-steps li {
   counter-increment: step;
   display: flex;
-  gap: var(--space-2);
-  font-size: var(--font-size-sm);
-  line-height: 1.5;
-  color: color-mix(in srgb, var(--dark-primary) 75%, transparent);
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 6px;
+  font-size: var(--font-size-md);
+  line-height: 1.6;
 }
 
-.perk-steps li::before {
+.perks-steps li::before {
   content: counter(step);
   flex-shrink: 0;
+  width: 18px;
+  margin-right: 8px;
   font-family: var(--font-serif);
-  color: var(--dark-accent);
+  font-size: 18px;
+  color: var(--accent);
 }
 
-.perk-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
+.perks-steps span {
+  color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
 }
 
 /* Builds on the shared .btn in App.css */
-.perk-btn-gold {
-  background: var(--dark-accent);
-  color: var(--primary);
-  border: 1px solid var(--dark-accent);
+.perks-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.perk-btn-gold:hover {
-  background: color-mix(in srgb, var(--dark-accent) 80%, var(--dark-primary) 20%);
-}
-
-.perk-btn-outline {
-  background: transparent;
-  color: var(--dark-primary);
-  border: 1px solid color-mix(in srgb, var(--dark-primary) 50%, transparent);
-}
-
-.perk-btn-outline:hover {
-  background: var(--dark-primary);
-  color: var(--primary);
-}
-
-.perk-buttons .btn:focus-visible {
+.perks-buttons .btn:focus-visible {
   outline: 2px solid var(--dark-accent);
   outline-offset: 2px;
 }
 
-.perk-note {
-  margin: var(--space-3) 0 0;
-  font-size: var(--font-size-xs);
-  color: color-mix(in srgb, var(--dark-primary) 40%, transparent);
+@media (max-width: 480px) {
+  .perks-buttons .btn {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
 }
 
-@media (max-width: 480px) {
-  /* Stack the gift card mini-card above its text */
-  .perk-light {
-    flex-direction: column;
-    align-items: flex-start;
+@media (prefers-reduced-motion: reduce) {
+  .gift-card {
+    transition: none;
   }
 }

@@ -233,7 +233,6 @@ section {
 
 /* Heading block at the top of each section */
 .services-header,
-.perks-header,
 .contact-header {
   margin-bottom: var(--section-header-gap);
 }

@@ -1,52 +1,48 @@
 import "./Perks.css";
 
-const INSTAGRAM_URL = "https://www.instagram.com/kandbcleaners/";
-const FACEBOOK_URL = "https://www.facebook.com/people/KB-dry-cleaners/61589575148506/";
+const STEPS = [
+  { title: "Stop by the shop", text: "— 3451 Clinton St, West Seneca" },
+  { title: "Pick an amount", text: "at the counter" },
+  { title: "Give it", text: "— good on any of our services" },
+];
 
 export default function Perks({ publicUrl }) {
   return (
     <section className="perks" id="perks" aria-labelledby="perks-title">
-      <div className="perks-header">
-        <p className="section-label">IN-STORE PERKS</p>
-        <h2 id="perks-title">A little extra at the counter</h2>
+      {/* Drawn gift card */}
+      <div className="perks-visual">
+        <div className="gift-card" aria-hidden="true">
+          <div className="gift-card-top">
+            <img src={`${publicUrl}logo.svg`} alt="" className="gift-card-logo" />
+            <span className="gift-card-tag">Gift Card</span>
+          </div>
+          <div>
+            <p className="gift-card-line">A gift of fresh care</p>
+            <p className="gift-card-name">K &amp; B Dry Cleaners &amp; Alterations</p>
+          </div>
+        </div>
       </div>
 
-      <div className="perks-grid">
-        {/* Gift cards */}
-        <article className="perk perk-light">
-          <div className="perk-card" aria-hidden="true">
-            <img src={`${publicUrl}logo.svg`} alt="" />
-          </div>
-          <div className="perk-body">
-            <p className="section-label">GIFT CARDS</p>
-            <h3 className="perk-title">The gift of looking sharp</h3>
-            <p className="perk-description">Available now at our counter — good for any service.</p>
-          </div>
-        </article>
+      <div className="perks-content">
+        <p className="section-label">GIFT CARDS</p>
+        <h2 id="perks-title" className="perks-title">Give someone a fresh start</h2>
+        <p className="perks-description">
+          Perfect for a new job, a wedding, or anyone who deserves their favorite suit
+          looking like new. Gift cards can be used for dry cleaning, alterations, and pressing.
+        </p>
 
-        {/* Follow offer */}
-        <article className="perk perk-dark">
-          <span className="perk-badge">Limited time</span>
-          <p className="section-label">FOLLOW &amp; SAVE</p>
-          <h3 className="perk-title">A free dress shirt, cleaned &amp; pressed</h3>
+        <ol className="perks-steps">
+          {STEPS.map((step) => (
+            <li key={step.title}>
+              <strong>{step.title}</strong> <span>{step.text}</span>
+            </li>
+          ))}
+        </ol>
 
-          <ol className="perk-steps">
-            <li>Follow us on Instagram or Facebook</li>
-            <li>Leave us a review on Google</li>
-            <li>Show us at the counter</li>
-          </ol>
-
-          <div className="perk-buttons">
-            <a className="btn perk-btn-gold" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
-              Instagram
-            </a>
-            <a className="btn perk-btn-outline" href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer">
-              Facebook
-            </a>
-          </div>
-
-          <p className="perk-note">One per customer. While the offer lasts.</p>
-        </article>
+        <div className="perks-buttons">
+          <a href="tel:+17166683088" className="btn btn-primary">Call to ask</a>
+          <a href="#contact" className="btn btn-secondary">See our hours</a>
+        </div>
       </div>
     </section>
   );
