@@ -55,27 +55,6 @@ const phoneSVG = (
   </svg>
 )
 
-const emailSVG = (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-  </svg>
-)
-
-const locationSVG = (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-    <circle cx="12" cy="10" r="3"></circle>
-  </svg>
-)
-
-const clockSVG = (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10"></circle>
-    <polyline points="12 6 12 12 16 14"></polyline>
-  </svg>
-)
-
 const giftTierValues = [25, 50, 100, 150]
 
 // -----------------------------------------------------------------------------
@@ -214,10 +193,6 @@ function App() {
           todaysHoliday={todaysHoliday}
           hoursSchedule={hoursSchedule}
           formatTime={formatTime}
-          phoneSVG={phoneSVG}
-          emailSVG={emailSVG}
-          locationSVG={locationSVG}
-          clockSVG={clockSVG}
         />
       </main>
 
