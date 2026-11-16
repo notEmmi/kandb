@@ -1,200 +1,184 @@
-/* 3C — In-store perks band (sits between Services and Reviews) */
+/* In-store perks band (sits between Services and Reviews) */
 .perks {
-  background: #f3ede0;
-  border-top: 1px solid #c9a227;
-  border-bottom: 1px solid #c9a227;
-  padding: clamp(32px, 3.6vw, 52px) clamp(24px, 4vw, 56px);
-  font-family: "Inter", system-ui, sans-serif;
-  scroll-margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--space-12) var(--space-32);
+  background: color-mix(in srgb, var(--background) 88%, var(--dark-accent) 12%);
+  border-top: 1px solid var(--dark-accent);
+  border-bottom: 1px solid var(--dark-accent);
 }
 
-.perks__header {
+.perks-header {
   text-align: center;
-  margin-bottom: clamp(24px, 2.8vw, 36px);
+  margin-bottom: var(--space-8);
 }
 
-.perks__eyebrow,
-.perk__eyebrow {
-  margin: 0 0 8px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #8a6d23;
-}
-
-.perks__title {
-  margin: 0;
-  font-family: "Playfair Display", serif;
-  font-size: clamp(24px, 2.8vw, 32px);
-  font-weight: 600;
-  color: #000;
-}
-
-.perks__grid {
+.perks-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
-  gap: 20px;
+  gap: var(--space-4);
+  width: 100%;
   max-width: 1040px;
-  margin: 0 auto;
 }
 
-/* ---- Shared card ---- */
+/* ----- Shared card ----- */
+
 .perk {
   position: relative;
-  padding: clamp(22px, 2.6vw, 32px);
+  padding: var(--space-8);
 }
 
-.perk__title {
-  margin: 0 0 8px;
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
+.perk .section-label {
+  font-size: var(--font-size-xs);
+}
+
+.perk-title {
+  font-size: clamp(18px, 1.6vw, 22px);
   font-weight: 600;
 }
 
-.perk__text {
+.perk-description {
   margin: 0;
-  font-size: 13px;
-  line-height: 1.6;
-  color: #666;
+  font-size: var(--font-size-sm);
 }
 
-/* ---- Gift card (light) ---- */
-.perk--light {
+/* ----- Gift card (light) ----- */
+
+.perk-light {
   display: flex;
   align-items: center;
-  gap: 20px;
-  background: #fff;
-  border: 1px solid #e3dccb;
+  gap: var(--space-6);
+  background: var(--background);
+  border: 1px solid color-mix(in srgb, var(--muted) 70%, var(--dark-accent) 30%);
 }
 
-.perk--light .perk__title {
-  color: #000;
-}
-
-.perk__card {
+.perk-card {
   flex-shrink: 0;
   width: 92px;
   aspect-ratio: 1.586; /* real card proportions */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1a1a1a, #000);
-  border: 1px solid #c9a227;
+  background: linear-gradient(135deg, var(--dark-muted), var(--dark-background));
+  border: 1px solid var(--dark-accent);
   border-radius: 8px;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--primary) 18%, transparent);
   transform: rotate(-4deg);
 }
 
-.perk__card img {
+.perk-card img {
   width: 42px;
   display: block;
 }
 
-/* ---- Follow offer (dark) ---- */
-.perk--dark {
-  background: #000;
-  border: 1px solid #000;
+/* ----- Follow offer (dark) ----- */
+
+.perk-dark {
+  background: var(--dark-background);
+  border: 1px solid var(--dark-background);
 }
 
-.perk--dark .perk__eyebrow {
-  color: #c9a227;
+.perk-dark .section-label {
+  color: var(--dark-accent);
 }
 
-.perk--dark .perk__title {
-  color: #fff;
-  margin-bottom: 12px;
+.perk-dark .perk-title {
+  color: var(--dark-primary);
 }
 
-.perk__badge {
+.perk-badge {
   position: absolute;
   top: -1px;
-  right: 20px;
-  padding: 5px 10px;
-  background: #c9a227;
-  color: #000;
-  font-size: 10px;
+  right: var(--space-6);
+  padding: var(--space-1) var(--space-2);
+  background: var(--dark-accent);
+  color: var(--primary);
+  font-size: var(--font-size-xs);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.perk__steps {
+.perk-steps {
   list-style: none;
   counter-reset: step;
-  margin: 0 0 18px;
+  margin: 0 0 var(--space-4);
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: var(--space-1);
 }
 
-.perk__steps li {
+.perk-steps li {
   counter-increment: step;
   display: flex;
-  gap: 10px;
-  font-size: 13px;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.75);
+  color: color-mix(in srgb, var(--dark-primary) 75%, transparent);
 }
 
-.perk__steps li::before {
+.perk-steps li::before {
   content: counter(step);
   flex-shrink: 0;
-  font-family: "Playfair Display", serif;
-  color: #c9a227;
+  font-family: var(--font-serif);
+  color: var(--dark-accent);
 }
 
-.perk__buttons {
+.perk-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: var(--space-2);
 }
 
-.perk__btn {
-  padding: 10px 16px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease;
+/* Builds on the shared .btn in App.css */
+.perk-btn-gold {
+  background: var(--dark-accent);
+  color: var(--primary);
+  border: 1px solid var(--dark-accent);
 }
 
-.perk__btn--gold {
-  background: #c9a227;
-  color: #000;
+.perk-btn-gold:hover {
+  background: color-mix(in srgb, var(--dark-accent) 80%, var(--dark-primary) 20%);
 }
 
-.perk__btn--gold:hover {
-  background: #e0b832;
-  color: #000;
+.perk-btn-outline {
+  background: transparent;
+  color: var(--dark-primary);
+  border: 1px solid color-mix(in srgb, var(--dark-primary) 50%, transparent);
 }
 
-.perk__btn--outline {
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  color: #fff;
+.perk-btn-outline:hover {
+  background: var(--dark-primary);
+  color: var(--primary);
 }
 
-.perk__btn--outline:hover {
-  background: #fff;
-  color: #000;
-}
-
-.perk__btn:focus-visible {
-  outline: 2px solid #c9a227;
+.perk-buttons .btn:focus-visible {
+  outline: 2px solid var(--dark-accent);
   outline-offset: 2px;
 }
 
-.perk__fine {
-  margin: 12px 0 0;
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.4);
+.perk-note {
+  margin: var(--space-3) 0 0;
+  font-size: var(--font-size-xs);
+  color: color-mix(in srgb, var(--dark-primary) 40%, transparent);
 }
 
-/* Phones: stack the gift card mini-card above its text */
-@media (max-width: 420px) {
-  .perk--light {
+@media (max-width: 780px) {
+  .perks {
+    padding: var(--space-12) var(--space-16);
+  }
+}
+
+@media (max-width: 480px) {
+  .perks {
+    padding: var(--space-12) var(--space-6);
+  }
+
+  /* Stack the gift card mini-card above its text */
+  .perk-light {
     flex-direction: column;
     align-items: flex-start;
   }

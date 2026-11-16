@@ -1,53 +1,51 @@
 import "./Perks.css";
-import logo from "./assets/logo.svg"; // adjust path to your logo
 
-// TODO: swap in your real profile links
-const INSTAGRAM_URL = "https://www.instagram.com/kandbcleaners";
-const FACEBOOK_URL = "https://www.facebook.com/YOUR_PAGE";
+const INSTAGRAM_URL = "https://www.instagram.com/kandbcleaners/";
+const FACEBOOK_URL = "https://www.facebook.com/people/KB-dry-cleaners/61589575148506/";
 
-export default function Perks() {
+export default function Perks({ publicUrl }) {
   return (
-    <section id="perks" className="perks" aria-labelledby="perks-title">
-      <div className="perk-header">
-        <p className="section-label">In-Store Perks</p>
-        <h2 id="perks-title" className="perk-title">A little extra at the counter</h2>
+    <section className="perks" id="perks" aria-labelledby="perks-title">
+      <div className="perks-header">
+        <p className="section-label">IN-STORE PERKS</p>
+        <h2 id="perks-title">A little extra at the counter</h2>
       </div>
 
-      <div className="perk-content">
+      <div className="perks-grid">
         {/* Gift cards */}
-        <article className="perk perk--light">
-          <div className="perk__card" aria-hidden="true">
-            <img src={logo} alt="" />
+        <article className="perk perk-light">
+          <div className="perk-card" aria-hidden="true">
+            <img src={`${publicUrl}logo.svg`} alt="" />
           </div>
-          <div>
-            <p className="perk__eyebrow">Gift Cards</p>
-            <h3 className="perk__title">The gift of looking sharp</h3>
-            <p className="perk__text">Available now at our counter — good for any service.</p>
+          <div className="perk-body">
+            <p className="section-label">GIFT CARDS</p>
+            <h3 className="perk-title">The gift of looking sharp</h3>
+            <p className="perk-description">Available now at our counter — good for any service.</p>
           </div>
         </article>
 
         {/* Follow offer */}
-        <article className="perk perk--dark">
-          <span className="perk__badge">Limited time</span>
-          <p className="perk__eyebrow">Follow &amp; Save</p>
-          <h3 className="perk__title">A free dress shirt, cleaned &amp; pressed</h3>
+        <article className="perk perk-dark">
+          <span className="perk-badge">Limited time</span>
+          <p className="section-label">FOLLOW &amp; SAVE</p>
+          <h3 className="perk-title">A free dress shirt, cleaned &amp; pressed</h3>
 
-          <ol className="perk__steps">
+          <ol className="perk-steps">
             <li>Follow us on Instagram or Facebook</li>
+            <li>Leave us a review on Google</li>
             <li>Show us at the counter</li>
-            <li>Get one shirt free with an order of 3+ items</li>
           </ol>
 
-          <div className="perk__buttons">
-            <a className="perk__btn perk__btn--gold" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
+          <div className="perk-buttons">
+            <a className="btn perk-btn-gold" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
               Instagram
             </a>
-            <a className="perk__btn perk__btn--outline" href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer">
+            <a className="btn perk-btn-outline" href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer">
               Facebook
             </a>
           </div>
 
-          <p className="perk__fine">One per customer. While the offer lasts.</p>
+          <p className="perk-note">One per customer. While the offer lasts.</p>
         </article>
       </div>
     </section>

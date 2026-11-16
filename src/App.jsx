@@ -7,6 +7,7 @@ import AboutSection from './components/AboutSection'
 import ContactSection from './components/ContactSection'
 import Nav from './components/Nav'
 import AnnouncementBar from './components/AnnouncementBar'
+import Perks from './components/Perks'
 
 
 // PUBLIC URL
@@ -203,6 +204,8 @@ function App() {
           statusClass={statusClass}
         />
         <ServicesSection images={imageAssets} />
+
+        <Perks publicUrl={publicUrl} />
         <AboutSection publicUrl={publicUrl} />
         <ReviewsSection />
 
