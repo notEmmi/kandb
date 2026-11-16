@@ -4,7 +4,7 @@
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  padding: var(--space-12) var(--space-32);
+  padding: var(--section-pad-y) var(--section-pad-x);
   background: color-mix(in srgb, var(--background) 88%, var(--dark-accent) 12%);
   border-top: 1px solid var(--dark-accent);
   border-bottom: 1px solid var(--dark-accent);
@@ -12,7 +12,6 @@
 
 .perks-header {
   text-align: center;
-  margin-bottom: var(--space-8);
 }
 
 .perks-grid {
@@ -166,17 +165,7 @@
   color: color-mix(in srgb, var(--dark-primary) 40%, transparent);
 }
 
-@media (max-width: 780px) {
-  .perks {
-    padding: var(--space-12) var(--space-16);
-  }
-}
-
 @media (max-width: 480px) {
-  .perks {
-    padding: var(--space-12) var(--space-6);
-  }
-
   /* Stack the gift card mini-card above its text */
   .perk-light {
     flex-direction: column;
