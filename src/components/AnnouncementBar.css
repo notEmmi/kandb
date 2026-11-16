@@ -27,8 +27,3 @@
   text-underline-offset: 3px;
   white-space: nowrap;
 }
-
-/* So the "Learn more" jump doesn't land under anything sticky */
-#perks {
-  scroll-margin-top: 20px;
-}

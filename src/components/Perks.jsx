@@ -34,7 +34,9 @@ export default function Perks({ publicUrl }) {
         <ol className="perks-steps">
           {STEPS.map((step) => (
             <li key={step.title}>
-              <strong>{step.title}</strong> <span>{step.text}</span>
+              <p>
+                <strong>{step.title}</strong> <span>{step.text}</span>
+              </p>
             </li>
           ))}
         </ol>

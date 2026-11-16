@@ -17,14 +17,6 @@
 
 }
 
-#services,
-#reviews,
-#about,
-#contact,
-#gift-cards {
-  scroll-margin-top: var(--nav-height, 90px);
-}
-
 .logo-img {
   width: clamp(80px, 10vw, 120px);
 }

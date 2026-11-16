@@ -33,8 +33,9 @@
   --font-size-lg:      clamp(14px, 0.217vw + 13.22px, 16px);  /* hero lead, contact values */
   --font-size-xl:      clamp(14px, 0.435vw + 12.43px, 18px); /* Not used */
 
-  /* Sticky header offset for anchor targets */
-  --anchor-offset: 0.50rem;
+  /* Sticky header offset for anchor targets: nav height while it's sticky.
+     Sections' own top padding supplies the breathing room. */
+  --anchor-offset: 108px;
   /* Quick use spacing scale (clamp: min, preferred, max) */
   --space-1: clamp(3px, calc(0.2vw + 4px), 6px);
   --space-2: clamp(6px, calc(0.3vw + 8px), 12px);
@@ -59,6 +60,7 @@
   :root {
     --section-pad-x: var(--space-8);
     --feature-pad: var(--space-10);
+    --anchor-offset: 0px; /* nav stops being sticky here */
   }
 }
 

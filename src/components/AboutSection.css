@@ -4,7 +4,7 @@
 }
 
 .about-content p {
-  line-height: 1.5;
+  line-height: 1.8;
   margin-bottom: 0.75rem;
 }
 
@@ -13,17 +13,25 @@
 }
 
 .about-content {
+  width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
-  padding: var(--section-pad-y) var(--section-pad-x);
+  padding: var(--section-pad-y) var(--feature-pad); /* same side gutter as the service + contact panels */
   text-align: center;
 }
 
 .about-description {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
-  gap: var(--space-10);
+  gap: var(--space-4) var(--space-10); /* tighter when the paragraphs stack */
   margin-top: var(--section-header-gap);
   text-align: left;
+}
+
+/* Shorter lines read easier and match the other sections' paragraphs */
+.about-description p {
+  max-width: 58ch;
+  font-size: var(--font-size-md);
 }
 
 .about-image {

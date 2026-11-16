@@ -17,10 +17,11 @@
 .reviews-rating {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 4px 10px;
   margin-top: var(--space-3);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-md);
   color: color-mix(in srgb, var(--primary) 70%, var(--muted) 30%);
 }
 

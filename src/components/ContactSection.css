@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
-  padding: var(--space-12) var(--space-10);
+  padding: var(--space-12) var(--feature-pad); /* same side gutter as the service panels */
 }
 
 .contact-label {
@@ -131,7 +131,7 @@ a.contact-value:hover {
 /* ----- Form ----- */
 
 .contact-form-wrap {
-  padding: var(--space-12) var(--space-10);
+  padding: var(--space-12) var(--feature-pad);
   background: var(--background);
   border-left: 1px solid var(--muted);
 }
@@ -273,7 +273,7 @@ a.contact-value:hover {
 @media (max-width: 480px) {
   .contact-details,
   .contact-form-wrap {
-    padding: var(--space-8) var(--space-6);
+    padding-block: var(--space-8);
   }
 
   .contact-actions .btn {

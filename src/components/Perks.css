@@ -116,18 +116,22 @@
 .perks-steps li {
   counter-increment: step;
   display: flex;
-  flex-wrap: wrap;
   align-items: baseline;
-  column-gap: 6px;
+  gap: 14px;
   font-size: var(--font-size-md);
   line-height: 1.6;
+}
+
+/* Text wraps as one block beside the number instead of dropping under it */
+.perks-steps p {
+  margin: 0;
+  min-width: 0;
 }
 
 .perks-steps li::before {
   content: counter(step);
   flex-shrink: 0;
   width: 18px;
-  margin-right: 8px;
   font-family: var(--font-serif);
   font-size: 18px;
   color: var(--accent);

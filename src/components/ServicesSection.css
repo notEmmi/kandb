@@ -188,6 +188,11 @@
     order: -1;
     min-height: 180px;
   }
+
+  /* Description sits under the heading here, so drop the side-by-side spacing */
+  .pressing-description {
+    padding-inline: 0;
+  }
 }
 
 .drycleaning-note {
@@ -203,6 +208,15 @@
   .drycleaning {
     grid-template-columns: minmax(0, 1fr);
     min-height: 0; /* stacked: let content set the height */
+  }
+
+  /* Stacked panels would otherwise double up their padding into one big gap */
+  .drycleaning-media {
+    padding-bottom: 0;
+  }
+
+  .drycleaning .drycleaning-body {
+    padding-top: var(--space-6);
   }
 
   .drycleaning-stage {
