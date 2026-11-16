@@ -1,0 +1,156 @@
+/* Single-row footer, logo carries the brand */
+.footer {
+  background: var(--dark-background);
+  border-top: 2px solid var(--accent);
+  color: var(--dark-primary);
+}
+
+.footer *,
+.footer *::before,
+.footer *::after {
+  box-sizing: border-box;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  transition: color 0.2s ease;
+}
+
+.footer a:hover {
+  color: var(--dark-accent);
+}
+
+.footer a:focus-visible {
+  outline: 2px solid var(--dark-accent);
+  outline-offset: 3px;
+}
+
+/* ----- Main row ----- */
+
+.footer-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-10);
+  padding: var(--space-8) var(--space-10);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.footer-logo {
+  display: block;
+  width: 88px;
+}
+
+.footer-tagline {
+  font-size: var(--font-size-xs);
+  line-height: 1.35;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--dark-primary) 60%, transparent);
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+/* ----- Socials ----- */
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.footer-socials a {
+  display: flex;
+  color: var(--dark-primary);
+}
+
+.footer-divider {
+  width: 1px;
+  height: 40px;
+  background: color-mix(in srgb, var(--dark-primary) 18%, transparent);
+}
+
+/* ----- Tom and Luigi ----- */
+
+.footer-partner {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer .footer-partner-label {
+  margin-bottom: 2px;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark-accent);
+}
+
+.footer-partner-name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--dark-primary);
+}
+
+.footer-partner-email {
+  font-size: var(--font-size-xs);
+  color: color-mix(in srgb, var(--dark-primary) 50%, transparent);
+  word-break: break-word;
+}
+
+/* ----- Bottom hairline row ----- */
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-3) var(--space-10);
+  border-top: 1px solid color-mix(in srgb, var(--dark-primary) 14%, transparent);
+}
+
+.footer-copy,
+.footer-contact a {
+  font-size: var(--font-size-xs);
+  color: color-mix(in srgb, var(--dark-primary) 70%, transparent);
+}
+
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* ----- Phones ----- */
+
+@media (max-width: 560px) {
+  .footer-main,
+  .footer-bottom {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+
+  .footer-divider {
+    display: none; /* rows stack, divider just floats */
+  }
+
+  .footer-right {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
