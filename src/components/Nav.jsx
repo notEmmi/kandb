@@ -18,7 +18,6 @@ export default function Nav({publicUrl, phoneSVG}) {
           <a href="#services" onClick={closeMobileMenu}>Services</a>
           {/* <a href="#perks" onClick={closeMobileMenu}>Gift Cards</a> */}
           <a href="#about" onClick={closeMobileMenu}>About Us</a>
-          <a href="#reviews" onClick={closeMobileMenu}>Reviews</a>
           <a href="#contact" onClick={closeMobileMenu}>Contact</a>
           <a href="tel:+17166683088" className="btn nav-call-btn">
             {phoneSVG} <span>(716) 668-3088</span>
