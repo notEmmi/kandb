@@ -33,9 +33,13 @@
   border-top: 1px solid var(--muted);
 }
 
+/* Content sits as one block in the middle of the column;
+   every row still starts at the same left edge */
 .contact-details {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, max-content);
+  justify-content: center;
+  align-content: center;
   gap: var(--space-6);
   padding: var(--space-12) var(--feature-pad); /* same side gutter as the service panels */
 }
@@ -130,7 +134,12 @@ a.contact-value:hover {
 
 /* ----- Form ----- */
 
+/* Same idea: the form is a fixed-width block centered in its column */
 .contact-form-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 480px);
+  justify-content: center;
+  align-content: center;
   padding: var(--space-12) var(--feature-pad);
   background: var(--background);
   border-left: 1px solid var(--muted);

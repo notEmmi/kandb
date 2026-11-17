@@ -17,6 +17,8 @@ const alterationsItems = [
   { id: 'hemming', label: 'Hemming & Shortening' },
   { id: 'taking-in-letting-out', label: 'Taking in / letting out' },
   { id: 'zipper-button-repair', label: 'Zipper & button repair' },
+  { id: 'patches', label: 'Patches' },
+  { id: 'seam-repairs', label: 'Seam repairs' },
   { id: 'suit-dress-resizing', label: 'Suit & dress resizing' },
   { id: 'custom-fitting', label: 'Custom fitting' },
 ]

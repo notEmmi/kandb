@@ -10,9 +10,7 @@ export default function Footer({ publicUrl }) {
     <footer className="footer">
       <div className="footer-main">
         <div className="footer-brand">
-          <img className="footer-logo" src={`${publicUrl}logo.svg`} alt="K & B logo" />
-          <p className="footer-tagline">Dry Cleaners &amp;<br />Alterations</p>
-        </div>
+          <img className="footer-logo" src={`${publicUrl}logo.svg`} alt="K & B logo" />        </div>
 
         <div className="footer-right">
           <div className="footer-socials">
