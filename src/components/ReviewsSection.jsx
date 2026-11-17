@@ -38,7 +38,7 @@ export default function ReviewsSection() {
         <h2>Trusted by our neighbors</h2>
         <div className="reviews-rating">
           <span className="reviews-stars">★★★★★</span>
-          <strong>4.5</strong>
+          <strong>4.6</strong>
           <span>· based on Google reviews ({new Date().getFullYear()})</span>
         </div>
         <a
