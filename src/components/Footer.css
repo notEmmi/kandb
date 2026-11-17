@@ -42,20 +42,11 @@
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
 }
 
 .footer-logo {
   display: block;
   width: 88px;
-}
-
-.footer-tagline {
-  font-size: var(--font-size-xs);
-  line-height: 1.35;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--dark-primary) 60%, transparent);
 }
 
 .footer-right {
