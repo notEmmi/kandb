@@ -1,6 +1,6 @@
 import './HeroSection.css'
 
-export default function HeroSection({arrowRightSVG, statusLabel, statusClass }) {
+export default function HeroSection({ publicUrl, arrowRightSVG, statusLabel, statusClass }) {
   return (
     <section
       className="hero"
@@ -40,6 +40,13 @@ export default function HeroSection({arrowRightSVG, statusLabel, statusClass }) 
           <span className="hero-status-divider" aria-hidden="true">|</span>
           <span>Holiday hours may vary</span>
         </div>
+      </div>
+      <div className="image-container">
+        <img
+          className="hero-image"
+          src={`${publicUrl}hero.jpg`}
+          alt="Freshly cleaned garments at K & B Dry Cleaners"
+        />
       </div>
     </section>
   )
