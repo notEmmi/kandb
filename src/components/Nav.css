@@ -8,7 +8,7 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--space-2) var(--space-6);
-  background-image: linear-gradient(to right, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.48) 46%, rgba(0,0,0,0.16) 100%), url('/hero.jpg');
+  background: var(--primary);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -64,8 +64,9 @@
   width: 44px;
   height: 44px;
   padding: 0;
-  border: 1px solid var(--background);
+  border: 1px solid var(--dark-primary);
   background: transparent;
+  color: var(--dark-primary);
   cursor: pointer;
 }
 
@@ -78,7 +79,7 @@
   width: 18px;
   height: 2px;
   margin: 0 auto;
-  background: var(--background);
+  background: currentColor;
   border-radius: 2px;
   transition: all 0.2s ease;
 }

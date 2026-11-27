@@ -64,8 +64,11 @@
   gap: var(--space-3);
 }
 
+/* Padding grows the tap area past the 24px minimum */
 .footer-socials a {
   display: flex;
+  padding: 6px;
+  margin: -6px;
   color: var(--dark-primary);
 }
 

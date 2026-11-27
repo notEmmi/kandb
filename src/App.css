@@ -159,6 +159,11 @@ a {
   transform: scale(1.02);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+  .btn:hover { transform: none; }
+}
+
 .btn-primary {
   background: var(--primary);
   color: var(--background);
@@ -253,7 +258,7 @@ section {
   position: relative;
   flex: 1 1 420px;
   max-width: 600px;
-  min-width: 280px;
+  min-width: min(280px, 100%);
 }
 
 

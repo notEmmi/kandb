@@ -1,9 +1,9 @@
 import "./Perks.css";
 
 const STEPS = [
-  { title: "Stop by the shop", text: "— 3451 Clinton St, West Seneca" },
-  { title: "Pick an amount", text: "at the counter" },
-  { title: "Give it", text: "— good on any of our services" },
+  { title: "Visit us in person.", text: "Gift cards are sold at our shop, 3451 Clinton St, West Seneca." },
+  { title: "Choose the amount.", text: "Tell us how much you'd like to put on the card and pay at the counter." },
+  { title: "Give it to someone.", text: "They can use it for dry cleaning, alterations, or pressing." },
 ];
 
 export default function Perks({ publicUrl }) {

@@ -106,7 +106,7 @@ a.contact-value:hover {
 }
 
 .contact-hours-row dd.is-closed {
-  color: color-mix(in srgb, var(--primary) 40%, var(--muted) 60%);
+  color: color-mix(in srgb, var(--primary) 50%, var(--muted) 50%);
 }
 
 .contact-hours-row.is-today {
@@ -119,7 +119,7 @@ a.contact-value:hover {
 
 .contact-today {
   padding: 2px 6px;
-  font-size: 9px;
+  font-size: var(--font-size-xs);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -166,7 +166,7 @@ a.contact-value:hover {
   font-size: 16px; /* 16px+ stops iPhones zooming in */
   color: var(--primary);
   background: color-mix(in srgb, var(--background) 96%, var(--muted) 4%);
-  border: 1px solid var(--muted);
+  border: 1px solid color-mix(in srgb, var(--primary) 40%, var(--muted) 60%); /* 3:1 so the field edge is visible */
   border-radius: 0;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
@@ -179,13 +179,14 @@ a.contact-value:hover {
 
 .contact-field input::placeholder,
 .contact-field textarea::placeholder {
-  color: color-mix(in srgb, var(--primary) 40%, var(--muted) 60%);
+  color: color-mix(in srgb, var(--primary) 50%, var(--muted) 50%);
 }
 
 .contact-field input:focus,
 .contact-field textarea:focus {
   outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent); /* thicker ring so focus is easy to see */
   background: var(--background);
 }
 

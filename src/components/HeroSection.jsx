@@ -1,19 +1,20 @@
 import './HeroSection.css'
 
-export default function HeroSection({arrowRightSVG, statusLabel, statusClass }) {
+export default function HeroSection({ publicUrl, arrowRightSVG, statusLabel, statusClass }) {
   return (
     <section
       className="hero"
       aria-labelledby="hero-title"
     >
       <div className="hero-content">
-        <div></div>
         <div className="hero-tags">
           <div className="tag">Dry Cleaning</div>
           <div className="dot" aria-hidden="true"></div>
           <div className="tag">Alterations</div>
           <div className="dot" aria-hidden="true"></div>
           <div className="tag">Pressing</div>
+          {/* <div className="dot" aria-hidden="true"></div>
+          <div className="tag">Embroidery</div> */}
         </div>
         <h1 id="hero-title">Meticulous care for<br />
           <span className="accent"><i>your finest garments</i></span>
@@ -40,6 +41,13 @@ export default function HeroSection({arrowRightSVG, statusLabel, statusClass }) 
           <span className="hero-status-divider" aria-hidden="true">|</span>
           <span>Holiday hours may vary</span>
         </div>
+      </div>
+      <div className="image-container">
+        <img
+          className="hero-image"
+          src={`${publicUrl}hero.jpg`}
+          alt="Freshly cleaned garments at K & B Dry Cleaners"
+        />
       </div>
     </section>
   )
