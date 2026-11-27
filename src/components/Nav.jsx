@@ -24,7 +24,7 @@ export default function Nav({publicUrl, phoneSVG}) {
           </a>
         </div>
 
-        <a href="tel:+17166683088" className="btn nav-call-btn-mobile">
+        <a href="tel:+17166683088" className="btn nav-call-btn-mobile" aria-label="Call (716) 668-3088">
           {phoneSVG}
         </a>
 

@@ -1,6 +1,5 @@
 .hero {
   position: relative;
-  justify-content: flex-start;
   min-height: min(760px,100vh);
   background-repeat: no-repeat;
   background-size: cover;
@@ -28,6 +27,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--space-2);
 }
@@ -41,7 +41,7 @@
   letter-spacing: 0.06em;
 }
 
-.tag .dot {
+.hero-tags .dot {
   width: 6px;
   height: 6px;
   background: var(--accent);
@@ -91,6 +91,7 @@
 
 .hero-status {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--space-2);
   margin-top: var(--space-6);

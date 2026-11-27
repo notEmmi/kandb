@@ -7,13 +7,14 @@ export default function HeroSection({ publicUrl, arrowRightSVG, statusLabel, sta
       aria-labelledby="hero-title"
     >
       <div className="hero-content">
-        <div></div>
         <div className="hero-tags">
           <div className="tag">Dry Cleaning</div>
           <div className="dot" aria-hidden="true"></div>
           <div className="tag">Alterations</div>
           <div className="dot" aria-hidden="true"></div>
           <div className="tag">Pressing</div>
+          {/* <div className="dot" aria-hidden="true"></div>
+          <div className="tag">Embroidery</div> */}
         </div>
         <h1 id="hero-title">Meticulous care for<br />
           <span className="accent"><i>your finest garments</i></span>

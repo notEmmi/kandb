@@ -21,104 +21,203 @@
 
 
 
-/* ----- Dry Cleaning flagship ----- */
+/* ----- Dry Cleaning: photo + everyday garments ----- */
 
-.drycleaning {
-  width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  min-height: var(--feature-min-height);
-}
-
-.drycleaning-media,
-.drycleaning .drycleaning-body {
-  background: color-mix(in srgb, var(--background) 95%, var(--accent) 5%);
-}
-
-.drycleaning-media {
+/* Mirrors the hero row (App.css .hero / .hero-content / .image-container):
+   same padding, gap, column sizes and square photo, so the two read as a pair */
+.dc {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  min-width: 0;
-  padding-block: var(--feature-pad);
-  overflow: hidden;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 5vw, 6rem);
+  width: 100%;
+  padding: var(--section-pad-y) var(--section-pad-x);
+  background: color-mix(in srgb, var(--background) 95%, var(--accent) 5%);
+  border-top: 1px solid color-mix(in srgb, var(--primary) 8%, var(--background));
 }
 
-/* Slides live in their own box so neighbours are clipped and the caption never overlaps them */
-.drycleaning-stage {
-  position: relative;
-  flex: 1;
-  min-height: clamp(320px, 36vw, 540px);
-  overflow: hidden;
-}
-
-.drycleaning-slide {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  height: 85%;
-  max-width: 70%;
+.dc-image {
+  display: block;
+  flex: 1 1 420px;
+  max-width: 600px;
+  min-width: min(280px, 100%);
   aspect-ratio: 1 / 1;
+  height: auto;
   object-fit: cover;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
 }
 
-.drycleaning-slide.is-active {
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-  border: 1px dashed color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
-}
-
-.drycleaning-body {
-  padding: var(--feature-pad);
+.dc-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 1 1 320px;
+  max-width: 600px;
   min-width: 0;
 }
 
-.drycleaning-name {
+.dc-title {
   margin: 0 0 var(--space-3);
-  font-family: var(--font-serif);
   font-size: clamp(26px, 2.8vw, 34px);
   font-weight: 500;
-  color: var(--primary);
 }
 
-.drycleaning-description {
-  margin-bottom: var(--space-6);
-  max-width: 520px;
+.dc-text {
+  max-width: 480px;
+  margin: 0 0 var(--space-6);
+  font-size: var(--font-size-md);
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
 }
 
-.garments {
+.dc-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 480px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dc-item {
+  padding: 7px 13px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  background: var(--background);
+  border: 1px solid color-mix(in srgb, var(--primary) 14%, var(--background));
+}
+
+.dc-item.is-more {
+  padding-inline: 4px;
+  background: none;
+  border: none;
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* ----- Specialties: two featured tiles + small grid ----- */
+
+.specialties {
+  width: 100%;
+  padding: var(--section-pad-y) var(--section-pad-x); /* same as About */
+  background: color-mix(in srgb, var(--background) 90%, var(--accent) 10%);
+  border-top: 1px solid color-mix(in srgb, var(--primary) 8%, var(--background));
+}
+
+.specialties-inner {
+  max-width: 1200px; /* same as .about-inner, so edges line up */
+  margin: 0 auto;
+}
+
+.specialties-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.specialties-title {
+  margin: 0;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 600;
+}
+
+.specialties-featured {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
-  gap: var(--space-3) var(--space-8);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
 }
 
-.garments-item, .alterations-item {
+.feature {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.feature-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.feature:hover .feature-img {
+  transform: scale(1.03);
+}
+
+.feature-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 60px 20px 18px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.78), transparent);
+}
+
+.feature-name {
+  margin: 0;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 500;
+  color: var(--dark-primary);
+}
+
+.feature-note {
+  margin: 3px 0 0;
+  font-size: var(--font-size-sm);
+  color: color-mix(in srgb, var(--dark-primary) 72%, transparent);
+}
+
+/* 6 -> 3 -> 2 per row, so the six tiles never leave a lopsided last row */
+.specialties-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px 12px;
+}
+
+@media (max-width: 1100px) {
+  .specialties-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .specialties-featured {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .specialties-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.tile-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.tile-name {
+  margin: 8px 0 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-img {
+    transition: none;
+  }
+}
+
+.alterations-item {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-family: inherit;
   font-size: var(--font-size-sm);
   line-height: 1.5;
   color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
-  font-weight: 400;
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  text-align: left;
   overflow-wrap: anywhere;
-  transition: color 0.2s ease;
-}
-
-.garments-item.is-active {
-  color: var(--primary);
-  font-weight: 700;
 }
 
 .bullet {
@@ -203,40 +302,6 @@
   color: color-mix(in srgb, var(--primary) 60%, var(--muted) 40%);
 }
 
-/* Stack image above text once two columns get too narrow */
-@media (max-width: 1024px) {
-  .drycleaning {
-    grid-template-columns: minmax(0, 1fr);
-    min-height: 0; /* stacked: let content set the height */
-  }
-
-  /* Stacked panels would otherwise double up their padding into one big gap */
-  .drycleaning-media {
-    padding-bottom: 0;
-  }
-
-  .drycleaning .drycleaning-body {
-    padding-top: var(--space-6);
-  }
-
-  .drycleaning-stage {
-    flex: none;
-    min-height: 0;
-    height: clamp(200px, 45vw, 320px);
-  }
-
-  /* The garment list already highlights the active item */
-  .drycleaning-overlay {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .drycleaning-slide {
-    max-width: 75%;
-  }
-}
-
 
 /* ----- Alterations ----- */
 .alterations {
@@ -289,10 +354,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
   gap: var(--space-3) var(--space-8);
-}
-
-.alterations-item {
-  cursor: default;
 }
 
 /* Stack photo above text on tablets and phones */

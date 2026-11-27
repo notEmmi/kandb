@@ -53,7 +53,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-align: center;
-  color: color-mix(in srgb, var(--primary) 40%, var(--muted) 60%);
+  color: color-mix(in srgb, var(--primary) 50%, var(--muted) 50%);
 }
 
 /* ----- Paper card ----- */
